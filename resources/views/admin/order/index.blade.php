@@ -26,10 +26,11 @@
                                 <tr>
                                     <th>Mã ĐH</th>
                                     <th style="text-align: center">Tên khách hàng</th>
-                                    <th style="text-align: center">Email</th>
                                     <th style="text-align: center">Tổng tiền</th>
                                     <th style="text-align: center">Mã giảm giá</th>
                                     <th style="text-align: center">Trạng thái</th>
+                                    <th style="text-align: center">Phương thức</th>
+                                    <th style="text-align: center">Thanh toán</th>
                                     <th style="text-align: center">Ngày tạo</th>
                                     <th style="text-align: center">Thao tác</th>
                                 </tr>
@@ -46,7 +47,6 @@
                                             echo "$u->name";
                                         ?>
                                     </td>
-                                    <td style="text-align: center">{{$item->email}}</td>
                                     <td style="text-align: center">{{number_format($item->total,0,',','.')}} đ</td>
                                     <td style="text-align: center">
                                         @if($item->coupon_id)
@@ -64,6 +64,20 @@
                                            Đã nhận hàng
                                         @elseif($item->status==3)
                                             Đã hủy đơn
+                                        @endif
+                                    </td>
+                                    <td style="text-align: center">
+                                        @if($item->payment_method=='cod')
+                                            Ship COD
+                                        @elseif($item->payment_method=='atm')
+                                            ATM
+                                        @endif
+                                    </td>
+                                    <td style="text-align: center">
+                                        @if($item->payment=='Chưa thanh toán')
+                                            Chưa thanh toán
+                                        @elseif($item->payment=='Đã thanh toán')
+                                            Đã thanh toán
                                         @endif
                                     </td>
                                     <td style="text-align: center">{{$item->created_at->format('d-m-Y')}}</td>

@@ -53,6 +53,15 @@
                                 </div>
                                 @endif
                             </div>
+                            <div class="form-group">
+                                    <label>Nổi bật </label>
+                                    <label class="radio-inline">
+                                        <input name="hot" value="1" checked="" type="radio"> Có
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input name="hot" value="0" type="radio"> Không
+                                    </label>
+                                </div>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </div>
                     </form>

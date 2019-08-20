@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Thông tin thanh toán')
 @section('content')
 <div class="breadcrumbs">
 	<div class="container">
@@ -26,7 +27,7 @@
 	<div class="container wrapper">
         <div class="row cart-body">
             <form class="form-horizontal" method="post" action="">
-            	<input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                 <!--REVIEW ORDER-->
                 <div class="panel panel-info">
@@ -37,7 +38,7 @@
                     	@foreach($content as $item)
                         <div class="form-group">
                             <div class="col-sm-3 col-xs-3">
-                                <img class="img-responsive" src="{{url('uploads')}}/{{$item->options->img}}" />
+                                <img class="img-responsive" src="{{url('/uploads')}}/{{$item->options->img}}" />
                             </div>
                             <div class="col-sm-6 col-xs-6">
                                 <div class="col-xs-12">{{$item->name}}</div>
@@ -75,6 +76,32 @@
                     </div>
                 </div>
                 <!--REVIEW ORDER END-->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        {{trans('message.methods')}} {{trans('message.payment')}}
+                    </div>
+                    <div class="panel-body" style="position: relative;">
+                        <div id="payment_method_list" class="" style="box-sizing: border-box;">
+                            <div class="radio-input radio" style="font-size: 14px;color: #000;line-height: 21px;">
+                                <label for="cod" style="padding-left: 80px;">
+                                    <input type="radio" name="payment_method" value="cod" id="cod" checked="checked" class="styled" data-refresh="6">
+                                    <span class="text"><span></span></span>
+                                    {{trans('message.payment on delivery')}}
+                                    <span class="price"></span>
+                                </label>
+                            </div>
+                            <div class="radio-input radio" style="font-size: 14px;color: #000;line-height: 21px;">
+                                <label for="cod" style="padding-left: 80px;">
+                                    <input type="radio" name="payment_method" value="atm" id="atm" class="styled" data-refresh="6">
+                                    <span class="text"><span></span></span>
+                                    {{trans('message.pay by ATM')}}
+                                    <span class="price"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
             	@if(Auth::check())
@@ -84,7 +111,7 @@
                         <div class="form-group">
                             <div class="col-md-12"><strong>{!! trans('message.name') !!}:</strong></div>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" disabled />
+                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -117,7 +144,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 @endif
             </div>

@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use DB,Auth,Cart,Hash;
 use App\Models\User;
 use App\Models\ProductProperties;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\Article;
 use App\Models\SaleProduct;
 use App\Models\Slide;
+use App\Models\Order;
 
 class FrontendController extends Controller
 {
@@ -17,6 +20,40 @@ class FrontendController extends Controller
         $slide = Slide::all();
 		return view('frontend.home',compact('product','slide'));
 	}
+
+    public function sanpham(Request $req){
+        $product = Product::select('id','name','image','slug','category_id','price','description','active');
+        if($req->price){
+            $price = $req->price;
+            switch ($price) {
+                case '1':
+                    $product->where('price','<',1000000);
+                    break;
+                case '2':
+                    $product->whereBetween('price',[1000000,2000000]);
+                    break;
+                case '3':
+                    $product->where('price','>',2000000);
+                    break;
+            }
+        }
+        if ($req->orderby) {
+            $orderby = $req->orderby;
+            switch ($orderby) {
+                case 'price':
+                    $product->orderBy('price','ASC');
+                    break;
+                case 'price-desc':
+                    $product->orderBy('price','DESC');
+                    break;
+            }
+        }
+        if ($req->k) {
+            $product = Product::where('name','like','%'.$req->k.'%');
+        }
+        $product = $product->paginate(9);
+        return view('frontend.product-all',compact('product'));
+    }
 
     public function loaisanpham(Request $req,$id){
     	$product_cate = DB::table('products')->select('id','name','image','slug','category_id','price','description','active');
@@ -113,6 +150,7 @@ class FrontendController extends Controller
     }
     public function home_logout(){
         Auth::logout();
+        session()->forget('coupon');
         Cart::destroy();
         return redirect()->route('frontend.get.home')->with(['level'=>'success','success'=>'Thoát tài khoản thành công']);
     }
@@ -131,8 +169,27 @@ class FrontendController extends Controller
         return view('frontend.contact-us');
     }
 
+    public function gioithieu(){
+        return view('frontend.about');
+    }
+
     public function changeLanguage($language){
         \Session::put('language', $language);
         return redirect()->back();
+    }
+
+    public function donhang(){
+        if(Auth::check()){
+            $user = Auth::user()->id;
+            $order = Order::where('user_id',$user)->select('id','created_at','total','payment','status','payment_method')->orderBy('id','DESC')->get();
+            return view('frontend.order',compact('order','user'));
+        }else{
+            return redirect()->route('home.login');
+        }
+    }
+
+    public function chitiet($id){
+        $order = Order::where('id',$id)->select('status')->get();
+        return view('frontend.order-detail',compact('order'));
     }
 }

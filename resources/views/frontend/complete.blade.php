@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Hoàn thành')
 @section('content')
 <div class="main-contact-area">
 	<div class="container wrapper">

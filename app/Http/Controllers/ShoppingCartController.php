@@ -13,6 +13,7 @@ use App\Models\ProductProperties;
 use App\Models\SaleProduct;
 use App\Models\Coupon;
 use Carbon\Carbon;
+use App\Notifications\checkoutNoti;
 
 class ShoppingCartController extends Controller
 {
@@ -44,29 +45,31 @@ class ShoppingCartController extends Controller
         ]);
     }
     public function luuthanhtoan(Request $req){
-        $this->validate($req,[
-            'address' => 'required'
-        ],[
-            'address.required' => 'Vui lòng nhập địa chỉ'
-        ]);
-        $totalMoney = str_replace('.', '', Cart::total());
-        $orderId = Order::insertGetId([
-            'email' => $req->email,
-            'user_id' => Auth::user()->id,
-            'total' => ((int)$totalMoney - $discount = session()->get('coupon')['discount']) ?? (int)$totalMoney,
-            'note' => $req->note,
-            'phone' => $req->phone,
-            'address' => $req->address,
-            'coupon_id' => $couponId = session()->get('coupon')['couponId'] ?? NULL,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]); 
-        
-        if ($orderId) {
-            $content = Cart::content();
-            foreach ($content as $item)
-            {
-                if($item->options->sale != null){
+        if($req->payment_method == 'cod'){
+            $this->validate($req,[
+                'address' => 'required'
+            ],[
+                'address.required' => 'Vui lòng nhập địa chỉ'
+            ]);
+            $totalMoney = str_replace('.', '', Cart::total());
+            $orderId = Order::insertGetId([
+                'email' => $req->email,
+                'user_id' => Auth::user()->id,
+                'total' => ((int)$totalMoney - $discount = session()->get('coupon')['discount']) ?? (int)$totalMoney,
+                'note' => $req->note,
+                'phone' => $req->phone,
+                'address' => $req->address,
+                'payment_method' => $req->payment_method,
+                'payment' => 'Chưa thanh toán',
+                'coupon_id' => $couponId = session()->get('coupon')['couponId'] ?? NULL,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]); 
+            
+            if ($orderId) {
+                $content = Cart::content();
+                foreach ($content as $item)
+                {
                     OrderDetail::insert([
                     'order_id' => $orderId,
                     'product_id' => $item->id,
@@ -77,32 +80,35 @@ class ShoppingCartController extends Controller
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                     ]);
-                }else{
-                    OrderDetail::insert([
-                    'order_id' => $orderId,
-                    'product_id' => $item->id,
-                    'qty' => $item->qty,
-                    'size_id' => $item->options->size,
-                    'price' => $item->options->price_old,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                    ]);
-                }
+                } 
             }
+            $email = $req->email;
+            $data['info'] = $req->all();
+            $data['total'] = Cart::total();
+            $data['cart'] = Cart::content();
+            Mail::send('frontend.email', $data, function($message) use ($email){
+                $message ->from('nghhai2712@gmail.com','Larovo');
+                $message ->to($email,$email);
+                $message ->cc('nghhai2712@gmail.com','Hoàng Hải');
+                $message ->subject('Xác nhận hóa đơn mua hàng');
+            });
+            // send notifications
+            $users = User::where('level', 1)->get();
+            
+            $when = Carbon::now()->addSeconds(10);
+
+            $order = Order::find($orderId);
+            
+            // send notification
+            \Notification::send($users, (new checkoutNoti($order))->delay($when));
+
+            Cart::destroy();
+            session()->forget('coupon');
+            return redirect()->route('complete');
+        }elseif($req->payment_method == 'atm'){
+            
+            return redirect()->route('vnpay');
         }
-        $email = $req->email;
-        $data['info'] = $req->all();
-        $data['total'] = Cart::total();
-        $data['cart'] = Cart::content();
-        Mail::send('frontend.email', $data, function($message) use ($email){
-            $message ->from('nghhai2712@gmail.com','Larovo');
-            $message ->to($email,$email);
-            $message ->cc('nghhai2712@gmail.com','Hoàng Hải');
-            $message ->subject('Xác nhận hóa đơn mua hàng');
-        });
-        Cart::destroy();
-        session()->forget('coupon');
-        return redirect()->route('complete');
     }
     public function complete(){
         return view('frontend.complete');
@@ -112,6 +118,7 @@ class ShoppingCartController extends Controller
         Cart::update($req->rowId,$req->qty);
     }
     public function xoagiohang(){
+        session()->forget('coupon');
         Cart::destroy();
         return redirect()->route('shoppingcart.get.giohang');
     }
@@ -127,15 +134,15 @@ class ShoppingCartController extends Controller
         }
         $size_id = $req->size;
         $product_buy = Product::find($productId);
-        $sale_product = SaleProduct::where('product_id',$product_buy->id)->select('start_date','end_date','sale')->first();
-
+        $sale_product = DB::table('sale_products')->where('product_id',$product_buy->id)->select('start_date','end_date','sale')->first();
         if(isset($product_buy))
         {
             $price = $product_buy->price;
-            if($sale_product['start_date'] < Carbon::now() && $sale_product['end_date'] >= Carbon::now()){
-                if($sale_product->sale)
-                {
-                    $price = $price * (100 - $sale_product['sale'])/100;
+            $sale = 0;
+            if(isset($sale_product)){
+                if($sale_product->sale && $sale_product->start_date <= Carbon::now() && $sale_product->end_date >= Carbon::now()){
+                    $sale = $sale_product->sale;
+                    $price = $price * (100 - $sale_product->sale)/100;
                 }
             }
         }
@@ -161,7 +168,7 @@ class ShoppingCartController extends Controller
         }
         else
         {
-            Cart::add(array('id'=>$productId,'name'=>$product_buy->name,'qty'=>$qty,'price'=>$price,'options'=>array('img'=>$product_buy->image,'sale'=>$sale_product['sale'],'price_old'=>$product_buy->price,'size'=>$size_id)));
+            Cart::add(array('id'=>$productId,'name'=>$product_buy->name,'qty'=>$qty,'price'=>$price,'options'=>array('img'=>$product_buy->image,'sale'=>$sale,'price_old'=>$product_buy->price,'size'=>$size_id)));
             $valid['success'] = true;
             $valid['messages'] = "Thêm vào giỏ hàng thành công";
             return json_encode(array(

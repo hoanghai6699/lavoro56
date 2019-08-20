@@ -51,9 +51,9 @@
 
                                     <td>
                                         @if($cate->active==1)
-                                            <a class="label label-primary" href="{{route('admin.get.action.category',$cate->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><i class="fa fa-check"></i></a>
+                                            <a href="{{route('admin.get.action.category',$cate->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-check.png')}}"></a>
                                         @else
-                                            <a class="label label-danger" href="{{route('admin.get.action.category',$cate->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><i class="fa fa-window-close"></i></a>
+                                            <a href="{{route('admin.get.action.category',$cate->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="{{url('/public/admin/img/publish-deny.png')}}"></a>
                                         @endif
                                     </td>
                                     <td class="center">

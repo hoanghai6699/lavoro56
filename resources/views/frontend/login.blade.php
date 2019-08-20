@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Đăng nhập')
 @section('content')
 <div class="breadcrumbs">
 	<div class="container">

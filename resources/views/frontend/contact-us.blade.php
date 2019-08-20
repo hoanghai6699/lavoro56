@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Liên hệ')
 @section('content')
 <div class="breadcrumbs">
 	<div class="container">
@@ -24,7 +25,7 @@
 						<div class="contact-us-area">
 							<div class="google-map-area">
 								<div id="contacts" class="map-area">
-									<div id="map" class="map" data-lat="43.6532" data-lng="-79.3832"></div>
+									<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.6971156731092!2d105.9307250142449!3d21.00477499397414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a8d22485051d%3A0x5cb2530a1a6b6c0!2zxJDhuqFpIEjhu41jIE7DtG5nIE5naGnhu4dw!5e0!3m2!1svi!2s!4v1565660590518!5m2!1svi!2s" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe></div>
 								</div>
 
 							</div>

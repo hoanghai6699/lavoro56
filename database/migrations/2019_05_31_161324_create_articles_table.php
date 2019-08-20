@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('description')->nullable();
             $table->longText('content')->nullable();
             $table->tinyInteger('active')->default(1);
-            $table->integer('view')->default(0);
+            $table->integer('hot')->default(0);
             $table->integer('user_id')->unsigned()->default(0);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

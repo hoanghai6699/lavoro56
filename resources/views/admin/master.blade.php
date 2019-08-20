@@ -59,6 +59,38 @@
                     </a>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
+                            <li class="dropdown notifications-menu">
+                                @if(Auth::user()->level == 1)
+                                    <?php $user = Auth::user();
+                                    ?>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning ">@if (count($user->unreadNotifications) > 0) {{ count($user->unreadNotifications) }}@else 0 @endif</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">Bạn có @if (count($user->unreadNotifications) > 0) {{ count($user->unreadNotifications) }}@else 0 @endif thông báo mới</li>
+                                    <li style="width: 294px;">
+                                        <ul class="menu">
+                                            @foreach($user->notifications as $key => $notification)
+                                            <?php $data_noti = $notification->data;
+                                                $data_order_Detail = $data_noti['orderDetail'];
+                                                $date = $data_noti['orderCreatedTime'];
+                                                $date = \Carbon\Carbon::parse($date['date']);
+                                                $after_format = $date->format('d-m-Y H:i:s');
+
+                                                $hightLigth = "color: #007f7f";
+                                                if($notification->read_at != null){
+                                                    $hightLigth = "color: #7f7f7f";
+                                                }
+                                            ?>
+                                            <li><a href="{{route('admin.get.view.order',$data_order_Detail['id'])}}" style="{{$hightLigth}}">Đơn đặt hàng mới nhất: {{$after_format}}</a></li>
+                                            <?php $notification->markAsRead(); ?>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                </ul>
+                                @endif
+                            </li>
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="hidden-xs">Xin chào {!! Auth::user()->name !!}</span>

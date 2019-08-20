@@ -17,7 +17,7 @@ class checkAdmin
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->level == 1) {
+            if (Auth::user()->level <> 0) {
                 return $next($request);
             } else
                 return redirect('/');

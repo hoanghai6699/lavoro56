@@ -103,6 +103,7 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('/register','FrontendController@register')->name('register');
 	Route::post('/register','FrontendController@post_register');
 	Route::get('/logout','FrontendController@home_logout')->name('home.logout');
+	Route::get('/san-pham','FrontendController@sanpham')->name('frontend.get.sanpham');
 	Route::get('/loai-san-pham/{id}/{tenloai}','FrontendController@loaisanpham')->name('frontend.get.loaisanpham');
 	Route::get('chi-tiet-san-pham/{id}/{tenloai}','FrontendController@chitietsanpham')->name('frontend.get.chitietsanpham');
 	Route::post('chi-tiet-san-pham/{id}/{tenloai}','FrontendController@postchitietsanpham');
@@ -117,11 +118,24 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::group(['prefix'=>'gio-hang','middleware'=>'checkLogin'],function(){
 		Route::get('thanh-toan','ShoppingCartController@thanhtoan')->name('shoppingcart.get.thanhtoan');
 		Route::post('thanh-toan','ShoppingCartController@luuthanhtoan');
-		
+		//vnpay
+		Route::group(['prefix'=>'thanh-toan'],function(){
+			Route::get('/vnpay','VnpayController@vnpay')->name('vnpay');
+			Route::post('/vnpay','VnpayController@create_vnpay')->name('create-vnpay');
+			Route::get('/vnpay-ipn','VnpayController@vnpay_ipn')->name('vnpay-ipn');
+			Route::get('/vnpay-return','VnpayController@vnpay_return')->name('vnpay-return');
+			});
 		});
 	Route::get('complete','ShoppingCartController@complete')->name('complete');
 
 	Route::get('/tin-tuc','FrontendController@tintuc')->name('tin-tuc');
 	Route::get('/tin-tuc/{id}/{slug}','FrontendController@chitiettintuc')->name('chi-tiet-tin-tuc');
 	Route::get('/lien-he','FrontendController@lienhe')->name('lien-he');
+	Route::get('/gioi-thieu','FrontendController@gioithieu')->name('gioi-thieu');
+	Route::group(['prefix'=>'don-hang'],function(){
+		Route::get('/','FrontendController@donhang')->name('don-hang');
+		Route::get('/chi-tiet/{id}','FrontendController@chitiet')->name('chi-tiet');
+	});
+	
+	
 });

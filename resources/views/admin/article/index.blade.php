@@ -39,9 +39,9 @@
                                     <td style="text-align: center;padding-top: 33px;">{{$articles->name}}</td>
                                     <td style="text-align: center;padding-top: 33px;">
                                         @if($articles->active==1)
-                                            <a class="label label-primary" href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><i class="fa fa-check"></i></a>
+                                            <a href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-check.png')}}"></a>
                                         @else
-                                            <a class="label label-danger" href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><i class="fa fa-window-close"></i></a>
+                                            <a href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-deny.png')}}"></a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;padding-top: 33px;">{{$articles->created_at}}</td>

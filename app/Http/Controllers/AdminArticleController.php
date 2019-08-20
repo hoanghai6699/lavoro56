@@ -38,6 +38,7 @@ class AdminArticleController extends Controller
     	$article->slug = str_slug($req->name);
     	$article->description = $req->description;
     	$article->content = $req->content;
+        $article->hot = $req->hot;
         $article->user_id = Auth::user()->id;
         $article->image = $file_name;
         $req->file('image')->move(base_path('uploads/article/'),$file_name);
@@ -54,6 +55,7 @@ class AdminArticleController extends Controller
     	$article->slug = str_slug($req->name);
     	$article->description = $req->description;
     	$article->content = $req->content;
+        $article->hot = $req->hot;
         $article->user_id = Auth::user()->id;
         $img_current = 'uploads/article/'.$req->img_current;
         if (!empty($req->image)) {

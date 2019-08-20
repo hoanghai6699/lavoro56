@@ -60,6 +60,11 @@
                                 <div class="form-group">
                                     <label>Mô tả</label>
                                     <textarea class="form-control" rows="3" name="description" placeholder="Mô tả"></textarea>
+                                    @if($errors->has('description'))
+                                    <div class="help-block">
+                                        {{$errors->first('description')}}
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>

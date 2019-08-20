@@ -25,7 +25,7 @@
                                     <th style="text-align: center;">Ảnh sản phẩm</th>
                                     <th>Tên sản phẩm</th>
                                     <th style="text-align: center;">Loại sản phẩm</th>
-                                    <th style="text-align: center;">Ngày tạo</th>
+                                    <th style="text-align: center;">Ngày nhập</th>
                                     
                                 </tr>
                             </thead>
@@ -39,8 +39,10 @@
                                     <td>{{$item->name}}
                                         <ul style="padding-left: 20px;">
                                             <li>Giá: {{ number_format($item->price,'0',',','.') }} (đ)</li>
-                                            <li>Số lượng đã bán: <?php $qty=DB::table('order_details')->where('product_id',$item->id)->sum('qty'); echo $qty; ?></li>
-
+                                            <li>Số lượng đã bán: <?php $qty=DB::table('order_details')->where('product_id',$item->id)->sum('qty'); echo $qty;?>
+                                            </li>
+                                            <li>Còn lại: <?php $qty=DB::table('product_properties')->where('product_id',$item->id)->sum('qty'); echo $qty;?>
+                                            </li>
                                         </ul>
                                     </td>
                                     <td style="text-align: center;padding-top: 43px;">

@@ -19,7 +19,6 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->tinyInteger('active')->default(1)->index();
             $table->integer('parent_id');
-            $table->integer('total_product')->default(0);
             $table->string('description')->nullable();
             $table->string('keyword')->nullable();
             $table->timestamps();

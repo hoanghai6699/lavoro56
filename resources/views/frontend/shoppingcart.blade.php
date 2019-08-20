@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Giỏ hàng')
 @section('content')
 <form action="" method="post">
 	{{csrf_field()}}
@@ -66,7 +67,7 @@
 							<tr>
 								<td>#{{$stt}}</td>
 								<td>
-									<img src="{{url('uploads')}}/{{$item->options->img}}" class="img-responsive" alt=""/>
+									<img src="{{url('/uploads')}}/{{$item->options->img}}" class="img-responsive" alt=""/>
 								</td>
 								<td>
 									<h6>

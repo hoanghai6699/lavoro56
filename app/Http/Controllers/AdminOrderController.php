@@ -18,8 +18,9 @@ class AdminOrderController extends Controller
     	return view('admin.order.index',compact('order'));
     }
     public function view($id){
-	 	$order_detail = OrderDetail::with('product')->where('order_id',$id)->get();
         $order = Order::find($id);
+	 	$order_detail = OrderDetail::with('product')->where('order_id',$order->id)->get();
+        
         return view('admin.order.order',compact('order','order_detail')); 
     }
     public function post_view($id,Request $req){
@@ -38,9 +39,12 @@ class AdminOrderController extends Controller
                 $product->save();
 
             }
-            $coupon = Coupon::where('id',$order->coupon_id)->select('qty')->first();
+            if($order->coupon_id){
+                $coupon = Coupon::where('id',$order->coupon_id)->select('qty')->first();
             $coupon_qty = $coupon->qty - 1;
             $coupon = Coupon::where('id',$order->coupon_id)->update(['qty'=>$coupon_qty]);
+            }
+            $order->payment = 'Đã thanh toán';
         }
 
         $order->save();

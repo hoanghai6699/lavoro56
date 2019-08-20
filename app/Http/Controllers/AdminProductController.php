@@ -25,14 +25,16 @@ class AdminProductController extends Controller
     		'name' => 'required|unique:products,name',
     		'category_id' => 'required',
     		'price' => 'required',
-    		'image' => 'required|mimes:jpg,png,jpeg,gif,bmp'
+    		'image' => 'required|mimes:jpg,png,jpeg,gif,bmp',
+            'description' => 'max:191'
     	],[
     		'name.required' => 'Tên sản phẩm không được để trống',
     		'name.unique' => 'Tên sản phẩm đã tồn tại',
     		'category_id.required' => 'Bạn phải chọn loại sản phẩm',
     		'price.required' => 'Bạn phải nhập giá sản phẩm',
     		'image.required' => 'Bạn phải nhập ảnh sản phẩm',
-    		'image.mimes' => 'Ảnh có một trong các định dạng jpg,png,jpeg,gif,bmp'
+    		'image.mimes' => 'Ảnh có một trong các định dạng jpg,png,jpeg,gif,bmp',
+            'description.max' => 'Mô tả quá dài'
     	]);
         $file_name = $req->file('image')->getClientOriginalName();
 
@@ -61,10 +63,6 @@ class AdminProductController extends Controller
                     $product_img->save();
             }
         }
-        //dd($product->category_id);
-        $cate = Category::where('id',$product->category_id)->select('total_product')->first();
-        $total_product = $cate->total_product + 1;
-        $cate = Category::where('id',$product->category_id)->update(['total_product'=>$total_product]);
     	return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Thêm mới sản phẩm thành công']);
     }
 
@@ -152,9 +150,6 @@ class AdminProductController extends Controller
         File::delete('uploads/'.$product->image);
         $product->delete($id);
 
-        $cate = Category::where('id',$product->category_id)->select('total_product')->first();
-        $total_product = $cate->total_product - 1;
-        $cate = Category::where('id',$product->category_id)->update(['total_product'=>$total_product]);
         return redirect()->back()->with(['level'=>'success','success'=>'Xóa sản phẩm thành công']);
     }
 

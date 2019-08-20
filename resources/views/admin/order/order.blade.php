@@ -106,6 +106,7 @@
                             <tbody>
                                 <?php $stt=0 ?>
                                 @foreach($order_detail as $item)
+                                <?php $t = DB::table('orders')->where('id',$item->order_id)->select('total','coupon_id')->first();?>
                                 <?php $stt++ ?>
                                 <tr>
                                     <td>#{{$stt}}</td>
@@ -129,7 +130,10 @@
                                     </td>
                                     <td><div>{{number_format($item->price,0,',','.')}} đ</div></td>
                                     <td><div>{{$item->qty}}</div></td>
-                                    <td><div class="cart-subtotal">{{number_format($item->price*((100 - $item->price_sale)/100)*$item->qty,0,',','.')}} đ</div></td>
+                                    <td><div class="cart-subtotal">
+                                        {{number_format($t->total,0,',','.')}} đ
+                                        </div>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

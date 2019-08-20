@@ -12,8 +12,7 @@ class Order extends Model
     public function custommer(){
     	return $this->belongsTo('\App\Models\User');
     }
-    public function coupon()
-    {
+    public function coupon(){
     	return $this->belongsTo('App\Models\Coupon','coupon_id','id');
     }
 }

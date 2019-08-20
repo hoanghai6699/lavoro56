@@ -51,16 +51,16 @@
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">
                                         @if($prod->active==1)
-                                            <a class="label label-primary" href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><i class="fa fa-check"></i></a>
+                                            <a href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-check.png')}}"></a>
                                         @else
-                                            <a class="label label-danger" href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><i class="fa fa-window-close"></i></a>
+                                            <a href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="{{url('/public/admin/img/publish-deny.png')}}"></a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">
                                         @if($prod->hot==1)
-                                            <a class="label label-success" href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Nổi bật"><i class="fa fa-star"></i></a>
+                                            <a href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Nổi bật"><i class="fa fa-star"></i></a>
                                         @else
-                                            <a class="label label-default" href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Không"><i class="fa fa-star-o"></i></a>
+                                            <a href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Không"><i class="fa fa-star-o"></i></a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">{{$prod->created_at}}</td>

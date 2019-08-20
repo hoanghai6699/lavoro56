@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Chi tiết sản phẩm')
 @section('content')
 <style>
 	.product-tab-content img,em {
@@ -40,15 +41,15 @@
 				<div class="zoomWrapper">
 					<div id="img-1" class="zoomWrapper single-zoom">
 						<a>
-							<img id="zoom1" src="{{url('uploads')}}/{{$product->image}}" data-zoom-image="{{url('uploads')}}/{{$product->image}}" alt="big-1">
+							<img id="zoom1" src="{{url('/uploads')}}/{{$product->image}}" data-zoom-image="{{url('/uploads')}}/{{$product->image}}" alt="big-1">
 						</a>
 					</div>
 					<div class="single-zoom-thumb">
 						<ul class="bxslider" id="gallery_01">
-							<img src="{{url('uploads')}}/{{$product->image}}">
+							<img src="{{url('/uploads')}}/{{$product->image}}">
 							@foreach($image as $images)
 							<li class="">
-								<a class="elevatezoom-gallery" href="#" data-image="{{url('uploads/detail/')}}/{{$images->images}}" data-zoom-image="{{url('uploads/detail/')}}/{{$images->images}}"><img src="{{url('uploads/detail/')}}/{{$images->images}}" alt="zo-th-2"></a>
+								<a class="elevatezoom-gallery" href="#" data-image="{{url('/uploads/detail/')}}/{{$images->images}}" data-zoom-image="{{url('/uploads/detail/')}}/{{$images->images}}"><img src="{{url('/uploads/detail/')}}/{{$images->images}}" alt="zo-th-2"></a>
 							</li>
 							@endforeach
 						</ul>
@@ -75,6 +76,12 @@
 
 
 							</div>
+								<?php $s = DB::table('sale_products')->where('product_id',$product->id)->get();?>
+			                    @foreach($s as $ss)
+			                    <?php $p = DB::table('products')->where('id',$ss->product_id)->first(); ?>
+			                    <p>KM: {{$ss->sale}} (%)</p>
+	                            <p>từ "{{$ss->start_date}}" đến "{{$ss->end_date}}"</p>
+			                    @endforeach
 							<div class="product-desc">
 								<p>{{$product->description}}</p>
 							</div>
@@ -107,14 +114,14 @@
 									<div class="add-to-cart">
 										<button id="add-to-cart" class="btn">{!! trans('message.add to cart') !!}</button>
 									</div>
-									<div class="add-to-links">
+									<!-- <div class="add-to-links">
 										<div class="add-to-wishlist">
 											<a href="#" data-toggle="tooltip" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
 										</div>
 										<div class="compare-button">
 											<a href="#" data-toggle="tooltip" title="" data-original-title="Compare"><i class="fa fa-refresh"></i></a>
 										</div>									
-									</div>
+									</div> -->
 								</div>
 								<p>{!! trans('message.remain') !!} <span id='amount'></span> {!! trans('message.product') !!}</p>
 							</div>
@@ -170,24 +177,12 @@
 							<div class="single-product first-sale">
 								<div class="product-img">
 									<a href="{{route('frontend.get.chitietsanpham',[$prod_new->id,$prod_new->slug])}}">
-										<img class="primary-image" src="{{url('uploads')}}/{{$prod_new->image}}" alt="" />
-										<img class="secondary-image" src="{{url('uploads')}}/{{$prod_new->image}}" alt="" />
+										<img class="primary-image" src="{{url('/uploads')}}/{{$prod_new->image}}" alt="" />
+										<img class="secondary-image" src="{{url('/uploads')}}/{{$prod_new->image}}" alt="" />
 									</a>
 									<div class="action-zoom">
 										<div class="add-to-cart">
 											<a href="{{route('frontend.get.chitietsanpham',[$prod_new->id,$prod_new->slug])}}" title="Quick View"><i class="fa fa-search-plus"></i></a>
-										</div>
-									</div>
-									<div class="actions">
-										<div class="action-buttons">
-											<div class="add-to-links">
-												<div class="add-to-wishlist">
-													<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-												</div>								
-											</div>
-											<div class="quickviewbtn">
-												<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-											</div>
 										</div>
 									</div>
 									<div class="price-box">
@@ -253,10 +248,9 @@
 					$('#amount').html(size_qty);
 					$('#amount').attr('data-quantity',size_qty);
 				}
-			});
+			})
 		}
-	});
-    
+	})
 </script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0"></script>

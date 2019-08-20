@@ -1,4 +1,5 @@
 @extends('frontend.master')
+@section('title','Loại sản phẩm')
 @section('content')
 <div class="category-banner">
 	<div class="cat-heading"></div>
@@ -32,7 +33,7 @@
 				<div class="topbar-left">
 					<aside class="widge-topbar">
 						<div class="bar-title">
-							<div class="bar-ping"><img src="{{url('/')}}/public/frontend/img/bar-ping.png" alt=""></div>
+							<div class="bar-ping"><img src="{{url('/public')}}/frontend/img/bar-ping.png" alt=""></div>
 							<h2>Shop by</h2>
 						</div>
 					</aside>
@@ -61,34 +62,15 @@
 
 					<aside class="sidebar-content">
 						<div class="sidebar-title">
-							<h6>Properties</h6>
+							<h6>{{trans('message.category')}}</h6>
 						</div>
 						<ul>
-							<li><a href="#">Colorful Dress</a><span> (1)</span></li>
-							<li><a href="#">Maxi Dress</a><span> (2)</span></li>
-							<li><a href="#">Midi Dress</a><span> (2)</span></li>
-							<li><a href="#">Short Dress</a><span> (2)</span></li>
-							<li><a href="#">Short Sleeve</a><span> (2)</span></li>
+							<?php $cat = DB::table('categories')->where('parent_id','<>','0')->get(); ?>
+							@foreach($cat as $cate)
+							<li><a href="#">{{$cate->name}}</a><span> ({{$product = DB::table('products')->count()}})</span></li>
+							@endforeach
 						</ul>
-					</aside>		
-					{{-- <aside class="widge-topbar">
-						<div class="bar-title">
-							<div class="bar-ping"><img src="{{url('/')}}/public/frontend/img/bar-ping.png" alt=""></div>
-							<h2>Tags</h2>
-						</div>
-						<div class="exp-tags">
-							<div class="tags">
-								<a href="#">camera</a>
-								<a href="#">mobile</a>
-								<a href="#">electronic</a>
-								<a href="#">destop</a>
-								<a href="#">tablet</a>
-								<a href="#">accessories</a>
-								<a href="#">camcorder</a>
-								<a href="#">laptop</a>
-							</div>
-						</div>
-					</aside> --}}
+					</aside>
 				</div>
 			</div>
 			<!-- left sidebar end -->
@@ -123,24 +105,12 @@
 											
 											<div class="product-img">
 												<a href="{{route('frontend.get.chitietsanpham',[$item_product_cate->id,$item_product_cate->slug])}}">
-													<img class="primary-image" src="{{url('uploads')}}/{{$item_product_cate->image}}" alt="" />
-													<img class="secondary-image" src="{{url('uploads')}}/{{$item_product_cate->image}}" alt="" />
+													<img class="primary-image" src="{{url('/uploads')}}/{{$item_product_cate->image}}" alt="" />
+													<img class="secondary-image" src="{{url('/uploads')}}/{{$item_product_cate->image}}" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
 														<a href="{{route('frontend.get.chitietsanpham',[$item_product_cate->id,$item_product_cate->slug])}}" title="{!! trans('message.detail') !!}"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
 													</div>
 												</div>
 												<div class="price-box">
