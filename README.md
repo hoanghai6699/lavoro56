@@ -4,5 +4,5 @@
 
 "# chạy lệnh composer install"
 
-"# vào "vendor/gloudemans/shoppingcart/config/cart.php". Sửa 'tax' => 0, 'thousand_seperator' => '' "
+"# vào "vendor/gloudemans/shoppingcart/config/cart.php". Sửa 'tax' => 0, 'decimals' => '0','thousand_seperator' => '' "
 
