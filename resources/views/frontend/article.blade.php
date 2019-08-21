@@ -21,7 +21,7 @@
 <div class="main-contact-area">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3" style="position: sticky;top: 0px;">
+			<div class="col-sm-3" style="position: sticky;top: 90px;">
 				<div class="new-sidebar">
 			        <h3 class="title-sidebar">
 			            {{trans('message.news')}} {{trans('message.featured')}}

@@ -1,5 +1,5 @@
 @extends('frontend.master')
-@section('title','Home')
+@section('title','Trang chủ')
 @section('content')
 <div class="slider-area an-1 hm-1">
     <div class="bend niceties preview-2">

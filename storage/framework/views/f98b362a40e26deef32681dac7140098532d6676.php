@@ -20,7 +20,7 @@
 <div class="main-contact-area">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3" style="position: sticky;top: 0px;">
+			<div class="col-sm-3" style="position: sticky;top: 90px;">
 				<div class="new-sidebar">
 			        <h3 class="title-sidebar">
 			            <?php echo e(trans('message.news')); ?> <?php echo e(trans('message.featured')); ?>
