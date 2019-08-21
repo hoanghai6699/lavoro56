@@ -131,7 +131,10 @@
                                     <td><div>{{number_format($item->price,0,',','.')}} đ</div></td>
                                     <td><div>{{$item->qty}}</div></td>
                                     <td><div class="cart-subtotal">
-                                        {{number_format($t->total,0,',','.')}} đ
+                                    @if(isset($item->price_sale))
+                                        {{number_format(($item->price*(100-$item->price_sale)/100)*$item->qty,0,',','.')}} đ
+                                    @endif
+                                        
                                         </div>
                                     </td>
                                 </tr>

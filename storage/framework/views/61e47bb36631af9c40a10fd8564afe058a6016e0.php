@@ -131,7 +131,10 @@
                                     <td><div><?php echo e(number_format($item->price,0,',','.')); ?> đ</div></td>
                                     <td><div><?php echo e($item->qty); ?></div></td>
                                     <td><div class="cart-subtotal">
-                                        <?php echo e(number_format($t->total,0,',','.')); ?> đ
+                                    <?php if(isset($item->price_sale)): ?>
+                                        <?php echo e(number_format(($item->price*(100-$item->price_sale)/100)*$item->qty,0,',','.')); ?> đ
+                                    <?php endif; ?>
+                                        
                                         </div>
                                     </td>
                                 </tr>

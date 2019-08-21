@@ -73,7 +73,7 @@
 					@endforeach
 					<tr>
 						<td colspan="3">Tổng tiền:</td>
-						<td class="total-price">{{$total}}VNĐ</td>
+						<td class="total-price">{{number_format($item->total,0,',','.')}}VNĐ</td>
 					</tr>
 				</table>
 			</div>
