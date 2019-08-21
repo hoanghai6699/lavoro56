@@ -131,6 +131,7 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('/tin-tuc','FrontendController@tintuc')->name('tin-tuc');
 	Route::get('/tin-tuc/{id}/{slug}','FrontendController@chitiettintuc')->name('chi-tiet-tin-tuc');
 	Route::get('/lien-he','FrontendController@lienhe')->name('lien-he');
+	Route::post('/lien-he','FrontendController@post_lienhe');
 	Route::get('/gioi-thieu','FrontendController@gioithieu')->name('gioi-thieu');
 	Route::group(['prefix'=>'don-hang'],function(){
 		Route::get('/','FrontendController@donhang')->name('don-hang');

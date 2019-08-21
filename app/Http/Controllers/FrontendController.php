@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB,Auth,Cart,Hash;
+use DB,Auth,Cart,Hash,Mail;
 use App\Models\User;
 use App\Models\ProductProperties;
 use App\Models\Product;
@@ -167,6 +167,31 @@ class FrontendController extends Controller
 
     public function lienhe(){
         return view('frontend.contact-us');
+    }
+
+    public function post_lienhe(Request $req){
+        $this->validate($req,[
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'content' => 'required'
+        ],[
+            'name.required' => 'Họ tên không được để trống',
+            'email.required' => 'Email không được để trống',
+            'email.email' => 'Email không đúng định dạng (demo@gmail.com)',
+            'phone.required' => 'Số điện thoại không được để trống',
+            'address.required' => 'Địa chỉ không được để trống',
+            'content.required' => 'Nội dung không được để trống'
+        ]);
+        $email = $req->email;
+        $data['info'] = $req->all();
+        Mail::send('frontend.email-contact', $data, function($message) use ($email){
+            $message ->from($email,$email);
+            $message ->to('nghhai2712@gmail.com');
+            $message ->subject('Thông tin liên hệ');
+        });
+        return redirect()->route('frontend.get.home');
     }
 
     public function gioithieu(){
