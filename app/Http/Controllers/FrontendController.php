@@ -12,6 +12,7 @@ use App\Models\Article;
 use App\Models\SaleProduct;
 use App\Models\Slide;
 use App\Models\Order;
+use App\Models\Size;
 
 class FrontendController extends Controller
 {
@@ -22,7 +23,9 @@ class FrontendController extends Controller
 	}
 
     public function sanpham(Request $req){
+        
         $product = Product::select('id','name','image','slug','category_id','price','description','active');
+
         if($req->price){
             $price = $req->price;
             switch ($price) {
@@ -51,6 +54,46 @@ class FrontendController extends Controller
         if ($req->k) {
             $product = Product::where('name','like','%'.$req->k.'%');
         }
+
+        if ($req->size) {
+            $size = $req->size;
+            /*$product = DB::table('product_properties')->join('products','product_properties.product_id','=','products.id')->join('sizes','product_properties.size_id','=','sizes.id')->where('qty','>',0)->get();
+            dd($product);*/
+            
+                switch ($size) {
+                    case '35':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',1)->where('qty','>',0);
+                        break;
+                    case '36':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',2)->where('qty','>',0);
+                        break;
+                    case '37':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',3)->where('qty','>',0);
+                        break;
+                    case '38':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',4)->where('qty','>',0);
+                        break;
+                    case '39':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',5)->where('qty','>',0);
+                        break;
+                    case '40':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',6)->where('qty','>',0);
+                        break;
+                    case '41':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',7)->where('qty','>',0);
+                        break;
+                    case '42':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',8)->where('qty','>',0);
+                        break;
+                    case '43':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',9)->where('qty','>',0);
+                        break;
+                    case '44':
+                        $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->where('size_id',10)->where('qty','>',0);
+                        break;
+                }
+        }
+
         $product = $product->paginate(9);
         return view('frontend.product-all',compact('product'));
     }

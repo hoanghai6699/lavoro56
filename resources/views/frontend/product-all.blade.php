@@ -38,6 +38,26 @@
 						</div>
 					</aside>
 					<aside class="sidebar-content">
+						<form id="size" method="get">
+							<div class="sidebar-title">
+								<h6>Size</h6>
+							</div>
+							<select name="size" class="size" style="width: 150px;">
+								<option {{Request::get('size') == "default_size" || !Request::get('size') ? "selected='selected'" : ""}} value="default_size">{!! trans('message.default') !!}</option>
+								<option {{Request::get('size') == "35" ? "selected='selected'" : ""}} value="35">35 EUR</option>
+								<option {{Request::get('size') == "36" ? "selected='selected'" : ""}} value="36">36 EUR</option>
+								<option {{Request::get('size') == "37" ? "selected='selected'" : ""}} value="37">37 EUR</option>
+								<option {{Request::get('size') == "38" ? "selected='selected'" : ""}} value="38">38 EUR</option>
+								<option {{Request::get('size') == "39" ? "selected='selected'" : ""}} value="39">39 EUR</option>
+								<option {{Request::get('size') == "40" ? "selected='selected'" : ""}} value="40">40 EUR</option>
+								<option {{Request::get('size') == "41" ? "selected='selected'" : ""}} value="41">41 EUR</option>
+								<option {{Request::get('size') == "42" ? "selected='selected'" : ""}} value="42">42 EUR</option>
+								<option {{Request::get('size') == "43" ? "selected='selected'" : ""}} value="43">43 EUR</option>
+								<option {{Request::get('size') == "44" ? "selected='selected'" : ""}} value="44">44 EUR</option>
+							</select>
+						</form>
+					</aside>
+					<aside class="sidebar-content">
 						<div class="sidebar-title">
 							<h6>{!! trans('message.price range') !!}</h6>
 						</div>
@@ -157,6 +177,11 @@
     $(function(){
         $('.orderby').change(function(){
             $("#form_order").submit();
+        });
+    });
+    $(function(){
+        $('.size').change(function(){
+            $("#size").submit();
         });
     });
 </script>
