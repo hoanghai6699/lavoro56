@@ -5,7 +5,7 @@
         <h1>Thêm khuyến mãi</h1>
         <ol class="breadcrumb">
             <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
-            <li><a href="{{route('admin.get.list.product')}}">Danh sách khuyến mãi</a></li>
+            <li><a href="{{route('admin.get.list.sale')}}">Danh sách khuyến mãi</a></li>
             <li class="active">Thêm khuyến mãi</li>
         </ol>
         @if(Session::has('success'))
