@@ -124,8 +124,8 @@ Route::group(['middleware' => 'locale'], function() {
 			Route::post('/vnpay','VnpayController@create_vnpay')->name('create-vnpay');
 			Route::get('/vnpay-ipn','VnpayController@vnpay_ipn')->name('vnpay-ipn');
 			Route::get('/vnpay-return','VnpayController@vnpay_return')->name('vnpay-return');
-			});
 		});
+	});
 	Route::get('complete','ShoppingCartController@complete')->name('complete');
 
 	Route::get('/tin-tuc','FrontendController@tintuc')->name('tin-tuc');
@@ -139,4 +139,8 @@ Route::group(['middleware' => 'locale'], function() {
 	});
 	
 	
+});
+Route::get("test/{size}", function ($size){
+	$test = \DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->join('sizes','product_properties.size_id','=','sizes.id')->where('sizes.name',$size)->where('qty','>',0)->get();
+	dd($test);
 });
