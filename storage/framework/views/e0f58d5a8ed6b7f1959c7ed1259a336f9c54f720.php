@@ -262,7 +262,7 @@
                         <div class="col-md-2 col-sm-4">
                             <div class="single-snap-footer">
                                 <div class="snap-footer-title">
-                                    <h4><?php echo e(trans('message.product')); ?></h4>
+                                    <h4><?php echo e(trans('message.category')); ?></h4>
                                 </div>
                                 <div class="cakewalk-footer-content">
                                     <ul>
