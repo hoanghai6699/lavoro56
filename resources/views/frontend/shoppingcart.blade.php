@@ -75,7 +75,7 @@
 										<ul style="padding-left: 20px;">
                                             <li>Size: 
                                             	<?php $p = DB::table('sizes')->where('id',$item->options->size)->first();
-                                                        echo "$p->name";
+                                                        echo "$p->size";
                                                     ?>
                                             </li>
                                         </ul>

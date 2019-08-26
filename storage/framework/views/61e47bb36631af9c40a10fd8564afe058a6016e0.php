@@ -122,7 +122,7 @@
                                                 <?php endif; ?>
                                                 <li>Size: 
                                                     <?php $p = DB::table('sizes')->where('id',$item->size_id)->first();
-                                                        echo "$p->name";
+                                                        echo "$p->size";
                                                     ?>   
                                                 </li>
                                             </ul>

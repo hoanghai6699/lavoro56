@@ -137,10 +137,4 @@ Route::group(['middleware' => 'locale'], function() {
 		Route::get('/','FrontendController@donhang')->name('don-hang');
 		Route::get('/chi-tiet/{id}','FrontendController@chitiet')->name('chi-tiet');
 	});
-	
-	
-});
-Route::get("test/{size}", function ($size){
-	$test = \DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->join('sizes','product_properties.size_id','=','sizes.id')->where('sizes.name',$size)->where('qty','>',0)->get();
-	dd($test);
 });

@@ -107,8 +107,7 @@ class VnpayController extends Controller
             "vnp_OrderInfo" => $req->note,
             "vnp_OrderType" => $vnp_OrderType,
             "vnp_ReturnUrl" => $vnp_Returnurl,
-            "vnp_TxnRef" => $orderId,
-            "vnp_Email" => $req->email,
+            "vnp_TxnRef" => $orderId
         );
 
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
@@ -242,13 +241,12 @@ class VnpayController extends Controller
                 'updated_at' => $req->vnp_PayDate
                 ]);
             $order = Order::find($orderId);
-            $user = User::find($order->user_id);
             if ($order) {
                 $order->status = 0;
                 $order->payment = 'Đã thanh toán';
                 $order->save();
                 $email = $order->email;
-                $data['info'] = $user;
+                $data['info'] = $order;
                 $data['total'] = Cart::total();
                 $data['cart'] = Cart::content();
                 Mail::send('frontend.email', $data, function($message) use ($email){

@@ -113,7 +113,6 @@ class AdminProductController extends Controller
     public function option($id){
         $product = Product::find($id);
         $size = Size::all();
-        //$properties = ProductProperties::where('product_id',$product->id)->get()->toArray();
 
         return view('admin.product.option',compact('product','size'));
     }

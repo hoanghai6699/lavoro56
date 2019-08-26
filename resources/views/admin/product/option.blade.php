@@ -37,7 +37,7 @@
                                     <label>Size</label>
                                     <select class="form-control" name="size">
                                         @foreach($size as $item)
-                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        <option value="{{$item->id}}">{{$item->size}}</option>
                                         @endforeach
                                     </select>
                                     <!-- <input type="text" class="form-control" name="size" placeholder="Size"> -->
@@ -67,7 +67,7 @@
                                     <tr>
                                         <td>
                                             <?php $p = DB::table('sizes')->where('id',$item_1->size_id)->first();
-                                                    echo "$p->name"; 
+                                                    echo "$p->size"; 
                                                 ?>
                                         </td>
                                         <td>

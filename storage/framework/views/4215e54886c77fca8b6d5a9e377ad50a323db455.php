@@ -95,7 +95,7 @@
 											<?php if($sizes->qty > 0): ?>
 											<option value="<?php echo e($sizes['size_id']); ?>" data-quantity="<?php echo e($sizes->qty); ?>">
 												<?php $s = DB::table('sizes')->where('id',$sizes["size_id"])->first();
-												echo "$s->name";
+												echo "$s->size";
 												 ?> EUR
 											</option>
 											<?php endif; ?>

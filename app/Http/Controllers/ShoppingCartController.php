@@ -134,7 +134,7 @@ class ShoppingCartController extends Controller
         }
         $size_id = $req->size;
         $product_buy = Product::find($productId);
-        $sale_product = DB::table('sale_products')->where('product_id',$product_buy->id)->select('start_date','end_date','sale')->first();
+        $sale_product = DB::table('sale_products')->select('start_date','end_date','sale')->where('product_id',$product_buy->id)->first();
         if(isset($product_buy))
         {
             $price = $product_buy->price;

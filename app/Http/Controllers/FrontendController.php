@@ -26,6 +26,7 @@ class FrontendController extends Controller
     public function sanpham(Request $req){
 
         $product = Product::select('id','name','image','slug','category_id','price','description','active');
+        //$sizes = Size::all();
         if($req->price){
             $price = $req->price;
             switch ($price) {
@@ -57,11 +58,12 @@ class FrontendController extends Controller
 
         if ($req->size) {
             $size = $req->size;
-            $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->join('sizes','product_properties.size_id','=','sizes.id')->where('sizes.name',$size)->where('qty','>',0);
+            $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->join('sizes','product_properties.size_id','=','sizes.id')->where('sizes.size',$size)->where('qty','>',0);
         }
         $product = $product->paginate(9);
         return view('frontend.product-all',[
-            'product' => $product->appends(Input::except('page'))
+            'product' => $product->appends(Input::except('page')),
+            
         ]);
     }
 

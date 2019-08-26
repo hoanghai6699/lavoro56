@@ -45,7 +45,7 @@
                                     <small>Size : 
                                         <span>
                                             <?php $p = DB::table('sizes')->where('id',$item->options->size)->first();
-                                                echo "$p->name";
+                                                echo "$p->size";
                                             ?>   
                                         </span>
                                     </small>
