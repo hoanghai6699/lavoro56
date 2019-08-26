@@ -73,11 +73,9 @@
 							<h6><?php echo trans('message.price range'); ?></h6>
 						</div>
 						<ul>
-							
 							<li><a href="<?php echo request()->fullUrlWithQuery(['price' => '1']); ?>"><?php echo trans('message.low'); ?> < 1.000.000 (đ)</a></li>
 							<li><a href="<?php echo request()->fullUrlWithQuery(['price' => '2']); ?>">1.000.000 - 2.000.000 (đ)</li>
 							<li><a href="<?php echo request()->fullUrlWithQuery(['price' => '3']); ?>"><?php echo trans('message.high'); ?> > 2.000.000 (đ)</li>
-							
 						</ul>
 					</aside>
 
