@@ -103,7 +103,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
             	<?php if(Auth::check()): ?>

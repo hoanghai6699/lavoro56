@@ -5,7 +5,7 @@
         <div id="ensign-nivoslider" class="slides">
             <?php $__currentLoopData = $slide; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($item->status==1 && $item->type==0): ?>
-            <img src="<?php echo e(url('/public/frontend/img/')); ?>/<?php echo e($item->image); ?>" alt="" title="#slider-direction-1"  />
+            <img src="<?php echo e(url('/public/frontend/img/')); ?>/<?php echo e($item->image); ?>" alt="" title="#slider-direction-1"/>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
