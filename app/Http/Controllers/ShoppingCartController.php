@@ -189,12 +189,12 @@ class ShoppingCartController extends Controller
             'discount' => $coupon->discount(Cart::total()),
         ]);
 
-        return redirect()->back()->with(['level'=>'success','success'=>'Nhập mã giảm giá thành công']);
+        return redirect()->back()->with(['level'=>'success','success'=>'Mã giảm giá hợp lệ']);
     }
 
     public function destroy(){
         session()->forget('coupon');
 
-        return redirect()->back()->with(['level'=>'success','success'=>'Hủy mã giảm giá thành công']);
+        return redirect()->back()->with(['level'=>'warning','success'=>'Bạn đã hủy mã giảm giá']);
     }
 }
