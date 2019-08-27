@@ -42,7 +42,7 @@
 								<h6>Size</h6>
 							</div>
 							<select name="size" class="size" style="width: 150px;">
-								<option <?php echo e(Request::get('size') == "default_size" || !Request::get('size') ? "selected='selected'" : ""); ?> value="default_size"><?php echo trans('message.default'); ?></option>
+								<option <?php echo e(Request::get('size') == "" || !Request::get('size') ? "selected='selected'" : ""); ?> value=""><?php echo trans('message.default'); ?></option>
 								<option <?php echo e(Request::get('size') == "35" ? "selected='selected'" : ""); ?> value="35">35 EUR</option>
 								<option <?php echo e(Request::get('size') == "36" ? "selected='selected'" : ""); ?> value="36">36 EUR</option>
 								<option <?php echo e(Request::get('size') == "37" ? "selected='selected'" : ""); ?> value="37">37 EUR</option>
