@@ -216,10 +216,12 @@
                                                 <li><a href="{{route('admin')}}">{!! trans('message.manage') !!}</a></li>
                                                 <li><a href="{{route('shoppingcart.get.giohang')}}">{!! trans('message.cart') !!}</a></li>
                                                 <li><a href="{{route('don-hang')}}">{!! trans('message.track my order') !!}</a></li>
+                                                <li><a href="{{route('thay-doi-mat-khau')}}">{!! trans('message.change password') !!}</a></li>
                                                 <li><a href="{{route('home.logout')}}">{!! trans('message.logout') !!}</a></li>
                                                 @else
                                                 <li><a href="{{route('shoppingcart.get.giohang')}}">{!! trans('message.cart') !!}</a></li>
                                                 <li><a href="{{route('don-hang')}}">{!! trans('message.track my order') !!}</a></li>
+                                                <li><a href="{{route('thay-doi-mat-khau')}}">{!! trans('message.change password') !!}</a></li>
                                                 <li><a href="{{route('home.logout')}}">{!! trans('message.logout') !!}</a></li>
                                                 @endif
                                             </ul>

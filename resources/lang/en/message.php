@@ -80,5 +80,8 @@
 		'order' => 'Order',
 		'status' => 'Status',
 		'search product' => 'Search Product',
+		'change password' => 'Change Password',
+		'old password' => 'Old password',
+		'new password' => 'New password',
 	];
 ?>

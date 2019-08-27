@@ -79,7 +79,7 @@
 						</div>
 						<div class="form-action">
 							<div class="actions-log">
-								<input type="submit" class="button" name="register" value="Register">
+								<input type="submit" class="button" name="register" value="{{trans('message.register')}}">
 							</div>
 						</div>
 					</form>

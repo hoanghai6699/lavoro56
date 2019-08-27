@@ -80,5 +80,8 @@
 		'order' => 'Đơn hàng',
 		'status' => 'Trạng thái',
 		'search product' => 'Tìm kiếm sản phẩm',
+		'change password' => 'Thay đổi mật khẩu',
+		'old password' => 'Mật khẩu cũ',
+		'new password' => 'Mật khẩu mới',
 	];
 ?>

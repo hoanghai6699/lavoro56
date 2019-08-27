@@ -216,10 +216,12 @@
                                                 <li><a href="<?php echo e(route('admin')); ?>"><?php echo trans('message.manage'); ?></a></li>
                                                 <li><a href="<?php echo e(route('shoppingcart.get.giohang')); ?>"><?php echo trans('message.cart'); ?></a></li>
                                                 <li><a href="<?php echo e(route('don-hang')); ?>"><?php echo trans('message.track my order'); ?></a></li>
+                                                <li><a href="<?php echo e(route('thay-doi-mat-khau')); ?>"><?php echo trans('message.change password'); ?></a></li>
                                                 <li><a href="<?php echo e(route('home.logout')); ?>"><?php echo trans('message.logout'); ?></a></li>
                                                 <?php else: ?>
                                                 <li><a href="<?php echo e(route('shoppingcart.get.giohang')); ?>"><?php echo trans('message.cart'); ?></a></li>
                                                 <li><a href="<?php echo e(route('don-hang')); ?>"><?php echo trans('message.track my order'); ?></a></li>
+                                                <li><a href="<?php echo e(route('thay-doi-mat-khau')); ?>"><?php echo trans('message.change password'); ?></a></li>
                                                 <li><a href="<?php echo e(route('home.logout')); ?>"><?php echo trans('message.logout'); ?></a></li>
                                                 <?php endif; ?>
                                             </ul>

@@ -137,4 +137,6 @@ Route::group(['middleware' => 'locale'], function() {
 		Route::get('/','FrontendController@donhang')->name('don-hang');
 		Route::get('/chi-tiet/{id}','FrontendController@chitiet')->name('chi-tiet');
 	});
+	Route::get('/thay-doi-mat-khau','FrontendController@thaydoimatkhau')->name('thay-doi-mat-khau');
+	Route::post('/thay-doi-mat-khau','FrontendController@post_thaydoimatkhau');
 });
