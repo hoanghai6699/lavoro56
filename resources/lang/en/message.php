@@ -83,5 +83,8 @@
 		'change password' => 'Change Password',
 		'old password' => 'Old password',
 		'new password' => 'New password',
+		'english' => 'English',
+		'vietnam' => 'Vietnamese',
+		'search' => 'Search',
 	];
 ?>

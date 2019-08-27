@@ -138,7 +138,7 @@
 												</div>
 											</div>
 											<div class="product-content">
-												<h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product_cate->id,$item_product_cate->slug])}}">{{$item_product_cate->name}}</a></h2>
+												<h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product_cate->id,$item_product_cate->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_product_cate->name}}">{{$item_product_cate->name}}</a></h2>
 											</div>
 										</div>
 									</div>

@@ -83,5 +83,8 @@
 		'change password' => 'Thay đổi mật khẩu',
 		'old password' => 'Mật khẩu cũ',
 		'new password' => 'Mật khẩu mới',
+		'english' => 'Tiếng anh',
+		'vietnam' => 'Tiếng việt',
+		'search' => 'Tìm kiếm',
 	];
 ?>

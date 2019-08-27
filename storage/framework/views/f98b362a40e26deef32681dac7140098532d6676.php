@@ -34,7 +34,7 @@
 				        		<a href="<?php echo e(route('chi-tiet-tin-tuc',[$it->id,$it->slug])); ?>" title="<?php echo e($it->name); ?>"><img src="<?php echo e(url('uploads/article')); ?>/<?php echo e($it->image); ?>" style="object-fit: cover;height: 77px;" alt=""></a>
 				    		</div>
 			    		<div class="title2">
-			        		<h5 class="title"><a href="<?php echo e(route('chi-tiet-tin-tuc',[$it->id,$it->slug])); ?>"><?php echo e($it->name); ?></a></h5>
+			        		<h5 class="title"><a href="<?php echo e(route('chi-tiet-tin-tuc',[$it->id,$it->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($it->name); ?>"><?php echo e($it->name); ?></a></h5>
 			    		</div>
 			    		<div class="clearfix"></div>
 			    			<p class="desc"><?php echo e($it->description); ?></p>
@@ -54,7 +54,7 @@
 						<a href="<?php echo e(route('chi-tiet-tin-tuc',[$item->id,$item->slug])); ?>"><img src="<?php echo e(url('/uploads/article')); ?>/<?php echo e($item->image); ?>" style="width: 200px;height: 120px;object-fit: cover;"></a>
 					</div>
 					<div class="article_info" style="margin-left: 20px;width: 80%;">
-						<h2 style="font-size: 15px"><a href="<?php echo e(route('chi-tiet-tin-tuc',[$item->id,$item->slug])); ?>"><?php echo e($item->name); ?></a></h2>
+						<h2 style="font-size: 15px"><a href="<?php echo e(route('chi-tiet-tin-tuc',[$item->id,$item->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item->name); ?>"><?php echo e($item->name); ?></a></h2>
 						<p style="font-size: 13px"><?php echo e($item->description); ?></p>
 						<p style="padding-top: 31px;"><?php echo e($user_name->name); ?> - <span><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($item->created_at))->diffForHumans() ?></span></p>
 					</div>

@@ -46,7 +46,7 @@
 				        		<a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" title="{{$it->name}}"><img src="{{url('uploads/article')}}/{{$it->image}}" style="object-fit: cover;height: 77px;" alt=""></a>
 				    		</div>
 			    		<div class="title2">
-			        		<h5 class="title"><a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}">{{$it->name}}</a></h5>
+			        		<h5 class="title"><a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$it->name}}">{{$it->name}}</a></h5>
 			    		</div>
 			    		<div class="clearfix"></div>
 			    			<p class="desc">{{$it->description}}</p>

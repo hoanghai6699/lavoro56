@@ -173,14 +173,14 @@
                                 <div class="top-detail">
                                     <div class="disflow">
                                         <div class="expand lang-all disflow">
-                                            <a href="{{route('change-language',['en'])}}">EN</a>
-                                            <a href="{{route('change-language',['vi'])}}">VN</a>
+                                            <a href="{{route('change-language',['en'])}}" data-toggle="tooltip" data-placement="top" title="{{trans('message.english')}}">EN</a>
+                                            <a href="{{route('change-language',['vi'])}}" data-toggle="tooltip" data-placement="top" title="{{trans('message.vietnam')}}">VN</a>
                                         </div>
                                     </div>
                                     <div class="disflow">
                                         <div class="circle-shopping expand">
                                             <div class="shopping-carts text-right">
-                                                <div class="cart-toggler">
+                                                <div class="cart-toggler" data-toggle="tooltip" data-placement="top" title="{{trans('message.cart')}}">
                                                     <a href="{{route('shoppingcart.get.giohang')}}"><i class="icon-bag"></i></a>
                                                     <a href="{{route('shoppingcart.get.giohang')}}"><span class="cart-quantity">{{Cart::count()}}</span></a>
                                                 </div>
@@ -191,7 +191,7 @@
                                     <!-- search divition start -->
                                     <div class="disflow">
                                         <div class="header-search expand">
-                                            <div class="search-icon fa fa-search"></div>
+                                            <div class="search-icon fa fa-search" data-toggle="tooltip" data-placement="top" title="{{trans('message.search')}}"></div>
                                             <div class="product-search restrain">
                                                 <div class="container nopadding-right">
                                                     <form action="{{route('frontend.get.sanpham')}}" id="searchform" method="get">

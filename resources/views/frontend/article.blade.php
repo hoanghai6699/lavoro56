@@ -34,7 +34,7 @@
 				        		<a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" title="{{$it->name}}"><img src="{{url('uploads/article')}}/{{$it->image}}" style="object-fit: cover;height: 77px;" alt=""></a>
 				    		</div>
 			    		<div class="title2">
-			        		<h5 class="title"><a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}">{{$it->name}}</a></h5>
+			        		<h5 class="title"><a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$it->name}}">{{$it->name}}</a></h5>
 			    		</div>
 			    		<div class="clearfix"></div>
 			    			<p class="desc">{{$it->description}}</p>
@@ -54,7 +54,7 @@
 						<a href="{{route('chi-tiet-tin-tuc',[$item->id,$item->slug])}}"><img src="{{url('/uploads/article')}}/{{$item->image}}" style="width: 200px;height: 120px;object-fit: cover;"></a>
 					</div>
 					<div class="article_info" style="margin-left: 20px;width: 80%;">
-						<h2 style="font-size: 15px"><a href="{{route('chi-tiet-tin-tuc',[$item->id,$item->slug])}}">{{$item->name}}</a></h2>
+						<h2 style="font-size: 15px"><a href="{{route('chi-tiet-tin-tuc',[$item->id,$item->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item->name}}">{{$item->name}}</a></h2>
 						<p style="font-size: 13px">{{$item->description}}</p>
 						<p style="padding-top: 31px;">{{$user_name->name}} - <span><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($item->created_at))->diffForHumans() ?></span></p>
 					</div>
