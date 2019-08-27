@@ -7,7 +7,7 @@
         <h1>Thêm mới thành viên</h1>
         <ol class="breadcrumb">
             <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li><a href="{{route('admin.get.list.category')}}">Thành viên</a></li>
+            <li><a href="{{route('admin.get.list.user')}}">Thành viên</a></li>
             <li class="active">Thêm mới thành viên</li>
         </ol>
     </section>

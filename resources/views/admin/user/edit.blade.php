@@ -4,11 +4,11 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Sửa danh mục</h1>
+        <h1>Sửa thành viên</h1>
         <ol class="breadcrumb">
             <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li><a href="{{route('admin.get.list.category')}}">Danh mục</a></li>
-            <li class="active">Sửa danh mục</li>
+            <li><a href="{{route('admin.get.list.user')}}">Thành viên</a></li>
+            <li class="active">Sửa thành viên</li>
         </ol>
     </section>
     <section class="content">
