@@ -64,7 +64,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}">{{$item_product->name}}</a></h2>
+                                                <h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_product->name}}">{{$item_product->name}}</a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}">{{$item_product->name}}</a></h2>
+                                                <h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_product->name}}">{{$item_product->name}}</a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_1->id,$item_1->slug])}}">{{$item_1->name}}</a></h2>
+                                    <h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_1->id,$item_1->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_1->name}}">{{$item_1->name}}</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                         </div>
                         <div class="post-thumb-info">
                             <div class="post-time">
-                                <a href="{{route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])}}">{{$item_post->name}}</a>
+                                <a href="{{route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_post->name}}">{{$item_post->name}}</a>
                             </div>
                             <div class="postexcerpt">
                                 <p>{{$item_post->description}}</p>
@@ -228,7 +228,6 @@
                 <!-- block title end -->
                 <!-- block carousel start -->
                 <?php $hot_product = DB::table('products')->where('hot',1)->get();?>
-                
                 <div class="block-carousel">
                     @foreach($hot_product as $item_hot)
                     @if($item_hot->active == 1)
@@ -239,7 +238,7 @@
                                 <a href="{{route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])}}"><img src="{{url('/uploads')}}/{{$item_hot->image}}" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="{{route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])}}">{{$item_hot->name}}</a></h3>
+                                <h3><a href="{{route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_hot->name}}">{{$item_hot->name}}</a></h3>
                                 
                                 
                                 <div class="cat-price">{{number_format($item_hot->price,0,',','.')}}</div>
@@ -275,7 +274,7 @@
                                 <a href="{{route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])}}"><img src="{{url('/uploads')}}/{{$bs->image}}" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="{{route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])}}">{{$bs->name}}</a></h3>
+                                <h3><a href="{{route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$bs->name}}">{{$bs->name}}</a></h3>
                                 <div class="cat-price">{{number_format($bs->price,0,',','.')}}</div>
                                 <div class="cat-rating">
                                     <a href="#"><i class="fa fa-star"></i></a>
@@ -306,7 +305,7 @@
                                 <a href="{{route('frontend.get.chitietsanpham',[$p->id,$p->slug])}}"><img src="{{url('/uploads')}}/{{$p->image}}" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="{{route('frontend.get.chitietsanpham',[$p->id,$p->slug])}}">{{$p->name}}</a></h3>
+                                <h3><a href="{{route('frontend.get.chitietsanpham',[$p->id,$p->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$p->name}}">{{$p->name}}</a></h3>
                                 <p>KM: {{$ss->sale}} (%)</p>
                                 <p>Từ "{{$ss->start_date}}" đến "{{$ss->end_date}}"</p>
                                 <div class="cat-price">{{number_format($p->price,0,',','.')}}</div>

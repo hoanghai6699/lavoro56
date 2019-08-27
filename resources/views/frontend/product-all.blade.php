@@ -130,7 +130,7 @@
 												</div>
 											</div>
 											<div class="product-content">
-												<h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}">{{$item_product->name}}</a></h2>
+												<h2 class="product-name"><a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_product->name}}">{{$item_product->name}}</a></h2>
 											</div>
 										</div>
 									</div>

@@ -129,7 +129,7 @@
 												</div>
 											</div>
 											<div class="product-content">
-												<h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>"><?php echo e($item_product->name); ?></a></h2>
+												<h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_product->name); ?>"><?php echo e($item_product->name); ?></a></h2>
 											</div>
 										</div>
 									</div>

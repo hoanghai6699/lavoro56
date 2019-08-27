@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>"><?php echo e($item_product->name); ?></a></h2>
+                                                <h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_product->name); ?>"><?php echo e($item_product->name); ?></a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>"><?php echo e($item_product->name); ?></a></h2>
+                                                <h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_product->name); ?>"><?php echo e($item_product->name); ?></a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_1->id,$item_1->slug])); ?>"><?php echo e($item_1->name); ?></a></h2>
+                                    <h2 class="product-name"><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_1->id,$item_1->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_1->name); ?>"><?php echo e($item_1->name); ?></a></h2>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
                         </div>
                         <div class="post-thumb-info">
                             <div class="post-time">
-                                <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>"><?php echo e($item_post->name); ?></a>
+                                <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_post->name); ?>"><?php echo e($item_post->name); ?></a>
                             </div>
                             <div class="postexcerpt">
                                 <p><?php echo e($item_post->description); ?></p>
@@ -227,7 +227,6 @@
                 <!-- block title end -->
                 <!-- block carousel start -->
                 <?php $hot_product = DB::table('products')->where('hot',1)->get();?>
-                
                 <div class="block-carousel">
                     <?php $__currentLoopData = $hot_product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item_hot): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($item_hot->active == 1): ?>
@@ -238,7 +237,7 @@
                                 <a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_hot->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])); ?>"><?php echo e($item_hot->name); ?></a></h3>
+                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_hot->name); ?>"><?php echo e($item_hot->name); ?></a></h3>
                                 
                                 
                                 <div class="cat-price"><?php echo e(number_format($item_hot->price,0,',','.')); ?></div>
@@ -274,7 +273,7 @@
                                 <a href="<?php echo e(route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($bs->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])); ?>"><?php echo e($bs->name); ?></a></h3>
+                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($bs->name); ?>"><?php echo e($bs->name); ?></a></h3>
                                 <div class="cat-price"><?php echo e(number_format($bs->price,0,',','.')); ?></div>
                                 <div class="cat-rating">
                                     <a href="#"><i class="fa fa-star"></i></a>
@@ -305,7 +304,7 @@
                                 <a href="<?php echo e(route('frontend.get.chitietsanpham',[$p->id,$p->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($p->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$p->id,$p->slug])); ?>"><?php echo e($p->name); ?></a></h3>
+                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$p->id,$p->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($p->name); ?>"><?php echo e($p->name); ?></a></h3>
                                 <p>KM: <?php echo e($ss->sale); ?> (%)</p>
                                 <p>Từ "<?php echo e($ss->start_date); ?>" đến "<?php echo e($ss->end_date); ?>"</p>
                                 <div class="cat-price"><?php echo e(number_format($p->price,0,',','.')); ?></div>
