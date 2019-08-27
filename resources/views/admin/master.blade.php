@@ -63,7 +63,7 @@
                                 @if(Auth::user()->level == 1)
                                     <?php $user = Auth::user();
                                     ?>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="top" title="Thông báo">
                                 <i class="fa fa-bell-o"></i>
                                 <span class="label label-warning ">@if (count($user->unreadNotifications) > 0) {{ count($user->unreadNotifications) }}@else 0 @endif</span>
                                 </a>
