@@ -20,13 +20,14 @@ class AdminArticleController extends Controller
     public function create(Request $req){
     	$this->validate($req,[
     		'name' => 'required|unique:articles,name',
-    		'description' => 'required',
+    		'description' => 'required|max:191',
     		'content' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg,gif,bmp'
     	],[
     		'name.required' => 'Bạn phải nhập tên bài viết',
     		'name.unique' => 'Tên bài viết đã tồn tại',
     		'description.required' => 'Bạn phải nhập mô tả bài viết',
+            'description.max' => 'Mô tả quá dài',
     		'content.required' => 'Bạn phải nhập nội dung bài viết',
             'image.required' => 'Bạn phải nhập ảnh sản phẩm',
             'image.mimes' => 'Ảnh có một trong các định dạng jpg,png,jpeg,gif,bmp'

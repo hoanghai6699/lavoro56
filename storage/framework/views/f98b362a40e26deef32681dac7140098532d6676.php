@@ -31,7 +31,7 @@
 	    			<div class="nav-new-sidebar">
 			            <div class="item">
 				    		<div class="images">
-				        		<a href="<?php echo e(route('chi-tiet-tin-tuc',[$it->id,$it->slug])); ?>" title="<?php echo e($it->name); ?>"><img src="<?php echo e(url('uploads/article')); ?>/<?php echo e($it->image); ?>" style="object-fit: cover;height: 77px;" alt=""></a>
+				        		<a href="<?php echo e(route('chi-tiet-tin-tuc',[$it->id,$it->slug])); ?>" title="<?php echo e($it->name); ?>"><img src="<?php echo e(url('uploads/article')); ?>/<?php echo e($it->image); ?>" style="object-fit: cover;height: 77px;width: 85px;" alt=""></a>
 				    		</div>
 			    		<div class="title2">
 			        		<h5 class="title"><a href="<?php echo e(route('chi-tiet-tin-tuc',[$it->id,$it->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($it->name); ?>"><?php echo e($it->name); ?></a></h5>
