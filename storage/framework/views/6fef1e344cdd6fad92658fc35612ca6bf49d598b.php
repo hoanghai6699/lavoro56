@@ -146,7 +146,7 @@
                             <a href="<?php echo e(route('admin')); ?>">
                             <i class="fa fa-dashboard"></i> <span>Trang tổng quan</span></a>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.category' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.category' || \Request::route()->getName()=='admin.get.add.category' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-th"></i> <span>Danh mục</span>
                             <span class="pull-right-container">
@@ -158,7 +158,7 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.add.category'?'active':''); ?>"><a href="<?php echo route('admin.get.add.category'); ?>"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.product' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.product' || \Request::route()->getName()=='admin.get.add.product' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-product-hunt"></i> <span>Sản phẩm</span>
                             <span class="pull-right-container">
@@ -170,7 +170,7 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.add.product'?'active':''); ?>"><a href="<?php echo route('admin.get.add.product'); ?>"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.article' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.article' || \Request::route()->getName()=='admin.get.add.article' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-newspaper-o"></i> <span>Tin tức</span>
                             <span class="pull-right-container">
@@ -186,7 +186,7 @@
                             <a href="<?php echo route('admin.get.list.order'); ?>">
                             <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span></a>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.user' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.user' || \Request::route()->getName()=='admin.get.add.user' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-user-o"></i> <span>Thành viên</span>
                             <span class="pull-right-container">
@@ -198,7 +198,7 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.add.user'?'active':''); ?>"><a href="<?php echo route('admin.get.add.user'); ?>"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.warehouse' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.warehouse' || \Request::route()->getName()=='admin.get.hang-ton' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-shopping-bag"></i> <span>Kho hàng</span>
                             <span class="pull-right-container">
@@ -210,7 +210,7 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.hang-ton'?'active':''); ?>"><a href="<?php echo route('admin.get.hang-ton'); ?>"><i class="fa fa-circle-o"></i> Hàng tồn</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.sale' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.sale' || \Request::route()->getName()=='admin.get.add.sale' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-money"></i> <span>Khuyến mãi</span>
                             <span class="pull-right-container">
@@ -222,7 +222,7 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.add.sale'?'active':''); ?>"><a href="<?php echo route('admin.get.add.sale'); ?>"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.coupon' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.coupon' || \Request::route()->getName()=='admin.get.add.coupon' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-cc"></i> <span>Mã giảm giá</span>
                             <span class="pull-right-container">
@@ -234,7 +234,7 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.add.coupon'?'active':''); ?>"><a href="<?php echo route('admin.get.add.coupon'); ?>"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.slide' ? 'active' : ''); ?> treeview">
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.slide' || \Request::route()->getName()=='admin.get.add.slide' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-caret-square-o-right"></i> <span>Slide</span>
                             <span class="pull-right-container">
