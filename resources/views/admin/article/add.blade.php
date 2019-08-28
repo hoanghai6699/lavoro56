@@ -20,7 +20,7 @@
                                 <label>Tên bài viết</label>
                                 <input type="text" class="form-control" name="name" placeholder="Tên bài viết" value="{{old('name')}}">
                                 @if($errors->has('name'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('name')}}
                                 </div>
                                 @endif
@@ -29,7 +29,7 @@
                                 <label>Ảnh bài viết</label>
                                 <input type="file" name="image" multiple />
                                 @if($errors->has('image'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('image')}}
                                 </div>
                                 @endif
@@ -38,7 +38,7 @@
                                 <label>Mô tả</label>
                                 <textarea class="form-control" rows="3" name="description" placeholder="Mô tả"></textarea>
                                 @if($errors->has('description'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('description')}}
                                 </div>
                                 @endif
@@ -48,7 +48,7 @@
                                 <textarea class="form-control" rows="3" name="content" placeholder="Nội dung"></textarea>
                                 <script type="text/javascript">ckeditor('content')</script>
                                 @if($errors->has('content'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('content')}}
                                 </div>
                                 @endif

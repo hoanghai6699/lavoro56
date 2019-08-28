@@ -22,7 +22,7 @@
                                 <label>Hình ảnh</label>
                                 <input type="file" name="image" multiple />
                                 @if($errors->has('image'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('image')}}
                                 </div>
                                 @endif
@@ -34,7 +34,7 @@
                                     <option value="1">Banner</option>
                                 </select>
                                 @if($errors->has('type'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('type')}}
                                 </div>
                                 @endif

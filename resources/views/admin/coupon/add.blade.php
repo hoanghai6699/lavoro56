@@ -26,7 +26,7 @@
                                     <label>Số lượng</label>
                                     <input type="number" class="form-control" name="qty">
                                     @if($errors->has('qty'))
-                                    <div class="help-block">
+                                    <div class="help-block" style="color: red;">
                                         {{$errors->first('qty')}}
                                     </div>
                                     @endif
@@ -42,7 +42,7 @@
                                     <label>Input</label>
                                     <input type="text" class="form-control" name="input">
                                     @if($errors->has('input'))
-                                    <div class="help-block">
+                                    <div class="help-block" style="color: red;">
                                         {{$errors->first('input')}}
                                     </div>
                                     @endif

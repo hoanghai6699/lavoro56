@@ -25,7 +25,7 @@
                                     <?php cate_parent($parent); ?>
                                 </select>
                                 @if($errors->has('category_id'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('category_id')}}
                                 </div>
                                 @endif
@@ -34,7 +34,7 @@
                                 <label>Tên danh mục</label>
                                 <input type="text" class="form-control" name="name" placeholder="Tên danh mục" value="{{old('name')}}">
                                 @if($errors->has('name'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('name')}}
                                 </div>
                                 @endif

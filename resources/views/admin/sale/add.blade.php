@@ -32,7 +32,7 @@
                                             @endforeach
                                         </select>
                                         @if($errors->has('name_product'))
-                                        <div class="help-block">
+                                        <div class="help-block" style="color: red;">
                                         {{$errors->first('name_product')}}
                                         </div>
                                         @endif
@@ -47,7 +47,7 @@
                                                     </div>
                                                     <input type="date" class="form-control pull-right" name="startdate">
                                                     @if($errors->has('startdate'))
-                                                    <div class="help-block">
+                                                    <div class="help-block" style="color: red;">
                                                     {{$errors->first('startdate')}}
                                                     </div>
                                                     @endif
@@ -63,7 +63,7 @@
                                                     </div>
                                                     <input type="date" class="form-control pull-right" name="enddate">
                                                     @if($errors->has('enddate'))
-                                                    <div class="help-block">
+                                                    <div class="help-block" style="color: red;">
                                                     {{$errors->first('enddate')}}
                                                     </div>
                                                     @endif
@@ -76,7 +76,7 @@
                                         <label>% Giảm giá</label>
                                         <input type="number" class="form-control" name="sale" placeholder="% Giảm giá">
                                         @if($errors->has('sale'))
-                                        <div class="help-block">
+                                        <div class="help-block" style="color: red;">
                                         {{$errors->first('sale')}}
                                         </div>
                                         @endif

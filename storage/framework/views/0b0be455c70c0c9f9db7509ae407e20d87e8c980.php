@@ -21,7 +21,7 @@
                                 <label>Hình ảnh</label>
                                 <input type="file" name="image" multiple />
                                 <?php if($errors->has('image')): ?>
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     <?php echo e($errors->first('image')); ?>
 
                                 </div>
@@ -34,7 +34,7 @@
                                     <option value="1">Banner</option>
                                 </select>
                                 <?php if($errors->has('type')): ?>
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     <?php echo e($errors->first('type')); ?>
 
                                 </div>

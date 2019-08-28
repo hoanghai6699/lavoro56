@@ -20,7 +20,7 @@
                                 <label>Tên bài viết</label>
                                 <input type="text" class="form-control" name="name" placeholder="Tên bài viết" value="{{old('name',$article->name)}}">
                                 @if($errors->has('name'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('name')}}
                                 </div>
                                 @endif
@@ -33,7 +33,7 @@
                                 </a>
                                 <input type="file" name="image" multiple />
                                 @if($errors->has('image'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('image')}}
                                 </div>
                                 @endif

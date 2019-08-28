@@ -46,10 +46,10 @@
                                     <label>Số lượng</label>
                                     <input type="number" class="form-control" name="quantity" placeholder="Số lượng">
                                     @if($errors->has('quantity'))
-                                <div class="help-block">
-                                    {{$errors->first('quantity')}}
-                                </div>
-                                @endif
+                                    <div class="help-block" style="color: red;">
+                                        {{$errors->first('quantity')}}
+                                    </div>
+                                    @endif
                                 </div>
                                 <button type="submit" class="btn btn-success">Thêm size</button>
                             </div>

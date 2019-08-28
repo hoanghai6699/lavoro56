@@ -22,7 +22,7 @@
                                 <label>Họ tên</label>
                                 <input type="text" class="form-control" name="name" placeholder="Họ tên" value="{{old('name',$users->name)}}">
                                 @if($errors->has('name'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('name')}}
                                 </div>
                                 @endif
@@ -31,7 +31,7 @@
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Email" value="{{old('email',$users->email)}}">
                                 @if($errors->has('email'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('email')}}
                                 </div>
                                 @endif
@@ -40,7 +40,7 @@
                                 <label>Mật khẩu</label>
                                 <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
                                 @if($errors->has('password'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('password')}}
                                 </div>
                                 @endif
@@ -49,7 +49,7 @@
                                 <label>Nhập lại mật khẩu</label>
                                 <input type="password" class="form-control" name="re_password" placeholder="Nhập lại mật khẩu">
                                 @if($errors->has('re_password'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('re_password')}}
                                 </div>
                                 @endif

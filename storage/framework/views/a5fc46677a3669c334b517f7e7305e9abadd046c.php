@@ -32,7 +32,7 @@
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </select>
                                         <?php if($errors->has('name_product')): ?>
-                                        <div class="help-block">
+                                        <div class="help-block" style="color: red;">
                                         <?php echo e($errors->first('name_product')); ?>
 
                                         </div>
@@ -48,7 +48,7 @@
                                                     </div>
                                                     <input type="date" class="form-control pull-right" name="startdate">
                                                     <?php if($errors->has('startdate')): ?>
-                                                    <div class="help-block">
+                                                    <div class="help-block" style="color: red;">
                                                     <?php echo e($errors->first('startdate')); ?>
 
                                                     </div>
@@ -65,7 +65,7 @@
                                                     </div>
                                                     <input type="date" class="form-control pull-right" name="enddate">
                                                     <?php if($errors->has('enddate')): ?>
-                                                    <div class="help-block">
+                                                    <div class="help-block" style="color: red;">
                                                     <?php echo e($errors->first('enddate')); ?>
 
                                                     </div>
@@ -79,7 +79,7 @@
                                         <label>% Giảm giá</label>
                                         <input type="number" class="form-control" name="sale" placeholder="% Giảm giá">
                                         <?php if($errors->has('sale')): ?>
-                                        <div class="help-block">
+                                        <div class="help-block" style="color: red;">
                                         <?php echo e($errors->first('sale')); ?>
 
                                         </div>

@@ -26,7 +26,7 @@
                                 </a>
                                 <input type="file" name="image" multiple />
                                 @if($errors->has('image'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('image')}}
                                 </div>
                                 @endif
@@ -38,7 +38,7 @@
                                     <option value="1" @if($slide["type"]==1) selected="selected"; @endif>Banner</option>
                                 </select>
                                 @if($errors->has('type'))
-                                <div class="help-block">
+                                <div class="help-block" style="color: red;">
                                     {{$errors->first('type')}}
                                 </div>
                                 @endif
