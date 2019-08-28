@@ -43,7 +43,7 @@
 	    			<div class="nav-new-sidebar">
 			            <div class="item">
 				    		<div class="images">
-				        		<a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" title="{{$it->name}}"><img src="{{url('uploads/article')}}/{{$it->image}}" style="object-fit: cover;height: 77px;" alt=""></a>
+				        		<a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" title="{{$it->name}}"><img src="{{url('uploads/article')}}/{{$it->image}}" style="object-fit: cover;height: 77px;width: 85px;" alt=""></a>
 				    		</div>
 			    		<div class="title2">
 			        		<h5 class="title"><a href="{{route('chi-tiet-tin-tuc',[$it->id,$it->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$it->name}}">{{$it->name}}</a></h5>
@@ -59,7 +59,7 @@
 				@if(isset($article))
 				
 				<div class="article" style="display: flex;padding-bottom: 10px;margin-bottom: 10px;">
-					<div class="article_info" style="margin-left: 20px;width: 100%;">
+					<div class="article_info" style="margin-left: 20px;">
 						<h2 style="font-size: 20px;"><a href="">{{$article->name}}</a></h2>
 						<p><i class="fa fa-calendar"></i> {{$article->created_at->format('d-m-Y')}}</p>
 						<p style="font-size: 13px">{!!$article->content!!}</p>
