@@ -10,7 +10,7 @@
         
         <!-- Favicon
         ============================================ -->
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(url('/public')); ?>/frontend/img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon">
         
         <!-- Fonts
         ============================================ -->

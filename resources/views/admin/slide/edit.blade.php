@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label>Hình ảnh</label>
                                 <a class="thumbnail">
-                                    <img src="{{url('public/frontend/img')}}/{{$slide->image}}" alt="" width="100%">
+                                    <img src="{{url('public/frontend/img')}}/{{$slide->image}}" alt="" style="width: 1059px;height: 276px;">
                                     <input type="hidden" name="img_current" value="{!! $slide->image !!}">
                                 </a>
                                 <input type="file" name="image" multiple />
