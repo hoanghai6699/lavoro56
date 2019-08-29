@@ -39,7 +39,7 @@
                                     <td>{{$item->name}}
                                         <ul style="padding-left: 20px;">
                                             <li>Giá: {{ number_format($item->price,'0',',','.') }} (đ)</li>
-                                            <li>Số lượng đã bán: <?php $qty=DB::table('order_details')->where('product_id',$item->id)->sum('qty'); echo $qty;?>
+                                            <li>Số lượng đã bán: <?php $qty=DB::table('order_details')->join('orders','order_details.order_id','=','orders.id')->where('product_id',$item->id)->where('orders.status','=',2)->sum('qty'); echo $qty;?>
                                             </li>
                                             <li>Còn lại: <?php $qty=DB::table('product_properties')->where('product_id',$item->id)->sum('qty'); echo $qty;?>
                                             </li>

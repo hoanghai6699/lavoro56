@@ -14,4 +14,5 @@ function cate_parent($data,$parent = 0,$str="--",$select=0){
       } 
    }
 }
+
 ?>

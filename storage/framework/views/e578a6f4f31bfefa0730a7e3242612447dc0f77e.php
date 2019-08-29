@@ -265,16 +265,20 @@
                     <h2><?php echo e(trans('message.selling')); ?></h2>
                 </div>
                 <div class="block-carousel">
-                <?php $b = DB::table('products')->where('pay','>=',10)->get(); ?>
+                <?php
+                $sql = "SELECT product_id,sum(qty) as soLuongBan FROM order_details INNER  JOIN orders on orders.id = order_details.order_id WHERE orders.status = 2 GROUP BY product_id ORDER BY sum(qty) DESC LIMIT 5";
+                $b = DB::select($sql);
+                ?>
                 <?php $__currentLoopData = $b; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $pro = DB::table('products')->where('id',$bs->product_id)->first(); ?>
                     <div class="block-content">
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($bs->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($pro->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
-                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$bs->id,$bs->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($bs->name); ?>"><?php echo e($bs->name); ?></a></h3>
-                                <div class="cat-price"><?php echo e(number_format($bs->price,0,',','.')); ?></div>
+                                <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($pro->name); ?>"><?php echo e($pro->name); ?></a></h3>
+                                <div class="cat-price"><?php echo e(number_format($pro->price,0,',','.')); ?></div>
                                 <div class="cat-rating">
                                     <a href="#"><i class="fa fa-star"></i></a>
                                     <a href="#"><i class="fa fa-star"></i></a>

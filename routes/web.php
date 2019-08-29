@@ -69,6 +69,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/dang-giao-hang','AdminOrderController@danggiaohang')->name('admin.get.list.dang-giao-hang');
 		Route::get('/view/{id}','AdminOrderController@view')->name('admin.get.view.order');
 		Route::post('/view/{id}','AdminOrderController@post_view');
+
 	});
 	Route::group(['prefix'=>'warehouse'],function(){
 		Route::get('/','AdminWarehouseController@list')->name('admin.get.list.warehouse');
