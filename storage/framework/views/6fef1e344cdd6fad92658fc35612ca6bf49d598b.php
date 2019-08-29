@@ -182,9 +182,18 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.add.article'?'active':''); ?>"><a href="<?php echo route('admin.get.add.article'); ?>"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.order'?'active':''); ?>">
-                            <a href="<?php echo route('admin.get.list.order'); ?>">
-                            <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span></a>
+                        <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.order' || \Request::route()->getName()=='admin.get.list.chua-xu-ly' || \Request::route()->getName()=='admin.get.list.dang-giao-hang' ? 'active':''); ?> treeview">
+                            <a href="#">
+                            <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span>
+                            <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.order'?'active':''); ?>"><a href="<?php echo route('admin.get.list.order'); ?>"><i class="fa fa-circle-o"></i> Quản lý đơn hàng</a></li>
+                                <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.chua-xu-ly'?'active':''); ?>"><a href="<?php echo route('admin.get.list.chua-xu-ly'); ?>"><i class="fa fa-circle-o"></i> Đơn hàng chờ xử lý</a></li>
+                                <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.dang-giao-hang'?'active':''); ?>"><a href="<?php echo route('admin.get.list.dang-giao-hang'); ?>"><i class="fa fa-circle-o"></i> Đơn hàng đang giao</a></li>
+                            </ul>
                         </li>
                         <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.user' || \Request::route()->getName()=='admin.get.add.user' ? 'active' : ''); ?> treeview">
                             <a href="#">

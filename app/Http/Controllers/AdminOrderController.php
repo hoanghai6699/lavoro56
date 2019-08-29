@@ -50,4 +50,13 @@ class AdminOrderController extends Controller
         $order->save();
         return redirect()->route('admin.get.list.order')->with(['level'=>'success','success'=>'Xử lý đơn hàng thành công']);
     }
+    public function chuaxuly(){
+        $pending = Order::all();
+        return view('admin.order.pending',compact('pending'));
+    }
+
+    public function danggiaohang(){
+        $delivery = Order::all();
+        return view('admin.order.delivery',compact('delivery'));
+    }
 }
