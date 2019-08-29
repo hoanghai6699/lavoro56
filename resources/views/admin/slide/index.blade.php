@@ -32,7 +32,7 @@
                                 @foreach($slide as $item)
                                 <tr style="text-align: center;">
                                     <td>
-                                        <img src="{{url('public/frontend/img')}}/{{$item->image}}" width="500px">
+                                        <img src="{{url('public/frontend/img')}}/{{$item->image}}" style="width: 500px;height: 200px;">
                                     </td>
                                     <td class="center" style="padding-top: 93px;">
                                         <a class="fa fa-pencil fa-fw" href="{{route('admin.get.edit.slide',[$item->id])}}" data-toggle="tooltip" data-placement="top" title="Sửa"></a>

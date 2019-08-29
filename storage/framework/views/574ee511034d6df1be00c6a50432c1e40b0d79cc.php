@@ -32,7 +32,7 @@
                                 <?php $__currentLoopData = $slide; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr style="text-align: center;">
                                     <td>
-                                        <img src="<?php echo e(url('public/frontend/img')); ?>/<?php echo e($item->image); ?>" width="500px">
+                                        <img src="<?php echo e(url('public/frontend/img')); ?>/<?php echo e($item->image); ?>" style="width: 500px;height: 200px;">
                                     </td>
                                     <td class="center" style="padding-top: 93px;">
                                         <a class="fa fa-pencil fa-fw" href="<?php echo e(route('admin.get.edit.slide',[$item->id])); ?>" data-toggle="tooltip" data-placement="top" title="Sửa"></a>
