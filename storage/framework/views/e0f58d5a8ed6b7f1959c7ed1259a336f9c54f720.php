@@ -84,10 +84,7 @@
         <div class="sticky-header">
             <header class="short-stor">
             <div class="container-fluid">
-                
                     <div class="row">
-                        
-                        
                             <!-- logo start -->
                             <div class="col-md-3 col-sm-12 text-center nopadding-right">
                                 <div class="top-logo">

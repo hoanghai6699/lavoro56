@@ -41,6 +41,8 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/','AdminSaleController@list')->name('admin.get.list.sale');
 		Route::get('/add','AdminSaleController@add')->name('admin.get.add.sale');
 		Route::post('/add','AdminSaleController@create');
+		Route::get('/edit/{id}','AdminSaleController@edit')->name('admin.get.edit.sale');
+		Route::post('/edit/{id}','AdminSaleController@update');
 		Route::get('/delete/{id}','AdminSaleController@delete')->name('admin.get.delete.sale');
 	});
 	Route::group(['prefix'=>'article'],function(){
@@ -69,6 +71,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/dang-giao-hang','AdminOrderController@danggiaohang')->name('admin.get.list.dang-giao-hang');
 		Route::get('/view/{id}','AdminOrderController@view')->name('admin.get.view.order');
 		Route::post('/view/{id}','AdminOrderController@post_view');
+		Route::get('/delete/{id}','AdminOrderController@delete')->name('admin.get.delete.order');
 
 	});
 	Route::group(['prefix'=>'warehouse'],function(){

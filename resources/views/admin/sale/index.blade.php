@@ -49,6 +49,8 @@
                                     <td style="text-align: center;">{{$item->start_date}}</td>
                                     <td style="text-align: center;">{{$item->end_date}}</td>
                                     <td class="center" style="text-align: center;">
+                                        <a class="fa fa-pencil fa-fw" href="{{route('admin.get.edit.sale',$item->id)}}" data-toggle="tooltip" data-placement="top" title="Sửa"></a>
+                                        /
                                         <a class="fa fa-trash-o fa-fw" onclick="return confirm('Bạn có chắc không?')" href="{{route('admin.get.delete.sale',$item->id)}}" data-toggle="tooltip" data-placement="top" title="Xóa"></a>
                                     </td>
                                 </tr>

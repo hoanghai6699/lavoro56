@@ -49,6 +49,8 @@
                                     <td style="text-align: center;"><?php echo e($item->start_date); ?></td>
                                     <td style="text-align: center;"><?php echo e($item->end_date); ?></td>
                                     <td class="center" style="text-align: center;">
+                                        <a class="fa fa-pencil fa-fw" href="<?php echo e(route('admin.get.edit.sale',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Sửa"></a>
+                                        /
                                         <a class="fa fa-trash-o fa-fw" onclick="return confirm('Bạn có chắc không?')" href="<?php echo e(route('admin.get.delete.sale',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Xóa"></a>
                                     </td>
                                 </tr>

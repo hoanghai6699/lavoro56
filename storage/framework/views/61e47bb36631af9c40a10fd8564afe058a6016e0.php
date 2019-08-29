@@ -101,6 +101,7 @@
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th>Thành tiền</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -136,6 +137,9 @@
                                     <?php endif; ?>
                                         
                                         </div>
+                                    </td>
+                                    <td class="center">
+                                        <a class="fa fa-trash-o  fa-fw" onclick="return confirm('Bạn có chắc không?')" href="<?php echo e(route('admin.get.delete.order',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Xóa"></a>
                                     </td>
                                 </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

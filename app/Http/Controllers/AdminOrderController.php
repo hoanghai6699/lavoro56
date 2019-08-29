@@ -59,4 +59,10 @@ class AdminOrderController extends Controller
         $delivery = Order::all();
         return view('admin.order.delivery',compact('delivery'));
     }
+
+    public function delete($id){
+        $order_detail = OrderDetail::find($id);
+        $order_detail->delete($id);
+        return redirect()->back()->with(['level'=>'success','success'=>'Xóa sản phẩm chi tiết đơn hàng thành công']);
+    }
 }
