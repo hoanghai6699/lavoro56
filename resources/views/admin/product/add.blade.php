@@ -50,7 +50,7 @@
                                 
                                 <div class="form-group">
                                     <label>Ảnh sản phẩm</label>
-                                    <input type="file" name="image" multiple />
+                                    <input type="file" name="image" multiple style="width: 250px;"/>
                                     @if($errors->has('image'))
                                     <div class="help-block" style="color: red;">
                                         {{$errors->first('image')}}
@@ -87,7 +87,7 @@
                                 
                                 <div class="form-group">
                                     <label>Thêm mới ảnh chi tiết</label>
-                                    <input type="file" name="fProductDetail[]" multiple/>
+                                    <input type="file" name="fProductDetail[]" multiple style="width: 250px;"/>
                                 </div>
                             </div>
                         </div>

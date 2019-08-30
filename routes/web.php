@@ -36,6 +36,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/action/{id}','AdminProductController@action')->name('admin.get.action.product');
 		Route::get('/action1/{id}','AdminProductController@action1')->name('admin.get.action1.product');
 		Route::get('/delete-img/{id}','AdminProductController@delete_img')->name('admin.delete-img.product');
+		Route::get('export', 'AdminProductController@export')->name('export');
+		Route::get('importExportView', 'AdminProductController@importExportView')->name('importExportView');
+		Route::post('import', 'AdminProductController@import')->name('import');
 	});
 	Route::group(['prefix'=>'sale'],function(){
 		Route::get('/','AdminSaleController@list')->name('admin.get.list.sale');

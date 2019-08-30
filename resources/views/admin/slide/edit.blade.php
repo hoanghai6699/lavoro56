@@ -24,7 +24,7 @@
                                     <img src="{{url('public/frontend/img')}}/{{$slide->image}}" alt="" style="width: 1059px;height: 276px;">
                                     <input type="hidden" name="img_current" value="{!! $slide->image !!}">
                                 </a>
-                                <input type="file" name="image" multiple />
+                                <input type="file" name="image" multiple style="width: 250px;"/>
                                 @if($errors->has('image'))
                                 <div class="help-block" style="color: red;">
                                     {{$errors->first('image')}}

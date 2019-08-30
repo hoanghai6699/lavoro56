@@ -8,7 +8,9 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductProperties;
 use App\Models\Size;
-use File,Auth,DB;
+use File,Auth,DB,Excel;
+use App\Exports\ProductsExport;
+use App\Imports\ProductsImport;
 
 class AdminProductController extends Controller
 {
@@ -188,5 +190,24 @@ class AdminProductController extends Controller
             return json_encode(array(
                 'valid' => $valid
             ));
+    }
+    public function importExportView(){
+        return view('admin.product.importexport');
+    }
+
+    public function export(){
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
+
+    public function import(Request $req){
+        $this->validate($req,[
+            'excel' => 'required|mimes:xlsx,xlsm,xls,csv'
+        ],[
+            'excel.required' => 'Tệp nhập vào không được để trống',
+            'excel.mimes' => 'Tệp nhập vào phải có một trong các định dạng xlsx,xlsm,xls,csv'
+        ]);
+        Excel::import(new ProductsImport,$req->file('excel'));
+           
+        return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Nhập dữ liệu sản phẩm thành công']);
     }
 }

@@ -157,7 +157,7 @@
                                 <li class="{{\Request::route()->getName()=='admin.get.add.category'?'active':''}}"><a href="{!!route('admin.get.add.category')!!}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="{{\Request::route()->getName()=='admin.get.list.product' || \Request::route()->getName()=='admin.get.add.product' ? 'active' : '' }} treeview">
+                        <li class="{{\Request::route()->getName()=='admin.get.list.product' || \Request::route()->getName()=='admin.get.add.product' || \Request::route()->getName()=='importExportView' ? 'active' : '' }} treeview">
                             <a href="#">
                             <i class="fa fa-product-hunt"></i> <span>Sản phẩm</span>
                             <span class="pull-right-container">
@@ -167,6 +167,7 @@
                             <ul class="treeview-menu">
                                 <li class="{{\Request::route()->getName()=='admin.get.list.product'?'active':''}}"><a href="{!!route('admin.get.list.product')!!}"><i class="fa fa-circle-o"></i> Quản lý sản phẩm</a></li>
                                 <li class="{{\Request::route()->getName()=='admin.get.add.product'?'active':''}}"><a href="{!!route('admin.get.add.product')!!}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
+                                <li class="{{\Request::route()->getName()=='importExportView'?'active':''}}"><a href="{!!route('importExportView')!!}"><i class="fa fa-circle-o"></i> Import/Export</a></li>
                             </ul>
                         </li>
                         <li class="{{\Request::route()->getName()=='admin.get.list.article' || \Request::route()->getName()=='admin.get.add.article' ? 'active' : '' }} treeview">

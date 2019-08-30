@@ -59,7 +59,7 @@
                                         <img src="{{url('uploads/')}}/{{$product->image}}" alt="" width="250px">
                                         <input type="hidden" name="img_current" value="{!! $product->image !!}">
                                     </a>
-                                    <input type="file" name="image" multiple/>
+                                    <input type="file" name="image" multiple style="width: 250px;"/>
                                     @if($errors->has('image'))
                                     <div class="help-block" style="color: red;">
                                         {{$errors->first('image')}}
@@ -97,7 +97,7 @@
                                     </a>
                                 @endforeach
                                 <label>Thêm mới ảnh chi tiết</label>
-                                <input type="file" name="fProductDetail[]" multiple/>
+                                <input type="file" name="fProductDetail[]" multiple style="width: 250px;"/>
                             </div>
                         </div>
                     </form>

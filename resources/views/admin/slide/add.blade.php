@@ -20,7 +20,7 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Hình ảnh</label>
-                                <input type="file" name="image" multiple />
+                                <input type="file" name="image" multiple style="width: 250px;"/>
                                 @if($errors->has('image'))
                                 <div class="help-block" style="color: red;">
                                     {{$errors->first('image')}}
