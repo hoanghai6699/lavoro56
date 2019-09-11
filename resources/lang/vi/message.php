@@ -86,5 +86,10 @@
 		'english' => 'Tiếng anh',
 		'vietnam' => 'Tiếng việt',
 		'search' => 'Tìm kiếm',
+		'commodities' => 'Loại hàng hóa',
+		'bill' => 'Hóa đơn',
+		'bank' => 'Ngân hàng',
+		'language' => 'Ngôn ngữ',
+		'not selected' => 'Không chọn',
 	];
 ?>

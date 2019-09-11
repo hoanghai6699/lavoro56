@@ -108,31 +108,31 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="language">Loại hàng hóa </label>
+                                <label for="language">{!! trans('message.commodities') !!}</label>
                                 <select name="order_type" id="order_type" class="form-control">
-                                    <option value="billpayment">Thanh toán hóa đơn</option>
+                                    <option value="billpayment">{!! trans('message.payment') !!} {!! trans('message.bill') !!}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="bank_code">Ngân hàng</label>
+                                <label for="bank_code">{!! trans('message.bank') !!}</label>
                                 <select name="bank_code" id="bank_code" class="form-control">
-                                    <option value="">Không chọn</option>
-                                    <option value="NCB"> Ngan hang NCB</option>
-                                    <option value="AGRIBANK"> Ngan hang Agribank</option>
-                                    <option value="VIETINBANK">Ngan hang Vietinbank</option>
-                                    <option value="BIDV"> Ngân hàng BIDV</option>
-                                    <option value="TECHCOMBANK"> Ngân hàng Techcombank</option>
+                                    <option value="">{!! trans('message.not selected') !!}</option>
+                                    <option value="NCB"> {!! trans('message.bank') !!} NCB</option>
+                                    <option value="AGRIBANK"> {!! trans('message.bank') !!} Agribank</option>
+                                    <option value="VIETINBANK">{!! trans('message.bank') !!} Vietinbank</option>
+                                    <option value="BIDV"> {!! trans('message.bank') !!} BIDV</option>
+                                    <option value="TECHCOMBANK"> {!! trans('message.bank') !!} Techcombank</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="language">Ngôn ngữ</label>
+                                <label for="language">{!! trans('message.language') !!}</label>
                                 <select name="language" id="language" class="form-control">
-                                    <option value="vn">Tiếng Việt</option>
-                                    <option value="en">English</option>
+                                    <option value="vn">{!! trans('message.vietnam') !!}</option>
+                                    <option value="en">{!! trans('message.english') !!}</option>
                                 </select>
                             </div>
                         </div>

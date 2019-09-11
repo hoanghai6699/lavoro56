@@ -2,16 +2,17 @@
 @section('title','Giỏ hàng')
 @section('content')
 <form action="" method="post">
-	{{csrf_field()}}
+{{csrf_field()}}
 <script>
-  function updatecart(qty,rowId){
-  $.get(
-    '{{ asset("cap-nhat") }}',
-    {qty:qty,rowId:rowId},
-    function(){
-      location.reload();
-    }
-  );
+	function updatecart(qty,rowId){
+	$.get(
+	    '{{ asset("cap-nhat") }}',
+	    {qty:qty,rowId:rowId},
+	    function(){
+	    	toastr.success(data.valid.messages);
+	      	location.reload();
+	    }
+	);
 }
 </script>
 <div class="breadcrumbs">

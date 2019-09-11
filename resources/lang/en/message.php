@@ -86,5 +86,10 @@
 		'english' => 'English',
 		'vietnam' => 'Vietnamese',
 		'search' => 'Search',
+		'commodities' => 'Commodities',
+		'bill' => 'Bill',
+		'bank' => 'Bank',
+		'language' => 'Language',
+		'not selected' => 'Not selected',
 	];
 ?>

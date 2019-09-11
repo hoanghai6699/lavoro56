@@ -108,31 +108,31 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="language">Loại hàng hóa </label>
+                                <label for="language"><?php echo trans('message.commodities'); ?></label>
                                 <select name="order_type" id="order_type" class="form-control">
-                                    <option value="billpayment">Thanh toán hóa đơn</option>
+                                    <option value="billpayment"><?php echo trans('message.payment'); ?> <?php echo trans('message.bill'); ?></option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="bank_code">Ngân hàng</label>
+                                <label for="bank_code"><?php echo trans('message.bank'); ?></label>
                                 <select name="bank_code" id="bank_code" class="form-control">
-                                    <option value="">Không chọn</option>
-                                    <option value="NCB"> Ngan hang NCB</option>
-                                    <option value="AGRIBANK"> Ngan hang Agribank</option>
-                                    <option value="VIETINBANK">Ngan hang Vietinbank</option>
-                                    <option value="BIDV"> Ngân hàng BIDV</option>
-                                    <option value="TECHCOMBANK"> Ngân hàng Techcombank</option>
+                                    <option value=""><?php echo trans('message.not selected'); ?></option>
+                                    <option value="NCB"> <?php echo trans('message.bank'); ?> NCB</option>
+                                    <option value="AGRIBANK"> <?php echo trans('message.bank'); ?> Agribank</option>
+                                    <option value="VIETINBANK"><?php echo trans('message.bank'); ?> Vietinbank</option>
+                                    <option value="BIDV"> <?php echo trans('message.bank'); ?> BIDV</option>
+                                    <option value="TECHCOMBANK"> <?php echo trans('message.bank'); ?> Techcombank</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="language">Ngôn ngữ</label>
+                                <label for="language"><?php echo trans('message.language'); ?></label>
                                 <select name="language" id="language" class="form-control">
-                                    <option value="vn">Tiếng Việt</option>
-                                    <option value="en">English</option>
+                                    <option value="vn"><?php echo trans('message.vietnam'); ?></option>
+                                    <option value="en"><?php echo trans('message.english'); ?></option>
                                 </select>
                             </div>
                         </div>

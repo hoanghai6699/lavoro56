@@ -1,17 +1,18 @@
 <?php $__env->startSection('title','Giỏ hàng'); ?>
 <?php $__env->startSection('content'); ?>
 <form action="" method="post">
-	<?php echo e(csrf_field()); ?>
+<?php echo e(csrf_field()); ?>
 
 <script>
-  function updatecart(qty,rowId){
-  $.get(
-    '<?php echo e(asset("cap-nhat")); ?>',
-    {qty:qty,rowId:rowId},
-    function(){
-      location.reload();
-    }
-  );
+	function updatecart(qty,rowId){
+	$.get(
+	    '<?php echo e(asset("cap-nhat")); ?>',
+	    {qty:qty,rowId:rowId},
+	    function(){
+	    	toastr.success(data.valid.messages);
+	      	location.reload();
+	    }
+	);
 }
 </script>
 <div class="breadcrumbs">
