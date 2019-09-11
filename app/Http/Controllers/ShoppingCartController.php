@@ -32,7 +32,7 @@ class ShoppingCartController extends Controller
     	Cart::remove($key);
     	return redirect()->route('shoppingcart.get.giohang');
     }
-    public function thanhtoan(){
+    public function thanhtoannhanhang(){                       
         $couponId = session()->get('coupon')['couponId'] ?? 0;
         $discount = session()->get('coupon')['discount'] ?? 0;
         $newtotal = (Cart::total() - $discount);
@@ -44,71 +44,80 @@ class ShoppingCartController extends Controller
             'newtotal' => $newtotal
         ]);
     }
+
+    public function thanhtoanatm(){                       
+        $couponId = session()->get('coupon')['couponId'] ?? 0;
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newtotal = (Cart::total() - $discount);
+        $content = Cart::content();
+        $total = Cart::total();
+        return view('frontend.vnpay_index',compact('content','total'))->with([
+            'couponId' => $couponId,
+            'discount' => $discount,
+            'newtotal' => $newtotal
+        ]);
+    }
+
     public function luuthanhtoan(Request $req){
-        if($req->payment_method == 'cod'){
-            $this->validate($req,[
-                'address' => 'required'
-            ],[
-                'address.required' => 'Vui lòng nhập địa chỉ'
-            ]);
-            $totalMoney = str_replace('.', '', Cart::total());
-            $orderId = Order::insertGetId([
-                'email' => $req->email,
-                'user_id' => Auth::user()->id,
-                'total' => ((int)$totalMoney - $discount = session()->get('coupon')['discount']) ?? (int)$totalMoney,
-                'note' => $req->note,
-                'phone' => $req->phone,
-                'address' => $req->address,
-                'payment_method' => $req->payment_method,
-                'payment' => 'Chưa thanh toán',
-                'coupon_id' => $couponId = session()->get('coupon')['couponId'] ?? NULL,
+        $this->validate($req,[
+            'address' => 'required'
+        ],[
+            'address.required' => 'Vui lòng nhập địa chỉ'
+        ]);
+        $totalMoney = str_replace('.', '', Cart::total());
+        $orderId = Order::insertGetId([
+            'email' => $req->email,
+            'user_id' => Auth::user()->id,
+            'total' => ((int)$totalMoney - $discount = session()->get('coupon')['discount']) ?? (int)$totalMoney,
+            'note' => $req->note,
+            'phone' => $req->phone,
+            'address' => $req->address,
+            'payment_method' => 'cod',
+            'payment' => 'Chưa thanh toán',
+            'coupon_id' => $couponId = session()->get('coupon')['couponId'] ?? NULL,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]); 
+        
+        if ($orderId) {
+            $content = Cart::content();
+            foreach ($content as $item)
+            {
+                OrderDetail::insert([
+                'order_id' => $orderId,
+                'product_id' => $item->id,
+                'qty' => $item->qty,
+                'size_id' => $item->options->size,
+                'price' => $item->options->price_old,
+                'price_sale' => $item->options->sale,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ]); 
-            
-            if ($orderId) {
-                $content = Cart::content();
-                foreach ($content as $item)
-                {
-                    OrderDetail::insert([
-                    'order_id' => $orderId,
-                    'product_id' => $item->id,
-                    'qty' => $item->qty,
-                    'size_id' => $item->options->size,
-                    'price' => $item->options->price_old,
-                    'price_sale' => $item->options->sale,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                    ]);
-                } 
-            }
-            $email = $req->email;
-            $data['info'] = $req->all();
-            $data['total'] = Cart::total();
-            $data['cart'] = Cart::content();
-            Mail::send('frontend.email', $data, function($message) use ($email){
-                $message ->from('nghhai2712@gmail.com','Larovo');
-                $message ->to($email,$email);
-                $message ->cc('nghhai2712@gmail.com','Hoàng Hải');
-                $message ->subject('Xác nhận hóa đơn mua hàng');
-            });
-            // send notifications
-            $users = User::where('level', 1)->get();
-            
-            $when = Carbon::now()->addSeconds(10);
-
-            $order = Order::find($orderId);
-            
-            // send notification
-            \Notification::send($users, (new checkoutNoti($order))->delay($when));
-
-            Cart::destroy();
-            session()->forget('coupon');
-            return redirect()->route('complete');
-        }elseif($req->payment_method == 'atm'){
-            
-            return redirect()->route('vnpay');
+                ]);
+            } 
         }
+        $email = $req->email;
+        $data['info'] = $req->all();
+        $data['total'] = Cart::total();
+        $data['cart'] = Cart::content();
+        Mail::send('frontend.email', $data, function($message) use ($email){
+            $message ->from('nghhai2712@gmail.com','Larovo');
+            $message ->to($email,$email);
+            $message ->cc('nghhai2712@gmail.com','Hoàng Hải');
+            $message ->subject('Xác nhận hóa đơn mua hàng');
+        });
+        // send notifications
+        $users = User::where('level', 1)->get();
+        
+        $when = Carbon::now()->addSeconds(10);
+
+        $order = Order::find($orderId);
+        
+        // send notification
+        \Notification::send($users, (new checkoutNoti($order))->delay($when));
+
+        Cart::destroy();
+        session()->forget('coupon');
+        return redirect()->route('complete');
     }
     public function complete(){
         return view('frontend.complete');

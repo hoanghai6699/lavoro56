@@ -75,7 +75,8 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/view/{id}','AdminOrderController@view')->name('admin.get.view.order');
 		Route::post('/view/{id}','AdminOrderController@post_view');
 		Route::get('/delete/{id}','AdminOrderController@delete')->name('admin.get.delete.order');
-
+		Route::get('/pooled','AdminOrderController@pooled')->name('admin.get.pooled.order');
+		Route::post('/pooled','AdminOrderController@post_pooled');
 	});
 	Route::group(['prefix'=>'warehouse'],function(){
 		Route::get('/','AdminWarehouseController@list')->name('admin.get.list.warehouse');
@@ -125,10 +126,11 @@ Route::group(['middleware' => 'locale'], function() {
 
 	Route::get('cap-nhat','ShoppingCartController@capnhat')->name('capnhat');
 	Route::group(['prefix'=>'gio-hang','middleware'=>'checkLogin'],function(){
-		Route::get('thanh-toan','ShoppingCartController@thanhtoan')->name('shoppingcart.get.thanhtoan');
-		Route::post('thanh-toan','ShoppingCartController@luuthanhtoan');
+		Route::get('thanh-toan-nhan-hang','ShoppingCartController@thanhtoannhanhang')->name('thanh-toan-nhan-hang');
+		Route::get('thanh-toan-atm','ShoppingCartController@thanhtoanatm')->name('thanh-toan-atm');
+		Route::post('thanh-toan-nhan-hang','ShoppingCartController@luuthanhtoan');
 		//vnpay
-		Route::group(['prefix'=>'thanh-toan'],function(){
+		Route::group(['prefix'=>'thanh-toan-atm'],function(){
 			Route::get('/vnpay','VnpayController@vnpay')->name('vnpay');
 			Route::post('/vnpay','VnpayController@create_vnpay')->name('create-vnpay');
 			Route::get('/vnpay-ipn','VnpayController@vnpay_ipn')->name('vnpay-ipn');

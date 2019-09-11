@@ -79,7 +79,7 @@
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 					<tr>
 						<td colspan="3">Tổng tiền:</td>
-						<td class="total-price"><?php echo e(number_format($item->total,0,',','.')); ?>VNĐ</td>
+						<td class="total-price"><?php echo e(number_format($total,0,',','.')); ?>VNĐ</td>
 					</tr>
 				</table>
 			</div>

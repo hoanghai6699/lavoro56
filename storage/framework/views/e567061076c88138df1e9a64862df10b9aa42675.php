@@ -112,7 +112,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 vendee-clue">
-				<div class="shipping coupon"></div>
+				<div class="shipping coupon" style="width: 237px;"></div>
 				<div class="shipping coupon hidden-sm">
 					<?php if(!(session()->has('coupon'))): ?>
 					<div class=""><h5><?php echo trans('message.discount codes'); ?></h5></div>
@@ -123,7 +123,7 @@
 					</form>
 					<?php endif; ?>
 				</div>
-				<div class="shipping coupon cart-totals">
+				<div class="shipping coupon cart-totals" style="width: 500px;">
 					<ul>
 						<li class="cartSubT"><?php echo trans('message.free ship'); ?>:    <span>0đ</span></li>
 						<?php if(session()->has('coupon')): ?>
@@ -141,7 +141,10 @@
 						<?php endif; ?>
 						
 					</ul>
-					<a class="proceedbtn" href="<?php echo e(route('shoppingcart.get.thanhtoan')); ?>"><?php echo trans('message.payment'); ?></a>
+					<div class="col-md-6"><a class="proceedbtn" href="<?php echo e(route('thanh-toan-nhan-hang')); ?>"><?php echo trans('message.payment on delivery'); ?></a></div>
+					<div class="col-md-6">
+					<a class="proceedbtn" href="<?php echo e(route('thanh-toan-atm')); ?>"><?php echo trans('message.pay by ATM'); ?></a>
+					</div>
 				</div>
 			</div>
 		</div>

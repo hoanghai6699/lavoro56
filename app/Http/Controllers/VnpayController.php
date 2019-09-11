@@ -83,7 +83,7 @@ class VnpayController extends Controller
         $vnp_TmnCode = "UDOPNWS1"; //Mã website tại VNPAY 
         $vnp_HashSecret = "EBAHADUGCOEWYXCMYZRMTMLSHGKNRPBN"; //Chuỗi bí mật
         $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = "http://localhost/lavoro56/gio-hang/thanh-toan/vnpay-return";
+        $vnp_Returnurl = "http://localhost/lavoro56/gio-hang/thanh-toan-atm/vnpay-return";
 
         //$vnp_TxnRef = $_POST['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         //$vnp_OrderInfo = $_POST['order_desc'];
@@ -155,7 +155,7 @@ class VnpayController extends Controller
         //dd($vnp_TmnCode);
         $vnp_HashSecret = "EBAHADUGCOEWYXCMYZRMTMLSHGKNRPBN"; //Chuỗi bí mật
         $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = "http://localhost/lavoro56/gio-hang/thanh-toan/vnpay-return";
+        $vnp_Returnurl = "http://localhost/lavoro56/gio-hang/thanh-toan-atm/vnpay-return";
         $inputData = array();
         $returnData = array();
         $data = $_REQUEST;
@@ -274,6 +274,7 @@ class VnpayController extends Controller
             $order = Order::find($orderId);
             $order->delete($orderId);
             Cart::destroy();
+            session()->forget('coupon');
             return redirect()->route('frontend.get.home');
         }
         

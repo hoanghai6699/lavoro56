@@ -76,31 +76,6 @@
                     </div>
                 </div>
                 <!--REVIEW ORDER END-->
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        {{trans('message.methods')}} {{trans('message.payment')}}
-                    </div>
-                    <div class="panel-body" style="position: relative;">
-                        <div id="payment_method_list" class="" style="box-sizing: border-box;">
-                            <div class="radio-input radio" style="font-size: 14px;color: #000;line-height: 21px;">
-                                <label for="cod" style="padding-left: 80px;">
-                                    <input type="radio" name="payment_method" value="cod" id="cod" checked="checked" class="styled" data-refresh="6">
-                                    <span class="text"><span></span></span>
-                                    {{trans('message.payment on delivery')}}
-                                    <span class="price"></span>
-                                </label>
-                            </div>
-                            <div class="radio-input radio" style="font-size: 14px;color: #000;line-height: 21px;">
-                                <label for="cod" style="padding-left: 80px;">
-                                    <input type="radio" name="payment_method" value="atm" id="atm" class="styled" data-refresh="6">
-                                    <span class="text"><span></span></span>
-                                    {{trans('message.pay by ATM')}}
-                                    <span class="price"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
             	@if(Auth::check())
