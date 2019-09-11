@@ -142,9 +142,9 @@
 						<?php endif; ?>
 						
 					</ul>
-					<div class="col-md-6"><a class="proceedbtn" href="<?php echo e(route('thanh-toan-nhan-hang')); ?>"><?php echo trans('message.payment on delivery'); ?></a></div>
+					<div class="col-md-6"><a class="proceedbtn" href="<?php echo e(route('thanh-toan-nhan-hang')); ?>" data-toggle="tooltip" data-placement="top" title="Ship COD"><?php echo trans('message.payment on delivery'); ?></a></div>
 					<div class="col-md-6">
-					<a class="proceedbtn" href="<?php echo e(route('thanh-toan-atm')); ?>"><?php echo trans('message.pay by ATM'); ?></a>
+					<a class="proceedbtn" href="<?php echo e(route('thanh-toan-atm')); ?>" data-toggle="tooltip" data-placement="top" title="ATM"><?php echo trans('message.pay by ATM'); ?></a>
 					</div>
 				</div>
 			</div>

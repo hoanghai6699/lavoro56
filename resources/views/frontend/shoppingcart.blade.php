@@ -139,9 +139,9 @@
 						@endif
 						
 					</ul>
-					<div class="col-md-6"><a class="proceedbtn" href="{{route('thanh-toan-nhan-hang')}}">{!! trans('message.payment on delivery') !!}</a></div>
+					<div class="col-md-6"><a class="proceedbtn" href="{{route('thanh-toan-nhan-hang')}}" data-toggle="tooltip" data-placement="top" title="Ship COD">{!! trans('message.payment on delivery') !!}</a></div>
 					<div class="col-md-6">
-					<a class="proceedbtn" href="{{route('thanh-toan-atm')}}">{!! trans('message.pay by ATM') !!}</a>
+					<a class="proceedbtn" href="{{route('thanh-toan-atm')}}" data-toggle="tooltip" data-placement="top" title="ATM">{!! trans('message.pay by ATM') !!}</a>
 					</div>
 				</div>
 			</div>
