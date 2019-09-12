@@ -155,4 +155,27 @@
 </div>
 </form>
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+<script>
+	<?php if(Session::has('message')): ?>
+		var type="<?php echo e(Session::get('alert-type','info')); ?>"
+
+		switch(type){
+			case 'info':
+		         toastr.info("<?php echo e(Session::get('message')); ?>");
+		         break;
+	        case 'success':
+	            toastr.success("<?php echo e(Session::get('message')); ?>");
+	            break;
+         	case 'warning':
+	            toastr.warning("<?php echo e(Session::get('message')); ?>");
+	            break;
+	        case 'error':
+		        toastr.error("<?php echo e(Session::get('message')); ?>");
+		        break;
+		}
+	<?php endif; ?>
+</script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('frontend.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

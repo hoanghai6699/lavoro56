@@ -189,7 +189,12 @@ class ShoppingCartController extends Controller
     public function store(Request $req){
         $coupon = Coupon::where('code',$req->coupon)->first();
         if(!$coupon || $coupon->qty == 0){
-            return redirect()->back()->with(['level'=>'warning','success'=>'Mã giảm giá không tồn tại hoặc đã hết số lần sử dụng']);
+            echo "error";
+            $notification = array(
+                'message' => 'Mã giảm giá không tồn tại hoặc đã hết số lần sử dụng!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
         }
 
         session()->put('coupon',[
@@ -197,13 +202,21 @@ class ShoppingCartController extends Controller
             'name' => $coupon->code,
             'discount' => $coupon->discount(Cart::total()),
         ]);
-
-        return redirect()->back()->with(['level'=>'success','success'=>'Mã giảm giá hợp lệ']);
+        echo "success";
+            $notification = array(
+                'message' => 'Mã giảm giá hợp lệ!',
+                'alert-type' => 'success'
+            );
+        return redirect()->back()->with($notification);
     }
 
     public function destroy(){
         session()->forget('coupon');
-
-        return redirect()->back()->with(['level'=>'warning','success'=>'Bạn đã hủy mã giảm giá']);
+        echo "warning";
+            $notification = array(
+                'message' => 'Bạn đã hủy mã giảm giá!',
+                'alert-type' => 'warning'
+            );
+        return redirect()->back()->with($notification);
     }
 }

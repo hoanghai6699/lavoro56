@@ -190,7 +190,6 @@
                                 <li class="{{\Request::route()->getName()=='admin.get.list.order'?'active':''}}"><a href="{!!route('admin.get.list.order')!!}"><i class="fa fa-circle-o"></i> Quản lý đơn hàng</a></li>
                                 <li class="{{\Request::route()->getName()=='admin.get.list.chua-xu-ly'?'active':''}}"><a href="{!!route('admin.get.list.chua-xu-ly')!!}"><i class="fa fa-circle-o"></i> Đơn hàng chờ xử lý</a></li>
                                 <li class="{{\Request::route()->getName()=='admin.get.list.dang-giao-hang'?'active':''}}"><a href="{!!route('admin.get.list.dang-giao-hang')!!}"><i class="fa fa-circle-o"></i> Đơn hàng đang giao</a></li>
-                                <li class="{{\Request::route()->getName()=='admin.get.pooled.order'?'active':''}}"><a href="{!!route('admin.get.pooled.order')!!}"><i class="fa fa-circle-o"></i> Gộp đơn hàng</a></li>
                             </ul>
                         </li>
                         <li class="{{\Request::route()->getName()=='admin.get.list.user' || \Request::route()->getName()=='admin.get.add.user' ? 'active' : '' }} treeview">
