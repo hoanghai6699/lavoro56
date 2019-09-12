@@ -75,8 +75,6 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/view/{id}','AdminOrderController@view')->name('admin.get.view.order');
 		Route::post('/view/{id}','AdminOrderController@post_view');
 		Route::get('/delete/{id}','AdminOrderController@delete')->name('admin.get.delete.order');
-		Route::get('/pooled','AdminOrderController@pooled')->name('admin.get.pooled.order');
-		Route::post('/pooled','AdminOrderController@post_pooled');
 	});
 	Route::group(['prefix'=>'warehouse'],function(){
 		Route::get('/','AdminWarehouseController@list')->name('admin.get.list.warehouse');

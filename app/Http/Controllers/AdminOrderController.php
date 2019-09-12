@@ -65,27 +65,4 @@ class AdminOrderController extends Controller
         $order_detail->delete($id);
         return redirect()->back()->with(['level'=>'success','success'=>'Xóa sản phẩm chi tiết đơn hàng thành công']);
     }
-
-    public function pooled(){
-        $pooled = Order::all();
-        return view('admin.order.pooled',compact('pooled'));
-    }
-    public function post_pooled(Request $req){
-        $this->validate($req,[
-            'pooled' => 'required'
-        ],[
-            'pooled.required' => 'Bạn chưa chọn đơn hàng cần gộp'
-        ]);
-        $po = Order::find($req->pooled);
-        dd($po);
-        $order = Order::insert([
-            'email' => $po[0]->email,
-            'address' => $po[0]->address,
-            'phone' => $po[0]->phone,
-            'note' => 'Đơn hàng gộp',
-            'user_id' => $po[0]->user_id,
-            'status' => '0',
-        ]);
-        return back();
-    }
 }

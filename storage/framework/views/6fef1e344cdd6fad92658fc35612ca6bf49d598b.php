@@ -60,9 +60,7 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <li class="dropdown notifications-menu">
-                                <?php if(Auth::user()->level == 1): ?>
-                                    <?php $user = Auth::user();
-                                    ?>
+                                <?php $user = Auth::user();?>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="top" title="Thông báo">
                                 <i class="fa fa-bell-o"></i>
                                 <span class="label label-warning "><?php if(count($user->unreadNotifications) > 0): ?> <?php echo e(count($user->unreadNotifications)); ?><?php else: ?> 0 <?php endif; ?></span>
@@ -89,7 +87,6 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <?php endif; ?>
                             </li>
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
