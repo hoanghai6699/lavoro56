@@ -10,6 +10,10 @@
 							<a href="<?php echo e(route('frontend.get.home')); ?>"><?php echo trans('message.home'); ?></a>
 							<span><i class="fa fa-angle-right"></i></span>
 						</li>
+						<li class="home">
+							<a href="<?php echo e(route('don-hang')); ?>"><?php echo trans('message.order history'); ?></a>
+							<span><i class="fa fa-angle-right"></i></span>
+						</li>
 						<li class="category3"><span><?php echo trans('message.follow'); ?> <?php echo trans('message.order'); ?></span></li>
 					</ul>
 				</div>

@@ -11,6 +11,10 @@
 							<a href="{{route('frontend.get.home')}}">{!! trans('message.home') !!}</a>
 							<span><i class="fa fa-angle-right"></i></span>
 						</li>
+						<li class="home">
+							<a href="{{route('don-hang')}}">{!! trans('message.order history') !!}</a>
+							<span><i class="fa fa-angle-right"></i></span>
+						</li>
 						<li class="category3"><span>{!! trans('message.follow') !!} {!! trans('message.order') !!}</span></li>
 					</ul>
 				</div>
