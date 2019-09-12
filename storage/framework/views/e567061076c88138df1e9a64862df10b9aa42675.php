@@ -9,7 +9,6 @@
 	    '<?php echo e(asset("cap-nhat")); ?>',
 	    {qty:qty,rowId:rowId},
 	    function(){
-	    	toastr.success(data.valid.messages);
 	      	location.reload();
 	    }
 	);
