@@ -13,7 +13,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-body">
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4">Tổng số đơn hàng - <b><span id="total_records"></span></b></div>
                     <div class="col-md-5">
                         <div class="input-group input-daterange">
                             <input type="text" name="from_date" id="from_date" readonly class="form-control" />
@@ -107,6 +107,7 @@ $(document).ready(function(){
             {
             
             var output = '';
+            $('#total_records').text(data.length);
             for(var count = 0; count < data.length; count++)
             {
                 let ngayThang = new Date(data[count].created_at);
