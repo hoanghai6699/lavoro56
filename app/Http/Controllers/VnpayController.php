@@ -27,6 +27,20 @@ class VnpayController extends Controller
     }
     public function create_vnpay(Request $req){
         $valid = array('code' => false, 'messages' => array());
+        if($req->city==NULL){
+            $valid['code'] = false;
+            $valid['messages'] = "Vui lòng nhập thành phố";
+            return json_encode(array(
+                'valid' => $valid
+            ));
+        }
+        if($req->district==NULL){
+            $valid['code'] = false;
+            $valid['messages'] = "Vui lòng nhập quận huyện";
+            return json_encode(array(
+                'valid' => $valid
+            ));
+        }
         if($req->address==NULL){
             $valid['code'] = false;
             $valid['messages'] = "Vui lòng nhập địa chỉ";
@@ -49,6 +63,8 @@ class VnpayController extends Controller
             'total' => ((int)$totalMoney - $discount = session()->get('coupon')['discount']) ?? (int)$totalMoney,
             'note' => $req->note,
             'phone' => $req->phone,
+            'city_id' => $req->city,
+            'district_id' => $req->district,
             'address' => $req->address,
             'payment_method' => 'atm',
             'payment' => 'Chưa thanh toán',

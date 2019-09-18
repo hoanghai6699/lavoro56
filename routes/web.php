@@ -98,6 +98,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 	Route::post('ajax-edit-quantity','AdminProductController@postAjaxEditQuantity')->name('ajax.edit.quantity');
 	//Route::post('ajax-add-coupon','AdminCouponController@postAjaxAddCoupon')->name('ajax.add.coupon');
 	Route::get('/report','AdminController@report')->name('report');
+	Route::post('/report/fetch_data','AdminController@fetch_data')->name('fetch_data');
 	
 });
 Route::group(['middleware' => 'loginAdmin'],function(){

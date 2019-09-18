@@ -59,6 +59,7 @@ class ShoppingCartController extends Controller
     }
 
     public function luuthanhtoan(Request $req){
+
         $this->validate($req,[
             'address' => 'required',
             'city' => 'required',
@@ -102,8 +103,9 @@ class ShoppingCartController extends Controller
                 ]);
             } 
         }
-        $email = $req->email;
-        $data['info'] = $req->all();
+        $order = Order::find($orderId);
+        $email = $order->email;
+        $data['info'] = $order;
         $data['total'] = Cart::total();
         $data['cart'] = Cart::content();
         Mail::send('frontend.email', $data, function($message) use ($email){

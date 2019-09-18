@@ -329,7 +329,15 @@
         <script type="text/javascript" src="<?php echo e(url('/')); ?>/public/admin/toastr.min.js"></script>
         <script>
             $(function () {
-              $('#example1').DataTable()
+                $('#example1').DataTable()
+                $('#example2').DataTable({
+                    'paging'      : true,
+                    'lengthChange': false,
+                    'searching'   : false,
+                    'ordering'    : true,
+                    'info'        : true,
+                    'autoWidth'   : false
+                })
             })
         </script>
         <script>
