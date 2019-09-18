@@ -57,26 +57,3 @@
     </section>
 </div>
 @stop
-
-@section('script')
-<script type="text/javascript">
-    $(document).ready(function (){
-        $('#type').on('click', function (){
-            let type = $('#type').val();
-            $.ajax({
-                url: `{{route('ajax.add.coupon')}}`,
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    'type': type
-                }
-                /**/
-            }).done(function (data) {
-                alert("Thêm vào giỏ hàng thành công");
-                location.reload();
-                //$('#add-to-cart').load('./shoppingcart.blade.php');
-            })
-        });
-    });
-</script>
-@stop

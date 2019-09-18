@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+<link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/dist/css/AdminLTE.min.css">
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Thêm khuyến mãi</h1>
@@ -26,7 +27,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Tên sản phẩm</label>
-                                        <select class="form-control" name="name_product">
+                                        <select class="form-control select2" name="name_product" style="width: 100%;">
                                             <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -97,4 +98,11 @@
 </div>
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('script'); ?>
+
+
+<script>
+    $('.select2').select2()
+</script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

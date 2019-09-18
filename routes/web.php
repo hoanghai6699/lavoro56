@@ -96,18 +96,23 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/delete/{id}','AdminSlideController@delete')->name('admin.get.delete.slide');
 	});
 	Route::post('ajax-edit-quantity','AdminProductController@postAjaxEditQuantity')->name('ajax.edit.quantity');
-	Route::post('ajax-add-coupon','AdminCouponController@postAjaxAddCoupon')->name('ajax.add.coupon');
+	//Route::post('ajax-add-coupon','AdminCouponController@postAjaxAddCoupon')->name('ajax.add.coupon');
+	Route::get('/report','AdminController@report')->name('report');
 	
 });
-Route::get('admin/login','AdminController@login')->name('login');
-Route::post('admin/login','AdminController@post_login');
+Route::group(['middleware' => 'loginAdmin'],function(){
+	Route::get('admin/login','AdminController@login')->name('login');
+	Route::post('admin/login','AdminController@post_login');
+});
 Route::get('admin/logout','AdminController@logout')->name('logout');
 
 Route::group(['middleware' => 'locale'], function() {
 	Route::get('change-language/{language}','FrontendController@changeLanguage')->name('change-language');
 	Route::get('/','FrontendController@home')->name('frontend.get.home');
-	Route::get('/login','FrontendController@home_login')->name('home.login');
-	Route::post('/login','FrontendController@post_home_login');
+	Route::group(['middleware' => 'login'],function(){
+		Route::get('/login','FrontendController@home_login')->name('home.login');
+		Route::post('/login','FrontendController@post_home_login');
+	});
 	Route::get('/register','FrontendController@register')->name('register');
 	Route::post('/register','FrontendController@post_register');
 	Route::get('/logout','FrontendController@home_logout')->name('home.logout');
@@ -124,6 +129,11 @@ Route::group(['middleware' => 'locale'], function() {
 
 	Route::get('cap-nhat','ShoppingCartController@capnhat')->name('capnhat');
 	Route::group(['prefix'=>'gio-hang','middleware'=>'checkLogin'],function(){
+		Route::group(['prefix'=>'thanh-toan-nhan-hang'],function(){
+			Route::get('/','ShoppingCartController@thanhtoannhanhang')->name('thanh-toan-nhan-hang');
+			Route::post('/','ShoppingCartController@luuthanhtoan');
+			Route::get('getDistrict','FrontendController@getDistrict')->name('getDistrict');
+		});
 		Route::get('thanh-toan-nhan-hang','ShoppingCartController@thanhtoannhanhang')->name('thanh-toan-nhan-hang');
 		Route::get('thanh-toan-atm','ShoppingCartController@thanhtoanatm')->name('thanh-toan-atm');
 		Route::post('thanh-toan-nhan-hang','ShoppingCartController@luuthanhtoan');
@@ -148,4 +158,6 @@ Route::group(['middleware' => 'locale'], function() {
 	});
 	Route::get('/thay-doi-mat-khau','FrontendController@thaydoimatkhau')->name('thay-doi-mat-khau');
 	Route::post('/thay-doi-mat-khau','FrontendController@post_thaydoimatkhau');
+
+	
 });

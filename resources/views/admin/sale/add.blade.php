@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('content')
+<link rel="stylesheet" href="{{url('/')}}/public/admin/dist/css/AdminLTE.min.css">
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Thêm khuyến mãi</h1>
@@ -26,7 +27,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Tên sản phẩm</label>
-                                        <select class="form-control" name="name_product">
+                                        <select class="form-control select2" name="name_product" style="width: 100%;">
                                             @foreach($product as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
                                             @endforeach
@@ -91,4 +92,12 @@
         </div>
     </section>
 </div>
+@stop
+
+@section('script')
+
+
+<script>
+    $('.select2').select2()
+</script>
 @stop

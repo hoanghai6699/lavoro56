@@ -20,7 +20,6 @@ class CreateCategoriesTable extends Migration
             $table->tinyInteger('active')->default(1)->index();
             $table->integer('parent_id');
             $table->string('description')->nullable();
-            $table->string('keyword')->nullable();
             $table->timestamps();
         });
     }

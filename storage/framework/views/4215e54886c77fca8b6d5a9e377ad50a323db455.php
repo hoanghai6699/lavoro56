@@ -112,16 +112,8 @@
 										<input type="number" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
 									</div>
 									<div class="add-to-cart">
-										<button id="add-to-cart" class="btn"><?php echo trans('message.add to cart'); ?></button>
+										<button id="add-to-cart" class="btn btn-success"><?php echo trans('message.add to cart'); ?></button>
 									</div>
-									<!-- <div class="add-to-links">
-										<div class="add-to-wishlist">
-											<a href="#" data-toggle="tooltip" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-										</div>
-										<div class="compare-button">
-											<a href="#" data-toggle="tooltip" title="" data-original-title="Compare"><i class="fa fa-refresh"></i></a>
-										</div>									
-									</div> -->
 								</div>
 								<p><?php echo trans('message.remain'); ?> <span id='amount'></span> <?php echo trans('message.product'); ?></p>
 							</div>
@@ -234,7 +226,10 @@
                 		toastr.warning(data.valid.messages);
                 	} else {
                 		toastr.success(data.valid.messages);
-                		location.assign("<?php echo e(route("shoppingcart.get.giohang")); ?>");
+                		setTimeout(function() {
+                            location.assign("<?php echo e(route("shoppingcart.get.giohang")); ?>");
+                        }, 2000);
+                		
                 	}
                 }
 			})

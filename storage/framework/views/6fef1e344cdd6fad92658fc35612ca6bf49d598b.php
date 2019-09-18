@@ -10,6 +10,10 @@
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link href="<?php echo e(url('/')); ?>/public/admin/toastr.min.css" rel="stylesheet">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
@@ -22,6 +26,12 @@
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/morris.js/morris.css">
         <!-- jvectormap -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/jvectormap/jquery-jvectormap.css">
+        <!-- Bootstrap Color Picker -->
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+        <!-- Bootstrap time Picker -->
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/plugins/timepicker/bootstrap-timepicker.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/select2/dist/css/select2.min.css">
         <!-- Date Picker -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
         <!-- Daterange picker -->
@@ -216,6 +226,10 @@
                                 <li class="<?php echo e(\Request::route()->getName()=='admin.get.hang-ton'?'active':''); ?>"><a href="<?php echo route('admin.get.hang-ton'); ?>"><i class="fa fa-circle-o"></i> Hàng tồn</a></li>
                             </ul>
                         </li>
+                        <li class="<?php echo e(\Request::route()->getName()=='report'?'active':''); ?>">
+                            <a href="<?php echo e(route('report')); ?>">
+                            <i class="fa fa-flag"></i> <span>Thống kê</span></a>
+                        </li>
                         <li class="<?php echo e(\Request::route()->getName()=='admin.get.list.sale' || \Request::route()->getName()=='admin.get.add.sale' ? 'active' : ''); ?> treeview">
                             <a href="#">
                             <i class="fa fa-money"></i> <span>Khuyến mãi</span>
@@ -276,6 +290,11 @@
         <script>
             $.widget.bridge('uibutton', $.ui.button);
         </script>
+        <!-- bootstrap color picker -->
+        <script src="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+        <!-- bootstrap time picker -->
+        <script src="<?php echo e(url('/')); ?>/public/admin/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="<?php echo e(url('/')); ?>/public/admin/bower_components/select2/dist/js/select2.full.min.js"></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="<?php echo e(url('/')); ?>/public/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- Morris.js charts -->

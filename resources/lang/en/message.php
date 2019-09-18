@@ -91,5 +91,8 @@
 		'bank' => 'Bank',
 		'language' => 'Language',
 		'not selected' => 'Not selected',
+		'after' => 'after',
+		'city' => 'City',
+		'district' => 'District',
 	];
 ?>

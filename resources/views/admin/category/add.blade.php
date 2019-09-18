@@ -43,10 +43,6 @@
                                 <label>Mô tả</label>
                                 <textarea class="form-control" rows="3" name="description" placeholder="Mô tả"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Từ khóa</label>
-                                <textarea class="form-control" name="keyword" placeholder="Từ khóa"></textarea>
-                            </div>
                             <button type="submit" class="btn btn-primary">Thêm mới</button>
                         </div>
                     </form>

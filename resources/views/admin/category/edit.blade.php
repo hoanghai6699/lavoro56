@@ -43,10 +43,6 @@
                                 <label>Mô tả</label>
                                 <input type="text" class="form-control" name="description" placeholder="Mô tả" value="{{old('description',$category->description)}}">
                             </div>
-                            <div class="form-group">
-                                <label>Từ khóa</label>
-                                <input type="text" class="form-control" name="keyword" placeholder="Từ khóa" value="{{old('keyword',$category->keyword)}}">
-                            </div>
                             <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                         </div>
                     </form>

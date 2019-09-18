@@ -13,6 +13,8 @@ use App\Models\SaleProduct;
 use App\Models\Slide;
 use App\Models\Order;
 use App\Models\Size;
+use App\Models\District;
+use App\Models\Coupon;
 use Illuminate\Support\Facades\Input;
 
 class FrontendController extends Controller
@@ -169,7 +171,13 @@ class FrontendController extends Controller
     }
     public function home_logout(){
         Auth::logout();
-        session()->forget('coupon');
+        if (session()->has('coupon')) {
+            $couponId = session()->get('coupon')['couponId'] ?? 0;
+            $coupon = Coupon::where('id',$couponId)->first();
+            session()->forget('coupon');
+            $coupon_qty = $coupon->qty + 1;
+            $coupon = Coupon::where('id',$couponId)->update(['qty'=>$coupon_qty]);
+        }
         Cart::destroy();
         return redirect()->route('frontend.get.home')->with(['level'=>'success','success'=>'Thoát tài khoản thành công']);
     }
@@ -261,5 +269,10 @@ class FrontendController extends Controller
             return redirect()->back()->with(['level'=>'success','success'=>'Thay đổi mật khẩu thành công']);
         }
         return redirect()->back()->with(['level'=>'danger','success'=>'Mật khẩu cũ không đúng']);
+    }
+
+    public function getDistrict(Request $req){
+        $district = District::where('city_id',$req->city_id)->pluck('district','id');
+        return json_encode($district);
     }
 }

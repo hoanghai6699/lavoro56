@@ -60,9 +60,14 @@ class ShoppingCartController extends Controller
 
     public function luuthanhtoan(Request $req){
         $this->validate($req,[
-            'address' => 'required'
+            'address' => 'required',
+            'city' => 'required',
+            'district' => 'required'
+
         ],[
-            'address.required' => 'Vui lòng nhập địa chỉ'
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'city.required' => 'Vui lòng chọn thành phố',
+            'district.required' => 'Vui lòng chọn quận, huyện'
         ]);
         $totalMoney = str_replace('.', '', Cart::total());
         $orderId = Order::insertGetId([
@@ -72,6 +77,8 @@ class ShoppingCartController extends Controller
             'note' => $req->note,
             'phone' => $req->phone,
             'address' => $req->address,
+            'city_id' => $req->city,
+            'district_id' => $req->district,
             'payment_method' => 'cod',
             'payment' => 'Chưa thanh toán',
             'coupon_id' => $couponId = session()->get('coupon')['couponId'] ?? NULL,
@@ -136,7 +143,7 @@ class ShoppingCartController extends Controller
     public function ajaxMuaHang(Request $req)
     {
         $productId = $req->productId;
-        if ($req->qty == 0 || $req->qty == NULL) {
+        if ($req->qty <= 0 || $req->qty == NULL) {
             $qty = 1;
         }else{
             $qty = $req->qty;
@@ -202,6 +209,8 @@ class ShoppingCartController extends Controller
             'name' => $coupon->code,
             'discount' => $coupon->discount(Cart::total()),
         ]);
+        $coupon_qty = $coupon->qty - 1;
+        $coupon = Coupon::where('code',$req->coupon)->update(['qty'=>$coupon_qty]);
         echo "success";
             $notification = array(
                 'message' => 'Mã giảm giá hợp lệ!',
@@ -211,7 +220,11 @@ class ShoppingCartController extends Controller
     }
 
     public function destroy(){
+        $couponId = session()->get('coupon')['couponId'] ?? 0;
+        $coupon = Coupon::where('id',$couponId)->first();
         session()->forget('coupon');
+        $coupon_qty = $coupon->qty + 1;
+        $coupon = Coupon::where('id',$couponId)->update(['qty'=>$coupon_qty]);
         echo "warning";
             $notification = array(
                 'message' => 'Bạn đã hủy mã giảm giá!',

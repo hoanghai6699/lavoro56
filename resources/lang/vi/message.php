@@ -91,5 +91,8 @@
 		'bank' => 'Ngân hàng',
 		'language' => 'Ngôn ngữ',
 		'not selected' => 'Không chọn',
+		'after' => 'sau',
+		'city' => 'Thành phố',
+		'district' => 'Quận/Huyện',
 	];
 ?>

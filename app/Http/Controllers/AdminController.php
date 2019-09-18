@@ -51,10 +51,6 @@ class AdminController extends Controller
 	}
 
     public function report(){
-        $qty = OrderDetail::whereDay('created_at',date('d'))->where('product_id','=',1)->sum('qty');
-        
-        $qtyMonth = OrderDetail::whereMonth('updated_at',date('m'))->where('product_id','=',1)->sum('qty');
-        $qtyYear = OrderDetail::whereYear('updated_at',date('Y'))->where('product_id','=',1)->sum('qty');
-        return view('admin.report.index',compact('qty','qtyMonth','qtyYear'));
+        return view('admin.report.index');
     }
 }

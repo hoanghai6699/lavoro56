@@ -20,13 +20,11 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->integer('price');
             $table->tinyInteger('hot')->default(0)->index();
-            $table->tinyInteger('view')->default(0);
             $table->tinyInteger('active')->default(1)->index();
             $table->tinyInteger('gender');
             $table->integer('pay')->default(0);
             $table->longText('content')->nullable();
             $table->string('description')->nullable();
-            $table->string('keyword')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('category_id')->unsigned();

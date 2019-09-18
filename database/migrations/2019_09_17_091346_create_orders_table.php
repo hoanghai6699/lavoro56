@@ -16,7 +16,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
-            $table->string('address')->nullable();
+            $table->string('address');
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('districts')->onDelete('cascade');
+            $table->integer('district_id')->unsigned();
+            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
             $table->string('note')->nullable();
             $table->string('phone')->nullable();
             $table->integer('total')->default(0);

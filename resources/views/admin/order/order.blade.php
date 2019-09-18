@@ -51,7 +51,17 @@
                                             </tr>
                                             <tr>
                                                 <td>Địa chỉ</td>
-                                                <td>{{$order->address}}</td>
+                                                <td>
+                                                    {{$order->address}}
+                                                    -
+                                                    <?php $district = DB::table('districts')->where('id',$order["district_id"])->first();
+                                                        echo "$district->district"; 
+                                                    ?>
+                                                    -
+                                                    <?php $city = DB::table('cities')->where('id',$order["city_id"])->first();
+                                                        echo "$city->city"; 
+                                                    ?>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Số điện thoại</td>
@@ -70,8 +80,8 @@
                                     @if(empty($order->status == 2 || $order->status == 3))
                                         <label>Trạng thái</label>
                                         <select class="form-control" name="status">
-                                            <option value="0">Chờ xử lý</option>
-                                            <option value="1">Đang giao hàng</option>
+                                            <option value="0" @if($order->status==0) selected="selected" @endif>Chờ xử lý</option>
+                                            <option value="1" @if($order->status==1) selected="selected" @endif>Đang giao hàng</option>
                                             <option value="2">Đã nhận hàng</option>
                                             <option value="3">Đã hủy đơn</option>
                                         </select>

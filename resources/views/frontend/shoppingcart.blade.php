@@ -111,7 +111,7 @@
 		<div class="row">
 			<div class="col-md-12 vendee-clue">
 				<div class="shipping coupon" style="width: 237px;"></div>
-				<div class="shipping coupon hidden-sm">
+				<div class="shipping coupon hidden-sm" style="height: 172px;">
 					@if(!(session()->has('coupon')))
 					<div class=""><h5>{!! trans('message.discount codes') !!}</h5></div>
 					<form action="{{route('coupon.store')}}" method="post">

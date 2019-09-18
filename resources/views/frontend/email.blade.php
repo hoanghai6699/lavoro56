@@ -38,7 +38,11 @@
 				</p>
 				<p>
 					<span class="info">Địa chỉ: </span>
-					{{$info['address']}}
+					<?php 
+						$city = DB::table('cities')->where('id',$info['city'])->first();
+						$district = DB::table('districts')->where('id',$info['district'])->first();
+					?>
+					{{$info['address']}}-{{$district->district}}-{{$city->city}}
 				</p>
 				<p>
 					<span class="info">Ghi chú: </span>

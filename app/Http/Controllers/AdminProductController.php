@@ -177,19 +177,23 @@ class AdminProductController extends Controller
     public function postAjaxEditQuantity(Request $req){
         $product_id = $req->product_id;
         $size_id    =  $req->size_id;
-        if (isset($req->qty)) {
-            $qty = $req->qty;
-        } else if ($req->qty==null){
-            $qty = 1;
-        }
         $valid = array('success' => false, 'messages' => array());
-        //QueryBuilder udpate table
-        $qty = ProductProperties::where('product_id',$product_id)->where('size_id',$size_id)->update(['qty'=>$qty]);
-        $valid['success'] = true;
+        if ($req->qty==null || $req->qty<0) {
+            $valid['success'] = false;
+            $valid['messages'] = "Sửa số lượng sản phẩm thất bại";
+            return json_encode(array(
+                'valid' => $valid
+            ));
+        } else {
+            $qty = $req->qty;
+            //QueryBuilder udpate table
+            $qty = ProductProperties::where('product_id',$product_id)->where('size_id',$size_id)->update(['qty'=>$qty]);
+            $valid['success'] = true;
             $valid['messages'] = "Sửa số lượng sản phẩm thành công";
             return json_encode(array(
                 'valid' => $valid
             ));
+        }
     }
     public function importExportView(){
         return view('admin.product.importexport');

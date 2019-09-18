@@ -113,7 +113,7 @@
 		<div class="row">
 			<div class="col-md-12 vendee-clue">
 				<div class="shipping coupon" style="width: 237px;"></div>
-				<div class="shipping coupon hidden-sm">
+				<div class="shipping coupon hidden-sm" style="height: 172px;">
 					<?php if(!(session()->has('coupon'))): ?>
 					<div class=""><h5><?php echo trans('message.discount codes'); ?></h5></div>
 					<form action="<?php echo e(route('coupon.store')); ?>" method="post">

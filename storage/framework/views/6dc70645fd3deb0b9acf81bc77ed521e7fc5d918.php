@@ -41,7 +41,11 @@
 				</p>
 				<p>
 					<span class="info">Địa chỉ: </span>
-					<?php echo e($info['address']); ?>
+					<?php 
+						$city = DB::table('cities')->where('id',$info['city'])->first();
+						$district = DB::table('districts')->where('id',$info['district'])->first();
+					?>
+					<?php echo e($info['address']); ?>-<?php echo e($district->district); ?>-<?php echo e($city->city); ?>
 
 				</p>
 				<p>

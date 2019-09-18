@@ -39,11 +39,6 @@ class AdminOrderController extends Controller
                 $product->save();
 
             }
-            if($order->coupon_id){
-                $coupon = Coupon::where('id',$order->coupon_id)->select('qty')->first();
-            $coupon_qty = $coupon->qty - 1;
-            $coupon = Coupon::where('id',$order->coupon_id)->update(['qty'=>$coupon_qty]);
-            }
             $order->payment = 'Đã thanh toán';
         }
 

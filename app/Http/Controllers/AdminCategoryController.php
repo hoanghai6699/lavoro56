@@ -27,7 +27,6 @@ class AdminCategoryController extends Controller
         $category->slug = str_slug($req->name);
         $category->parent_id = $req->category_id;
         $category->description = $req->description;
-        $category->keyword = $req->keyword;
         $category->save();
 
         return redirect()->route('admin.get.list.category')->with(['level'=>'success','success'=>'Thêm mới danh mục thành công']);
@@ -43,7 +42,6 @@ class AdminCategoryController extends Controller
         $category->slug = str_slug($req->name);
         $category->parent_id = $req->category_id;
         $category->description = $req->description;
-        $category->keyword = $req->keyword;
         $category->save();
 
         return redirect()->route('admin.get.list.category')->with(['level'=>'success','success'=>'Sửa danh mục thành công']);

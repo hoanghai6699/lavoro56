@@ -108,7 +108,12 @@
                 
                 success:function(data)
                 {
-                    if (data.valid.success==true) {
+                    if (data.valid.success==false) {
+                        toastr.error(data.valid.messages);
+                        setTimeout(function() {
+                            document.location.reload()
+                        }, 2000);
+                    } else {
                         toastr.success(data.valid.messages);
                     }
                 }
