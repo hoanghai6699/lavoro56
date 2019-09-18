@@ -13,7 +13,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-body">
-                    <div class="col-md-5"></div>
+                    <div class="col-md-4"></div>
                     <div class="col-md-5">
                         <div class="input-group input-daterange">
                             <input type="text" name="from_date" id="from_date" readonly class="form-control" />
@@ -21,18 +21,19 @@
                             <input type="text"  name="to_date" id="to_date" readonly class="form-control" />
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <button type="button" name="filter" id="filter" class="btn btn-info btn-sm">lọc</button>
-                        <button type="button" name="refresh" id="refresh" class="btn btn-warning btn-sm">Refresh</button>
+                    <div class="col-md-3">
+                        <button type="button" name="filter" id="filter" class="btn btn-info btn-sm fa fa-search"> lọc</button>
+                        <button type="button" name="refresh" id="refresh" class="btn btn-warning btn-sm fa fa-refresh"> refresh</button>
+                        <a class="btn btn-primary fa fa-file-excel-o" href="{{ route('export') }}"> xuất excel</a>
                     </div>
                     
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Mã ĐH</th>
-                                <th>Khách hàng</th>
-                                <th>Ngày tạo</th>
-                                <th>Tổng tiền</th>
+                                <th style="text-align: center;width: 20%;">Mã ĐH</th>
+                                <th style="text-align: center;width: 40%;">Khách hàng</th>
+                                <th style="text-align: center;width: 20%;">Ngày tạo</th>
+                                <th style="text-align: center;width: 20%;">Tổng tiền</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,35 +66,35 @@ $(document).ready(function(){
     var _token = $('input[name="_token"]').val();
 
     fetch_data();
-    // function number_format(number, decimals, dec_point, thousands_point) {
+    function number_format(number, decimals, dec_point, thousands_point) {
 
-    //     if (number == null || !isFinite(number)) {
-    //         throw new TypeError("number is not valid");
-    //     }
+        if (number == null || !isFinite(number)) {
+            throw new TypeError("number is not valid");
+        }
 
-    //     if (!decimals) {
-    //         var len = number.toString().split('.').length;
-    //         decimals = len > 1 ? len : 0;
-    //     }
+        if (!decimals) {
+            var len = number.toString().split('.').length;
+            decimals = len > 1 ? len : 0;
+        }
 
-    //     if (!dec_point) {
-    //         dec_point = '.';
-    //     }
+        if (!dec_point) {
+            dec_point = '.';
+        }
 
-    //     if (!thousands_point) {
-    //         thousands_point = '.';
-    //     }
+        if (!thousands_point) {
+            thousands_point = '.';
+        }
 
-    //     number = parseFloat(number).toFixed(decimals);
+        number = parseFloat(number).toFixed(decimals);
 
-    //     number = number.replace(".", dec_point);
+        number = number.replace(".", dec_point);
 
-    //     var splitNum = number.split(dec_point);
-    //     splitNum[0] = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_point);
-    //     number = splitNum.join(dec_point);
+        var splitNum = number.split(dec_point);
+        splitNum[0] = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_point);
+        number = splitNum.join(dec_point);
 
-    //     return number;
-    // }
+        return number;
+    }
 
     function fetch_data(from_date = '', to_date = '')
     {
@@ -111,13 +112,11 @@ $(document).ready(function(){
                 let ngayThang = new Date(data[count].created_at);
                 let hienThi = ngayThang.getDate() + '-' + ("0" + (ngayThang.getMonth() + 1)).slice(-2) + '-' + ngayThang.getFullYear();
 
-                if (data[count].status != 3 && data[count].payment == "Đã thanh toán") {
-                    output += '<tr>';
-                    output += '<td>' + '#HD' + data[count].id + '-' + ngayThang.getDate() + ("0" + (ngayThang.getMonth() + 1)).slice(-2)  + ngayThang.getFullYear() + '</td>';
-                    output += '<td>' + data[count].name + '</td>';
-                    output += '<td>' + hienThi + '</td>';
-                    output += '<td>' + data[count].total + '</td></tr>';
-                }
+                output += '<tr>';
+                output += '<td style="text-align: center; width: 20%;">' + '#HD' + data[count].id + '-' + ngayThang.getDate() + ("0" + (ngayThang.getMonth() + 1)).slice(-2)  + ngayThang.getFullYear() + '</td>';
+                output += '<td style="text-align: center; width: 40%;">' + data[count].name + '</td>';
+                output += '<td style="text-align: center; width: 20%;">' + hienThi + '</td>';
+                output += '<td style="text-align: center; width: 20%;">' + number_format(data[count].total) + ' ' + 'đ' + '</td></tr>';
             }
             $('tbody').html(output);
             }

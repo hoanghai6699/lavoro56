@@ -8,8 +8,9 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderDetail;
-use Auth,DB;
+use Auth,DB,Excel;
 use Carbon\Carbon;
+use App\Exports\ReportOrdersExport;
 
 class AdminController extends Controller
 {
@@ -67,13 +68,17 @@ class AdminController extends Controller
                 ->join('users','orders.user_id','=','users.id')
                 ->where('status','!=',3)->where('payment','=','Đã thanh toán')
                 ->whereBetween('orders.created_at', array($from_date, $to_date))
+                ->select('orders.id','users.name','orders.created_at','orders.total','orders.status','orders.payment')
                 ->get();
             }
             else
             {
-                $data = DB::table('orders')->join('users','orders.user_id','=','users.id')->orderBy('orders.created_at','DESC')->where('status','!=',3)->where('payment','=','Đã thanh toán')->get();
+                $data = DB::table('orders')->join('users','orders.user_id','=','users.id')->orderBy('orders.created_at','DESC')->where('status','!=',3)->where('payment','=','Đã thanh toán')->select('orders.id','users.name','orders.created_at','orders.total','orders.status','orders.payment')->get();
             }
             echo json_encode($data);
         }
+    }
+    public function export(){
+        return Excel::download(new ReportOrdersExport, 'reportorders.xlsx');
     }
 }
