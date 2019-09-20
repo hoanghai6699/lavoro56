@@ -41,7 +41,6 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="home">
                             <div class="row">
-                                
                                 <div class="features-curosel">
                                     <?php $menu_product = DB::table('products')->where('gender',1)->get(); ?>
                                     <?php $__currentLoopData = $menu_product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item_product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -81,7 +80,6 @@
                                     <?php if($item_product->active == 1): ?>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="single-product">
-                                            
                                             <div class="product-img">
                                                 <a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>">
                                                     <img class="primary-image" src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_product->image); ?>" alt="" />
@@ -181,14 +179,12 @@
             <div class="all-singlepost">
                 <!-- single latestpost start -->
                 <?php 
-                    $menu_post = DB::table('articles')->select('id','name','image','slug','description','active')->skip(0)->take(3)->get();
+                    $menu_post = DB::table('articles')->select('id','name','image','slug','description','active')->where('active','=',1)->skip(0)->take(3)->get();
                 ?>
                 
                 <?php $__currentLoopData = $menu_post; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item_post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($item_post->active==1): ?>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="single-post">
-                        
                         <div class="post-thumb">
                             <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>">
                                 <img src="<?php echo e(url('/uploads/article')); ?>/<?php echo e($item_post->image); ?>" alt="" style="height: 316px;width: 370px" />
@@ -196,17 +192,19 @@
                         </div>
                         <div class="post-thumb-info">
                             <div class="post-time">
-                                <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_post->name); ?>"><?php echo e($item_post->name); ?></a>
+                                <h3 style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">
+                                    <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_post->name); ?>" ><?php echo e($item_post->name); ?></a>
+                                </h3>
+                                
                             </div>
                             <div class="postexcerpt">
-                                <p><?php echo e($item_post->description); ?></p>
+                                <p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;"><?php echo e($item_post->description); ?></p>
                                 <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>" class="read-more"><?php echo e(trans('message.read more')); ?></a>
                             </div>
                         </div>
                         
                     </div>
                 </div>
-                <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
             </div>

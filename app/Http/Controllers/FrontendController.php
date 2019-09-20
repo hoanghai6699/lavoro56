@@ -183,7 +183,7 @@ class FrontendController extends Controller
     }
 
     public function tintuc(){
-        $article = Article::paginate(6);
+        $article = Article::where('active','=',1)->paginate(6);
         return view('frontend.article',compact('article'));
     }
 
