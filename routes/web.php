@@ -92,6 +92,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('/edit/{id}','AdminSlideController@edit')->name('admin.get.edit.slide');
 		Route::post('/edit/{id}','AdminSlideController@update');
 		Route::get('/delete/{id}','AdminSlideController@delete')->name('admin.get.delete.slide');
+		Route::get('/action/{id}','AdminSlideController@action')->name('admin.get.action.slide');
 	});
 	Route::post('ajax-edit-quantity','AdminProductController@postAjaxEditQuantity')->name('ajax.edit.quantity');
 	//Route::post('ajax-add-coupon','AdminCouponController@postAjaxAddCoupon')->name('ajax.add.coupon');

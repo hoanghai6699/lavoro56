@@ -43,7 +43,6 @@ class AdminSlideController extends Controller
 
     public function update(Request $req,$id){
         $slide = Slide::find($id);
-        $slide->status = $req->status;
         $slide->type = $req->type;
         $img_current = 'public/frontend/img/'.$req->img_current;
         if (!empty($req->image)) {
@@ -65,5 +64,12 @@ class AdminSlideController extends Controller
         File::delete('public/frontend/img/'.$slide->image);
         $slide->delete($id);
         return redirect()->back()->with(['level'=>'success','success'=>'Xóa slide thành công']);
+    }
+
+    public function action($id){
+        $slide = Slide::find($id);
+        $slide->status = $slide->status ? 0 : 1;
+        $slide->save();
+        return redirect()->back();
     }
 }

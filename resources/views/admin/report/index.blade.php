@@ -133,7 +133,7 @@ $(document).ready(function(){
         }
         else
         {
-        alert('Bạn chưa chọn ngày');
+            alert('Bạn chưa chọn ngày');
         }
     });
 

@@ -43,15 +43,6 @@
                                 </div>
                                 @endif
                             </div>
-                            <div class="form-group">
-                                    <label>Trạng thái </label>
-                                    <label class="radio-inline">
-                                        <input name="status" value="1" @if($slide["status"]==1) checked="checked"; @endif type="radio"> Hiện
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input name="status" value="0" @if($slide["status"]==0) checked="checked"; @endif type="radio"> Ẩn
-                                    </label>
-                                </div>
                             <button type="submit" class="btn btn-primary">Lưu</button>
                         </div>
                     </form>
