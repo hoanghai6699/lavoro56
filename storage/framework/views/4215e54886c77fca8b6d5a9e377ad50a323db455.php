@@ -48,8 +48,8 @@
 						<ul class="bxslider" id="gallery_01">
 							<img src="<?php echo e(url('/uploads')); ?>/<?php echo e($product->image); ?>">
 							<?php $__currentLoopData = $image; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $images): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-							<li class="">
-								<a class="elevatezoom-gallery" href="#" data-image="<?php echo e(url('/uploads/detail/')); ?>/<?php echo e($images->images); ?>" data-zoom-image="<?php echo e(url('/uploads/detail/')); ?>/<?php echo e($images->images); ?>"><img src="<?php echo e(url('/uploads/detail/')); ?>/<?php echo e($images->images); ?>" alt="zo-th-2"></a>
+							<li>
+								<a class="elevatezoom-gallery" href="#" data-image="<?php echo e(url('/uploads/detail/')); ?>/<?php echo e($images->images); ?>" data-zoom-image="<?php echo e(url('/uploads/detail/')); ?>/<?php echo e($images->images); ?>"><img id="zoom1" src="<?php echo e(url('/uploads/detail/')); ?>/<?php echo e($images->images); ?>" alt="zo-th-2"></a>
 							</li>
 							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 						</ul>

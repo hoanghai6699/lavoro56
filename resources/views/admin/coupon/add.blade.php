@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Input</label>
+                                    <label>Phần trăm / Giá trị</label>
                                     <input type="text" class="form-control" name="input">
                                     @if($errors->has('input'))
                                     <div class="help-block" style="color: red;">

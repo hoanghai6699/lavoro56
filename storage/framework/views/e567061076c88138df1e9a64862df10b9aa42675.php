@@ -111,18 +111,20 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12 vendee-clue">
-				<div class="shipping coupon" style="width: 237px;"></div>
-				<div class="shipping coupon hidden-sm" style="height: 172px;">
-					<?php if(!(session()->has('coupon'))): ?>
+			<div class="col-md-12 vendee-clue" <?php if(!(session()->has('coupon'))): ?> style="padding-left: 307px;" <?php else: ?> style="padding-left: 685px;" <?php endif; ?>>
+				
+				<?php if(!(session()->has('coupon'))): ?>
+				<div class="shipping coupon hidden-sm" style="width: 40%;height: 172px;">
+					
 					<div class=""><h5><?php echo trans('message.discount codes'); ?></h5></div>
 					<form action="<?php echo e(route('coupon.store')); ?>" method="post">
 						<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 						<input type="text" class="coupon-input" name="coupon">
 						<button class="pull-left" type="submit" id="add-coupon"><?php echo trans('message.apply'); ?></button>
 					</form>
-					<?php endif; ?>
+					
 				</div>
+				<?php endif; ?>
 				<div class="shipping coupon cart-totals" style="width: 500px;">
 					<ul>
 						<li class="cartSubT"><?php echo trans('message.free ship'); ?>:    <span>0đ</span></li>

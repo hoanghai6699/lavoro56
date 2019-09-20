@@ -48,8 +48,8 @@
 						<ul class="bxslider" id="gallery_01">
 							<img src="{{url('/uploads')}}/{{$product->image}}">
 							@foreach($image as $images)
-							<li class="">
-								<a class="elevatezoom-gallery" href="#" data-image="{{url('/uploads/detail/')}}/{{$images->images}}" data-zoom-image="{{url('/uploads/detail/')}}/{{$images->images}}"><img src="{{url('/uploads/detail/')}}/{{$images->images}}" alt="zo-th-2"></a>
+							<li>
+								<a class="elevatezoom-gallery" href="#" data-image="{{url('/uploads/detail/')}}/{{$images->images}}" data-zoom-image="{{url('/uploads/detail/')}}/{{$images->images}}"><img id="zoom1" src="{{url('/uploads/detail/')}}/{{$images->images}}" alt="zo-th-2"></a>
 							</li>
 							@endforeach
 						</ul>
