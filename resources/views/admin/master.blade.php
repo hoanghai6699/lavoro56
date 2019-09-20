@@ -213,17 +213,9 @@
                                 <li class="{{\Request::route()->getName()=='admin.get.add.user'?'active':''}}"><a href="{!!route('admin.get.add.user')!!}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                             </ul>
                         </li>
-                        <li class="{{\Request::route()->getName()=='admin.get.list.warehouse' || \Request::route()->getName()=='admin.get.hang-ton' ? 'active' : '' }} treeview">
-                            <a href="#">
-                            <i class="fa fa-shopping-bag"></i> <span>Kho hàng</span>
-                            <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="{{\Request::route()->getName()=='admin.get.list.warehouse'?'active':''}}"><a href="{!!route('admin.get.list.warehouse')!!}"><i class="fa fa-circle-o"></i> Danh sách kho hàng</a></li>
-                                <li class="{{\Request::route()->getName()=='admin.get.hang-ton'?'active':''}}"><a href="{!!route('admin.get.hang-ton')!!}"><i class="fa fa-circle-o"></i> Hàng tồn</a></li>
-                            </ul>
+                        <li class="{{\Request::route()->getName()=='admin.get.list.warehouse'?'active':''}}">
+                            <a href="{{route('admin.get.list.warehouse')}}">
+                            <i class="fa fa-shopping-bag"></i> <span>Kho hàng</span></a>
                         </li>
                         <li class="{{\Request::route()->getName()=='report'?'active':''}}">
                             <a href="{{route('report')}}">
@@ -329,14 +321,6 @@
         <script>
             $(function () {
                 $('#example1').DataTable()
-                $('#example2').DataTable({
-                    'paging'      : true,
-                    'lengthChange': false,
-                    'searching'   : false,
-                    'ordering'    : false,
-                    'info'        : true,
-                    'autoWidth'   : false
-                })
             })
         </script>
         <script>

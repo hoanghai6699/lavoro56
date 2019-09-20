@@ -76,11 +76,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::post('/view/{id}','AdminOrderController@post_view');
 		Route::get('/delete/{id}','AdminOrderController@delete')->name('admin.get.delete.order');
 	});
-	Route::group(['prefix'=>'warehouse'],function(){
-		Route::get('/','AdminWarehouseController@list')->name('admin.get.list.warehouse');
-		Route::get('/hang-ton','AdminWarehouseController@HangTon')->name('admin.get.hang-ton');
-		
-	});
+
+	Route::get('/warehouse','AdminWarehouseController@list')->name('admin.get.list.warehouse');
+	
 	Route::group(['prefix'=>'coupon'],function(){
 		Route::get('/','AdminCouponController@list')->name('admin.get.list.coupon');
 		Route::get('/add','AdminCouponController@add')->name('admin.get.add.coupon');
@@ -163,6 +161,4 @@ Route::group(['middleware' => 'locale'], function() {
 	});
 	Route::get('/thay-doi-mat-khau','FrontendController@thaydoimatkhau')->name('thay-doi-mat-khau');
 	Route::post('/thay-doi-mat-khau','FrontendController@post_thaydoimatkhau');
-
-	
 });

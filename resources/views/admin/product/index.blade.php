@@ -58,9 +58,9 @@
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">
                                         @if($prod->hot==1)
-                                            <a href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Nổi bật"><i class="fa fa-star"></i></a>
+                                            <a href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Nổi bật"><i class="fa text-yellow fa-star"></i></a>
                                         @else
-                                            <a href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Không"><i class="fa fa-star-o"></i></a>
+                                            <a href="{{route('admin.get.action1.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Không"><i class="fa text-yellow fa-star-o"></i></a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">{{$prod->created_at}}</td>

@@ -11,9 +11,4 @@ class AdminWarehouseController extends Controller
     	$ware = Product::select('id','name','price','image','category_id','pay','created_at')->get();
     	return view('admin.warehouse.index',compact('ware'));
     }
-
-    public function HangTon(){
-    	$stock = Product::select('id','name','price','image','category_id','pay','created_at')->get();
-    	return view('admin.warehouse.stock',compact('stock'));
-    }
 }
