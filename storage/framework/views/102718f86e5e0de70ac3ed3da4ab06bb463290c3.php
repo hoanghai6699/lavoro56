@@ -89,18 +89,18 @@
                         <div class="form-group">
                             <div class="col-md-12"><strong><?php echo trans('message.name'); ?>:</strong></div>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="name" value="<?php echo e(Auth::user()->name); ?>"/>
+                                <input type="text" class="form-control" name="name" value="<?php echo e(Auth::user()->name); ?>" readonly/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12"><strong>Email:</strong></div>
                             <div class="col-md-12">
-                                <input type="email" name="email" class="form-control" value="<?php echo e(Auth::user()->email); ?>" />
+                                <input type="email" name="email" class="form-control" value="<?php echo e(Auth::user()->email); ?>" readonly/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12"><strong><?php echo trans('message.phone'); ?>:</strong></div>
-                            <div class="col-md-12"><input type="number" name="phone" class="form-control" value="<?php echo e(Auth::user()->phone); ?>" /></div>
+                            <div class="col-md-12"><input type="number" name="phone" class="form-control" value="<?php echo e(Auth::user()->phone); ?>" readonly/></div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">

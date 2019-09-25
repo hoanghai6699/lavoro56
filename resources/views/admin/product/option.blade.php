@@ -51,7 +51,8 @@
                                     </div>
                                     @endif
                                 </div>
-                                <button type="submit" class="btn btn-success">Thêm size</button>
+                                <button type="submit" class="btn btn-primary">Thêm size</button>
+                                <a class="btn btn-primary" href="{{route('admin.get.list.product')}}">Quay lại</a>
                             </div>
                         </form>
                         <div class="col-md-4">

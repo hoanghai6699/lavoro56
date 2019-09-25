@@ -53,9 +53,6 @@
                             </div>
                             <div class="col-sm-3 col-xs-3 text-right">
                                 <h6>{{number_format($item->price,0,',','.')}} đ</h6>
-                                @if(session()->has('coupon'))
-                                - {{number_format(session()->get('coupon')['discount'],0,',','.')}} đ
-                                @endif
                             </div>
                         </div>
                         <div class="form-group"><hr /></div>
@@ -63,12 +60,19 @@
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <strong>{!! trans('message.total') !!}: </strong>
-                                @if(session()->has('coupon'))
-                                <div class="pull-right"><span>{{number_format($newtotal,0,',','.')}} đ</span></div>
-                                @elseif(!(session()->has('coupon')))
                                 <div class="pull-right"><span>{{number_format($total,0,',','.')}} đ</span></div>
-                                @endif
                             </div>
+                            @if(session()->has('coupon'))
+                            <div class="col-xs-12">
+                                <strong>{!! trans('message.sale') !!}: </strong>
+                                <div class="pull-right"><span>- {{number_format(session()->get('coupon')['discount'],0,',','.')}} đ</span></div>
+                            </div>
+                            <div class="col-xs-12">
+                                <strong>{!! trans('message.total') !!} {!! trans('message.after') !!} {!! trans('message.sale') !!}: </strong>
+                                <div class="pull-right"><span>{{number_format($newtotal,0,',','.')}} đ</span></div>
+                            </div>
+                            @endif
+                            
                         </div>
 
                     </div>
@@ -83,18 +87,18 @@
                         <div class="form-group">
                             <div class="col-md-12"><strong>{!! trans('message.name') !!}:</strong></div>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}"/>
+                                <input type="text" class="form-control" name="name" readonly value="{{Auth::user()->name}}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12"><strong>Email:</strong></div>
                             <div class="col-md-12">
-                                <input type="email" name="email" class="form-control" value="{{Auth::user()->email}}" />
+                                <input type="email" name="email" class="form-control" readonly value="{{Auth::user()->email}}" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12"><strong>{!! trans('message.phone') !!}:</strong></div>
-                            <div class="col-md-12"><input type="number" name="phone" class="form-control" value="{{Auth::user()->phone}}" /></div>
+                            <div class="col-md-12"><input type="number" name="phone" class="form-control" value="{{Auth::user()->phone}}" readonly/></div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">

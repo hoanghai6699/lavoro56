@@ -79,6 +79,17 @@
 						<td colspan="3">Tổng tiền:</td>
 						<td class="total-price">{{number_format($total,0,',','.')}}VNĐ</td>
 					</tr>
+					@if(session()->has('coupon'))
+					<tr>
+						<td colspan="3">Khuyến mãi:</td>
+						<td class="total-price">- {{number_format(session()->get('coupon')['discount'],0,',','.')}} VNĐ</td>
+					</tr>
+					<tr>
+						<?php $new = ($total - session()->get('coupon')['discount']); ?>
+						<td colspan="3">Sau khuyến mãi:</td>
+						<td class="total-price">{{number_format($new,0,',','.')}}VNĐ</td>
+					</tr>
+					@endif
 				</table>
 			</div>
 			<div id="xac-nhan">
