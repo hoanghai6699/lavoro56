@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-<link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/admin/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="<?php echo e(url('/')); ?>/admin/dist/css/AdminLTE.min.css">
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Thêm khuyến mãi</h1>
@@ -102,7 +102,7 @@
 
 
 <script>
-    $('.select2').select2()
+    $('.select2').select2();
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

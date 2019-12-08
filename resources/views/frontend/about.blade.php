@@ -30,7 +30,7 @@
 				<div>
 					LAVORO được biết đến với những sản phẩm giầy dép hợp thời trang, nhập trực tiếp từ những công ty giầy dép uy tín, cao cấp mà không qua trung gian, đảm bảo về chất lượng và giá thành … LAVORO cung cấp mọi kiểu dáng giầy dép mới nhất: Converse, Vans, Palladium ….Nếu là một người yêu thời trang, tìm kiếm những phong cách mới, thì bạn không thể bỏ qua những xu hướng nổi bật của thời trang.Thật dễ dàng, chỉ với một click bạn có thể nhanh chóng sở hữu chúng trong tủ đồ của mình với LAVORO.<br>
 				</div>
-				<img src="{{url('/public/frontend/img/about1.jpg')}}" style="padding: 19px 194px 17px 216px;">
+				<img src="{{url('/frontend/img/about1.jpg')}}" style="padding: 19px 194px 17px 216px;">
 				<div>
 					LAVORO cam kết:<br>
 					- Hàng thật giống 100% ảnh chụp về kiểu dáng, mẫu mã.<br>

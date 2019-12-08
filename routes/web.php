@@ -11,9 +11,9 @@
 |
 */
 
-Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
+Route::group(['prefix'=>'dashboard','middleware'=>'checkAdmin'],function(){
 	Route::get('/','AdminController@index')->name('admin');
-	Route::get('/report','AdminController@report')->name('admin.report');
+	
 
 	Route::group(['prefix'=>'category'],function(){
 		Route::get('/','AdminCategoryController@list')->name('admin.get.list.category');
@@ -40,14 +40,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::get('importExportView', 'AdminProductController@importExportView')->name('importExportView');
 		Route::post('import', 'AdminProductController@import')->name('import');
 	});
-	Route::group(['prefix'=>'sale'],function(){
-		Route::get('/','AdminSaleController@list')->name('admin.get.list.sale');
-		Route::get('/add','AdminSaleController@add')->name('admin.get.add.sale');
-		Route::post('/add','AdminSaleController@create');
-		Route::get('/edit/{id}','AdminSaleController@edit')->name('admin.get.edit.sale');
-		Route::post('/edit/{id}','AdminSaleController@update');
-		Route::get('/delete/{id}','AdminSaleController@delete')->name('admin.get.delete.sale');
-	});
+	
 	Route::group(['prefix'=>'article'],function(){
 		Route::get('/','AdminArticleController@list')->name('admin.get.list.article');
 		Route::get('/add','AdminArticleController@add')->name('admin.get.add.article');
@@ -78,22 +71,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 	});
 
 	Route::get('/warehouse','AdminWarehouseController@list')->name('admin.get.list.warehouse');
-	
-	Route::group(['prefix'=>'coupon'],function(){
-		Route::get('/','AdminCouponController@list')->name('admin.get.list.coupon');
-		Route::get('/add','AdminCouponController@add')->name('admin.get.add.coupon');
-		Route::post('/add','AdminCouponController@create');
-		Route::get('/delete/{id}','AdminCouponController@delete')->name('admin.get.delete.coupon');
-	});
-	Route::group(['prefix'=>'slide'],function(){
-		Route::get('/','AdminSlideController@list')->name('admin.get.list.slide');
-		Route::get('/add','AdminSlideController@add')->name('admin.get.add.slide');
-		Route::post('/add','AdminSlideController@create');
-		Route::get('/edit/{id}','AdminSlideController@edit')->name('admin.get.edit.slide');
-		Route::post('/edit/{id}','AdminSlideController@update');
-		Route::get('/delete/{id}','AdminSlideController@delete')->name('admin.get.delete.slide');
-		Route::get('/action/{id}','AdminSlideController@action')->name('admin.get.action.slide');
-	});
+	//TestGit
 	Route::post('ajax-edit-quantity','AdminProductController@postAjaxEditQuantity')->name('ajax.edit.quantity');
 	//Route::post('ajax-add-coupon','AdminCouponController@postAjaxAddCoupon')->name('ajax.add.coupon');
 	Route::group(['prefix'=>'report'],function(){
@@ -101,7 +79,35 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'],function(){
 		Route::post('/fetch_data','AdminController@fetch_data')->name('fetch_data');
 		Route::get('/export','AdminController@export')->name('export');
 	});
-	
+
+	Route::group(['middleware'=>'checkSupper'],function(){
+		//Route::get('/report','AdminController@report')->name('admin.report');
+		Route::group(['prefix'=>'sale'],function(){
+			Route::get('/','AdminSaleController@list')->name('admin.get.list.sale');
+			Route::get('/add','AdminSaleController@add')->name('admin.get.add.sale');
+			Route::post('/add','AdminSaleController@create');
+			Route::get('/edit/{id}','AdminSaleController@edit')->name('admin.get.edit.sale');
+			Route::post('/edit/{id}','AdminSaleController@update');
+			Route::get('/delete/{id}','AdminSaleController@delete')->name('admin.get.delete.sale');
+		});
+
+		Route::group(['prefix'=>'coupon'],function(){
+			Route::get('/','AdminCouponController@list')->name('admin.get.list.coupon');
+			Route::get('/add','AdminCouponController@add')->name('admin.get.add.coupon');
+			Route::post('/add','AdminCouponController@create');
+			Route::get('/delete/{id}','AdminCouponController@delete')->name('admin.get.delete.coupon');
+		});
+
+		Route::group(['prefix'=>'slide'],function(){
+			Route::get('/','AdminSlideController@list')->name('admin.get.list.slide');
+			Route::get('/add','AdminSlideController@add')->name('admin.get.add.slide');
+			Route::post('/add','AdminSlideController@create');
+			Route::get('/edit/{id}','AdminSlideController@edit')->name('admin.get.edit.slide');
+			Route::post('/edit/{id}','AdminSlideController@update');
+			Route::get('/delete/{id}','AdminSlideController@delete')->name('admin.get.delete.slide');
+			Route::get('/action/{id}','AdminSlideController@action')->name('admin.get.action.slide');
+		});
+	});
 	
 });
 Route::group(['middleware' => 'loginAdmin'],function(){

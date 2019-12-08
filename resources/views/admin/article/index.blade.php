@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Quản lý bài viết</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li class="active">Tin tức</li>
         </ol>
         @if(Session::has('success'))
@@ -39,9 +39,9 @@
                                     <td style="text-align: center;padding-top: 33px;">{{$articles->name}}</td>
                                     <td style="text-align: center;padding-top: 33px;">
                                         @if($articles->active==1)
-                                            <a href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-check.png')}}"></a>
+                                            <a href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/admin/img/publish-check.png')}}"></a>
                                         @else
-                                            <a href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-deny.png')}}"></a>
+                                            <a href="{{route('admin.get.action.article',$articles->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/admin/img/publish-deny.png')}}"></a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;padding-top: 33px;">{{$articles->created_at}}</td>

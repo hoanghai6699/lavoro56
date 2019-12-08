@@ -5,7 +5,7 @@
         <div id="ensign-nivoslider" class="slides">
             <?php $__currentLoopData = $slide; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($item->status==1 && $item->type==0): ?>
-            <img src="<?php echo e(url('/public/frontend/img/')); ?>/<?php echo e($item->image); ?>" alt="" title="#slider-direction-1"/>
+            <img src="<?php echo e(url('/frontend/img/')); ?>/<?php echo e($item->image); ?>" alt="" title="#slider-direction-1"/>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
@@ -49,8 +49,8 @@
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])); ?>">
-                                                    <img class="primary-image" src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_product->image); ?>" alt="" />
-                                                    <img class="secondary-image" src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_product->image); ?>" alt="" />
+                                                    <img class="primary-image" src="<?php echo e(url('uploads')); ?>/<?php echo e($item_product->image); ?>" alt="" />
+                                                    <img class="secondary-image" src="<?php echo e(url('uploads')); ?>/<?php echo e($item_product->image); ?>" alt="" />
                                                 </a>
                                                 <div class="action-zoom">
                                                     <div class="add-to-cart">
@@ -116,7 +116,7 @@
         <div class="row">
             <?php $__currentLoopData = $slide; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item_banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($item_banner->status==1 && $item_banner->type==1): ?>
-            <img src="<?php echo e(url('/public/frontend/img/')); ?>/<?php echo e($item_banner->image); ?>" alt="" width="1903px" height="300px" />
+            <img src="<?php echo e(url('/frontend/img/')); ?>/<?php echo e($item_banner->image); ?>" alt="" width="1903px" height="300px" />
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
@@ -142,8 +142,8 @@
                                 
                                 <div class="product-img">
                                     <a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_1->id,$item_1->slug])); ?>">
-                                        <img class="primary-image" src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_1->image); ?>" alt="" />
-                                        <img class="secondary-image" src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_1->image); ?>" alt="" />
+                                        <img class="primary-image" src="<?php echo e(url('uploads')); ?>/<?php echo e($item_1->image); ?>" alt="" />
+                                        <img class="secondary-image" src="<?php echo e(url('uploads')); ?>/<?php echo e($item_1->image); ?>" alt="" />
                                     </a>
                                     <div class="action-zoom">
                                         <div class="add-to-cart">
@@ -187,7 +187,7 @@
                     <div class="single-post">
                         <div class="post-thumb">
                             <a href="<?php echo e(route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])); ?>">
-                                <img src="<?php echo e(url('/uploads/article')); ?>/<?php echo e($item_post->image); ?>" alt="" style="height: 316px;width: 370px" />
+                                <img src="<?php echo e(url('uploads/article')); ?>/<?php echo e($item_post->image); ?>" alt="" style="height: 316px;width: 370px" />
                             </a>
                         </div>
                         <div class="post-thumb-info">
@@ -232,7 +232,7 @@
                         <!-- single block start -->
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($item_hot->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])); ?>"><img src="<?php echo e(url('uploads')); ?>/<?php echo e($item_hot->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
                                 <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($item_hot->name); ?>"><?php echo e($item_hot->name); ?></a></h3>
@@ -272,7 +272,7 @@
                     <div class="block-content">
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($pro->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])); ?>"><img src="<?php echo e(url('uploads')); ?>/<?php echo e($pro->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
                                 <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($pro->name); ?>"><?php echo e($pro->name); ?></a></h3>
@@ -303,7 +303,7 @@
                     <div class="block-content">
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$p->id,$p->slug])); ?>"><img src="<?php echo e(url('/uploads')); ?>/<?php echo e($p->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="<?php echo e(route('frontend.get.chitietsanpham',[$p->id,$p->slug])); ?>"><img src="<?php echo e(url('uploads')); ?>/<?php echo e($p->image); ?>" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
                                 <h3><a href="<?php echo e(route('frontend.get.chitietsanpham',[$p->id,$p->slug])); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo e($p->name); ?>"><?php echo e($p->name); ?></a></h3>
@@ -355,14 +355,14 @@
     <div class="container">
         <div class="row">
             <div class="brand-carousel">
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg1-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg5-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg1-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg5-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="<?php echo e(url('')); ?>/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
             </div>
         </div>
     </div>

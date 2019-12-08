@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Sửa bài viết</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li><a href="{{route('admin.get.list.article')}}">Bài viết</a></li>
             <li class="active">Sửa bài viết</li>
         </ol>

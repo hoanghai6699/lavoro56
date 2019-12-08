@@ -26,7 +26,7 @@ class FrontendController extends Controller
     }
 
     public function sanpham(Request $req){
-        $product = Product::select('id','name','image','slug','category_id','price','description','active');
+        $product = DB::table('products')->select('id','name','image','slug','category_id','price','description','content','active');
         if($req->price){
             $price = $req->price;
             switch ($price) {
@@ -41,6 +41,7 @@ class FrontendController extends Controller
                 break;
             }
         }
+
         if ($req->orderby) {
             $orderby = $req->orderby;
             switch ($orderby) {
@@ -58,9 +59,12 @@ class FrontendController extends Controller
 
         if ($req->size) {
             $size = $req->size;
-            $product = DB::table('products')->join('product_properties','products.id','=','product_properties.product_id')->join('sizes','product_properties.size_id','=','sizes.id')->where('sizes.size',$size)->where('qty','>',0);
+            $product = DB::table('products')->leftJoin('product_properties','products.id','=','product_properties.product_id')->leftJoin('sizes','product_properties.size_id','=','sizes.id')->select('products.id','products.active','products.slug','products.name','products.image','products.category_id','products.price','products.description','products.content','product_properties.product_id','product_properties.size_id','sizes.size')->where('sizes.size',$size)->where('qty','>',0)->distinct();
+            //dd($product->get());
         }
+        //dd($product->get());
         $product = $product->paginate(9);
+
         return view('frontend.product-all',[
             'product' => $product->appends(Input::except('page'))
         ]);

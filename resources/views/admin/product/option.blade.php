@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Tùy chọn sản phẩm</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li><a href="{{route('admin.get.list.product')}}">Sản phẩm</a></li>
             <li class="active">Tùy chọn sản phẩm</li>
         </ol>

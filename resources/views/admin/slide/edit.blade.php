@@ -6,7 +6,7 @@
     <section class="content-header">
         <h1>Sửa slide</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li><a href="{{route('admin.get.list.slide')}}">Slide</a></li>
             <li class="active">Sửa slide</li>
         </ol>

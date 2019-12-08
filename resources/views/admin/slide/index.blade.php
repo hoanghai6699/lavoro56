@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Quản lý slide </h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li class="active">Slide</li>
         </ol>
         @if(Session::has('success'))
@@ -31,15 +31,15 @@
                                 @foreach($slide as $item)
                                 <tr style="text-align: center;">
                                     <td>
-                                        <img src="{{url('public/frontend/img')}}/{{$item->image}}" style="width: 500px;height: 200px;">
+                                        <img src="{{url('/frontend/img')}}/{{$item->image}}" style="width: 500px;height: 200px;">
                                     </td>
                                     <td style="padding-top: 93px;">
 
                                         
                                         @if($item->status==1)
-                                            <a href="{{route('admin.get.action.slide',$item->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-check.png')}}"></a>
+                                            <a href="{{route('admin.get.action.slide',$item->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/admin/img/publish-check.png')}}"></a>
                                         @else
-                                            <a href="{{route('admin.get.action.slide',$item->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="{{url('/public/admin/img/publish-deny.png')}}"></a>
+                                            <a href="{{route('admin.get.action.slide',$item->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="{{url('/admin/img/publish-deny.png')}}"></a>
                                         @endif
 
                                     </td>

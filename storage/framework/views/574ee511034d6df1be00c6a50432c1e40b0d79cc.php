@@ -31,15 +31,15 @@
                                 <?php $__currentLoopData = $slide; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr style="text-align: center;">
                                     <td>
-                                        <img src="<?php echo e(url('public/frontend/img')); ?>/<?php echo e($item->image); ?>" style="width: 500px;height: 200px;">
+                                        <img src="<?php echo e(url('/frontend/img')); ?>/<?php echo e($item->image); ?>" style="width: 500px;height: 200px;">
                                     </td>
                                     <td style="padding-top: 93px;">
 
                                         
                                         <?php if($item->status==1): ?>
-                                            <a href="<?php echo e(route('admin.get.action.slide',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="<?php echo e(url('/public/admin/img/publish-check.png')); ?>"></a>
+                                            <a href="<?php echo e(route('admin.get.action.slide',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="<?php echo e(url('/admin/img/publish-check.png')); ?>"></a>
                                         <?php else: ?>
-                                            <a href="<?php echo e(route('admin.get.action.slide',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="<?php echo e(url('/public/admin/img/publish-deny.png')); ?>"></a>
+                                            <a href="<?php echo e(route('admin.get.action.slide',$item->id)); ?>" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="<?php echo e(url('/admin/img/publish-deny.png')); ?>"></a>
                                         <?php endif; ?>
 
                                     </td>

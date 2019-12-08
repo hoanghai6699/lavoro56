@@ -6,7 +6,7 @@
     <section class="content-header">
         <h1>Sửa thành viên</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li><a href="{{route('admin.get.list.user')}}">Thành viên</a></li>
             <li class="active">Sửa thành viên</li>
         </ol>

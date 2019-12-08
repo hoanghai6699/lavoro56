@@ -33,7 +33,7 @@
 				<div class="topbar-left">
 					<aside class="widge-topbar">
 						<div class="bar-title">
-							<div class="bar-ping"><img src="{{url('/public')}}/frontend/img/bar-ping.png" alt=""></div>
+							<div class="bar-ping"><img src="{{url('/')}}/frontend/img/bar-ping.png" alt=""></div>
 							<h2>Shop by</h2>
 						</div>
 					</aside>

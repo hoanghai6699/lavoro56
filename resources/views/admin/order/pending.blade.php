@@ -6,7 +6,7 @@
     <section class="content-header">
         <h1>Quản lý đơn hàng chưa xử lý</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li><a href="{{route('admin.get.list.order')}}">Đơn hàng</a></li>
             <li class="active">Chưa xử lý</li>
         </ol>

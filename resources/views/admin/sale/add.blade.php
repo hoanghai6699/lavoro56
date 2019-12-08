@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-<link rel="stylesheet" href="{{url('/')}}/public/admin/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="{{url('/')}}/admin/dist/css/AdminLTE.min.css">
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Thêm khuyến mãi</h1>
@@ -98,6 +98,6 @@
 
 
 <script>
-    $('.select2').select2()
+    $('.select2').select2();
 </script>
 @stop

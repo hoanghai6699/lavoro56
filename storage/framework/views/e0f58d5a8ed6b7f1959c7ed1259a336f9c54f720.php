@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-        
+        <base href="<?php echo e(asset('/')); ?>/">
         <!-- Favicon
         ============================================ -->
         <link rel="shortcut icon" type="image/x-icon">
@@ -21,63 +21,63 @@
         
         <!-- Bootstrap CSS
         ============================================ -->      
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/bootstrap.min.css">
-        <link href="<?php echo e(url('/public')); ?>/admin/toastr.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/frontend/css/bootstrap.min.css">
+        <link href="/admin/toastr.min.css" rel="stylesheet">
         
         <!-- owl.carousel CSS
         ============================================ -->      
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/owl.carousel.css">
+        <link rel="stylesheet" href="/frontend/css/owl.carousel.css">
         
         <!-- owl.theme CSS
         ============================================ -->      
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/owl.theme.css">
+        <link rel="stylesheet" href="/frontend/css/owl.theme.css">
             
         <!-- owl.transitions CSS
         ============================================ -->      
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/owl.transitions.css">
+        <link rel="stylesheet" href="/frontend/css/owl.transitions.css">
         
         <!-- font-awesome.min CSS
         ============================================ -->      
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
         
         <!-- font-icon CSS
         ============================================ -->      
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/fonts/font-icon.css">
+        <link rel="stylesheet" href="/frontend/fonts/font-icon.css">
         
         <!-- jquery-ui CSS
         ============================================ -->
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/jquery-ui.css">
+        <link rel="stylesheet" href="/frontend/css/jquery-ui.css">
         
         <!-- mobile menu CSS
         ============================================ -->
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/meanmenu.min.css">
+        <link rel="stylesheet" href="/frontend/css/meanmenu.min.css">
         
         <!-- nivo slider CSS
         ============================================ -->
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/custom-slider/css/nivo-slider.css" type="text/css" />
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/custom-slider/css/preview.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/frontend/custom-slider/css/nivo-slider.css" type="text/css" />
+        <link rel="stylesheet" href="/frontend/custom-slider/css/preview.css" type="text/css" media="screen" />
         
         <!-- animate CSS
         ============================================ -->         
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/animate.css">
+        <link rel="stylesheet" href="/frontend/css/animate.css">
         
         <!-- normalize CSS
         ============================================ -->        
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/normalize.css">
+        <link rel="stylesheet" href="/frontend/css/normalize.css">
    
         <!-- main CSS
         ============================================ -->          
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/main.css">
+        <link rel="stylesheet" href="/frontend/css/main.css">
         
         <!-- style CSS
         ============================================ -->          
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/style.css">
+        <link rel="stylesheet" href="/frontend/style.css">
         
         <!-- responsive CSS
         ============================================ -->          
-        <link rel="stylesheet" href="<?php echo e(url('/public')); ?>/frontend/css/responsive.css">
+        <link rel="stylesheet" href="/frontend/css/responsive.css">
         
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="/frontend/js/vendor/modernizr-2.8.3.min.js"></script>
 
     </head>
     <body class="home-one">
@@ -88,7 +88,7 @@
                             <!-- logo start -->
                             <div class="col-md-3 col-sm-12 text-center nopadding-right">
                                 <div class="top-logo">
-                                    <a href="<?php echo e(route('frontend.get.home')); ?>"><img src="<?php echo e(url('/public')); ?>/frontend/img/logo.gif" alt="" /></a>
+                                    <a href="<?php echo e(route('frontend.get.home')); ?>"><img src="/frontend/img/logo.gif" alt="" /></a>
                                 </div>
                             </div>
                             <div class="col-md-6 text-center">
@@ -368,7 +368,7 @@
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <div class="footer-payment pull-right">
-                                <a href="#"><img src="<?php echo e(url('/public')); ?>/frontend/img/payment.png" alt="" /></a>
+                                <a href="#"><img src="/frontend/img/payment.png" alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -382,57 +382,57 @@
         
         <!-- jquery-1.11.3.min js
         ============================================ -->         
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/vendor/jquery-1.11.3.min.js"></script>
+        <script src="/frontend/js/vendor/jquery-1.11.3.min.js"></script>
         
         <!-- bootstrap js
         ============================================ -->         
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/bootstrap.min.js"></script>
+        <script src="/frontend/js/bootstrap.min.js"></script>
         
         <!-- Nivo slider js
         ============================================ -->        
-        <script src="<?php echo e(url('/public')); ?>/frontend/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
-        <script src="<?php echo e(url('/public')); ?>/frontend/custom-slider/home.js" type="text/javascript"></script>
+        <script src="/frontend/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+        <script src="/frontend/custom-slider/home.js" type="text/javascript"></script>
         
         <!-- owl.carousel.min js
         ============================================ -->       
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/owl.carousel.min.js"></script>
+        <script src="/frontend/js/owl.carousel.min.js"></script>
         
         <!-- jquery scrollUp js 
         ============================================ -->
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/jquery.scrollUp.min.js"></script>
+        <script src="/frontend/js/jquery.scrollUp.min.js"></script>
         
         <!-- price-slider js
         ============================================ --> 
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/price-slider.js"></script>
+        <script src="/frontend/js/price-slider.js"></script>
         
         <!-- elevateZoom js 
         ============================================ -->
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/jquery.elevateZoom-3.0.8.min.js"></script>
+        <script src="/frontend/js/jquery.elevateZoom-3.0.8.min.js"></script>
         
         <!-- jquery.bxslider.min.js
         ============================================ -->       
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/jquery.bxslider.min.js"></script>
+        <script src="/frontend/js/jquery.bxslider.min.js"></script>
         
         <!-- mobile menu js
         ============================================ -->  
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/jquery.meanmenu.js"></script>  
+        <script src="/frontend/js/jquery.meanmenu.js"></script>  
         
         <!-- wow js
         ============================================ -->       
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/wow.js"></script>
+        <script src="/frontend/js/wow.js"></script>
         
         <!-- plugins js
         ============================================ -->         
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/plugins.js"></script>
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/gmap.js"></script>
+        <script src="/frontend/js/plugins.js"></script>
+        <script src="/frontend/js/gmap.js"></script>
         
         <!-- main js
         ============================================ -->           
-        <script src="<?php echo e(url('/public')); ?>/frontend/js/main.js"></script>
-        <script src="<?php echo e(url('/public')); ?>/admin/js/myscript.js"></script>
+        <script src="/frontend/js/main.js"></script>
+        <script src="/admin/js/myscript.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
    
-        <script type="text/javascript" src="<?php echo e(url('/public')); ?>/admin/toastr.min.js"></script>
+        <script type="text/javascript" src="/admin/toastr.min.js"></script>
 
         <script>
             $.ajaxSetup({

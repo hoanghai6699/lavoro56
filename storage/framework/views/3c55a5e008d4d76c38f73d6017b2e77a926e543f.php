@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>Quản lý danh mục </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo e(route('admin')); ?>"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="<?php echo e(route('admin')); ?>"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li class="active">Danh mục</li>
         </ol>
         <?php if(Session::has('success')): ?>
@@ -52,9 +52,9 @@
 
                                     <td>
                                         <?php if($cate->active==1): ?>
-                                            <a href="<?php echo e(route('admin.get.action.category',$cate->id)); ?>" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="<?php echo e(url('/public/admin/img/publish-check.png')); ?>"></a>
+                                            <a href="<?php echo e(route('admin.get.action.category',$cate->id)); ?>" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="<?php echo e(url('/admin/img/publish-check.png')); ?>"></a>
                                         <?php else: ?>
-                                            <a href="<?php echo e(route('admin.get.action.category',$cate->id)); ?>" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="<?php echo e(url('/public/admin/img/publish-deny.png')); ?>"></a>
+                                            <a href="<?php echo e(route('admin.get.action.category',$cate->id)); ?>" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="<?php echo e(url('/admin/img/publish-deny.png')); ?>"></a>
                                         <?php endif; ?>
                                     </td>
                                     <td class="center">

@@ -6,7 +6,7 @@
         <div id="ensign-nivoslider" class="slides">
             @foreach($slide as $item)
             @if($item->status==1 && $item->type==0)
-            <img src="{{url('/public/frontend/img/')}}/{{$item->image}}" alt="" title="#slider-direction-1"/>
+            <img src="{{url('/frontend/img/')}}/{{$item->image}}" alt="" title="#slider-direction-1"/>
             @endif
             @endforeach
         </div>
@@ -50,8 +50,8 @@
                                         <div class="single-product">
                                             <div class="product-img">
                                                 <a href="{{route('frontend.get.chitietsanpham',[$item_product->id,$item_product->slug])}}">
-                                                    <img class="primary-image" src="{{url('/uploads')}}/{{$item_product->image}}" alt="" />
-                                                    <img class="secondary-image" src="{{url('/uploads')}}/{{$item_product->image}}" alt="" />
+                                                    <img class="primary-image" src="{{url('uploads')}}/{{$item_product->image}}" alt="" />
+                                                    <img class="secondary-image" src="{{url('uploads')}}/{{$item_product->image}}" alt="" />
                                                 </a>
                                                 <div class="action-zoom">
                                                     <div class="add-to-cart">
@@ -117,7 +117,7 @@
         <div class="row">
             @foreach($slide as $item_banner)
             @if($item_banner->status==1 && $item_banner->type==1)
-            <img src="{{url('/public/frontend/img/')}}/{{$item_banner->image}}" alt="" width="1903px" height="300px" />
+            <img src="{{url('/frontend/img/')}}/{{$item_banner->image}}" alt="" width="1903px" height="300px" />
             @endif
             @endforeach
         </div>
@@ -143,8 +143,8 @@
                                 
                                 <div class="product-img">
                                     <a href="{{route('frontend.get.chitietsanpham',[$item_1->id,$item_1->slug])}}">
-                                        <img class="primary-image" src="{{url('/uploads')}}/{{$item_1->image}}" alt="" />
-                                        <img class="secondary-image" src="{{url('/uploads')}}/{{$item_1->image}}" alt="" />
+                                        <img class="primary-image" src="{{url('uploads')}}/{{$item_1->image}}" alt="" />
+                                        <img class="secondary-image" src="{{url('uploads')}}/{{$item_1->image}}" alt="" />
                                     </a>
                                     <div class="action-zoom">
                                         <div class="add-to-cart">
@@ -188,7 +188,7 @@
                     <div class="single-post">
                         <div class="post-thumb">
                             <a href="{{route('chi-tiet-tin-tuc',[$item_post->id,$item_post->slug])}}">
-                                <img src="{{url('/uploads/article')}}/{{$item_post->image}}" alt="" style="height: 316px;width: 370px" />
+                                <img src="{{url('uploads/article')}}/{{$item_post->image}}" alt="" style="height: 316px;width: 370px" />
                             </a>
                         </div>
                         <div class="post-thumb-info">
@@ -233,7 +233,7 @@
                         <!-- single block start -->
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="{{route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])}}"><img src="{{url('/uploads')}}/{{$item_hot->image}}" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="{{route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])}}"><img src="{{url('uploads')}}/{{$item_hot->image}}" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
                                 <h3><a href="{{route('frontend.get.chitietsanpham',[$item_hot->id,$item_hot->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$item_hot->name}}">{{$item_hot->name}}</a></h3>
@@ -273,7 +273,7 @@
                     <div class="block-content">
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="{{route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])}}"><img src="{{url('/uploads')}}/{{$pro->image}}" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="{{route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])}}"><img src="{{url('uploads')}}/{{$pro->image}}" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
                                 <h3><a href="{{route('frontend.get.chitietsanpham',[$pro->id,$pro->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$pro->name}}">{{$pro->name}}</a></h3>
@@ -304,7 +304,7 @@
                     <div class="block-content">
                         <div class="single-block">
                             <div class="block-image pull-left">
-                                <a href="{{route('frontend.get.chitietsanpham',[$p->id,$p->slug])}}"><img src="{{url('/uploads')}}/{{$p->image}}" style="height: 208px;width: 170px;" alt="" /></a>
+                                <a href="{{route('frontend.get.chitietsanpham',[$p->id,$p->slug])}}"><img src="{{url('uploads')}}/{{$p->image}}" style="height: 208px;width: 170px;" alt="" /></a>
                             </div>
                             <div class="category-info">
                                 <h3><a href="{{route('frontend.get.chitietsanpham',[$p->id,$p->slug])}}" data-toggle="tooltip" data-placement="top" title="{{$p->name}}">{{$p->name}}</a></h3>
@@ -356,14 +356,14 @@
     <div class="container">
         <div class="row">
             <div class="brand-carousel">
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg1-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg5-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
-                <div class="brand-item"><a href="#"><img src="{{url('/public')}}/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg1-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg5-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg2-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg3-brand.jpg" alt="" /></a></div>
+                <div class="brand-item"><a href="#"><img src="{{url('')}}/frontend/img/brand/bg4-brand.jpg" alt="" /></a></div>
             </div>
         </div>
     </div>

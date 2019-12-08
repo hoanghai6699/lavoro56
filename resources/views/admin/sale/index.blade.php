@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Quản lý sản phẩm khuyến mãi</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li class="active">Sản phẩm khuyến mãi</li>
         </ol>
         @if(Session::has('success'))

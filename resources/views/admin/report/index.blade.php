@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Thống kê doanh thu</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li class="active">Thống kê</li>
         </ol>
     </section>

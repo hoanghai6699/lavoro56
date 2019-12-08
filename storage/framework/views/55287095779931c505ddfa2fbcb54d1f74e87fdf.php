@@ -69,11 +69,13 @@
                 </div>
             </div>
             <!-- ./col -->
+            <?php if(Auth()->user()->id=='1'): ?>
             <div class="col-md-12 col-lg-12 col-xs-12">
                 <div class="box">
                     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </section>
     <!-- /.content -->

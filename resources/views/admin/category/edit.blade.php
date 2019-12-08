@@ -6,7 +6,7 @@
     <section class="content-header">
         <h1>Sửa danh mục</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li><a href="{{route('admin.get.list.category')}}">Danh mục</a></li>
             <li class="active">Sửa danh mục</li>
         </ol>

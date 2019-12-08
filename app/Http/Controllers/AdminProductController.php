@@ -29,50 +29,49 @@ class AdminProductController extends Controller
     		'price' => 'required',
     		'image' => 'required|mimes:jpg,png,jpeg,gif,bmp',
             'description' => 'max:191'
-    	],[
-    		'name.required' => 'Tên sản phẩm không được để trống',
-    		'name.unique' => 'Tên sản phẩm đã tồn tại',
-    		'category_id.required' => 'Bạn phải chọn loại sản phẩm',
-    		'price.required' => 'Bạn phải nhập giá sản phẩm',
-    		'image.required' => 'Bạn phải nhập ảnh sản phẩm',
-    		'image.mimes' => 'Ảnh có một trong các định dạng jpg,png,jpeg,gif,bmp',
-            'description.max' => 'Mô tả quá dài'
-    	]);
+        ],[
+          'name.required' => 'Tên sản phẩm không được để trống',
+          'name.unique' => 'Tên sản phẩm đã tồn tại',
+          'category_id.required' => 'Bạn phải chọn loại sản phẩm',
+          'price.required' => 'Bạn phải nhập giá sản phẩm',
+          'image.required' => 'Bạn phải nhập ảnh sản phẩm',
+          'image.mimes' => 'Ảnh có một trong các định dạng jpg,png,jpeg,gif,bmp',
+          'description.max' => 'Mô tả quá dài'
+      ]);
         $file_name = $req->file('image')->getClientOriginalName();
-
-    	$product = new Product();
-    	$product->name = $req->name;
-    	$product->slug = str_slug($req->name);
-    	$product->category_id = $req->category_id;
-    	$product->price = $req->price;
+        $product = new Product();
+        $product->name = $req->name;
+        $product->slug = str_slug($req->name);
+        $product->category_id = $req->category_id;
+        $product->price = $req->price;
         $product->image = $file_name;
-    	$product->description = $req->description;
-    	$product->content = $req->content;
+        $product->description = $req->description;
+        $product->content = $req->content;
         $product->gender = $req->rdoLevel;
         $product->user_id = Auth::user()->id;
-
-        $req->file('image')->move(base_path('uploads/'),$file_name);
-    	$product->save();
+        $req->file('image')->move(public_path('uploads'),$file_name);
+        $product->save();
 
         $product_id = $product->id;
         if ($req->hasFile('fProductDetail')) {
             foreach ($req->file('fProductDetail') as $file) {
                 $product_img = new ProductImage();
+                $fileName = $file->getClientOriginalName();
+                $product_img->images = $fileName;
 
-                    $product_img->images = $file->getClientOriginalName();
-                    $product_img->product_id = $product_id;
-                    $file->move(base_path('uploads/detail/'),$file->getClientOriginalName());
-                    $product_img->save();
+                $product_img->product_id = $product_id;
+                $file->move(public_path('uploads/detail'),$fileName);
+                $product_img->save();
             }
         }
-    	return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Thêm mới sản phẩm thành công']);
+        return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Thêm mới sản phẩm thành công']);
     }
 
     public function edit($id){
     	$parent = Category::select('id','name','parent_id')->get();
     	$product = Product::find($id);
         $product_detail = Product::find($id)->pimages;
-    	return view('admin.product.edit',compact('product','parent','product_detail'));
+        return view('admin.product.edit',compact('product','parent','product_detail'));
     }
     public function update($id,Request $req){
     	$product = Product::find($id);
@@ -88,14 +87,14 @@ class AdminProductController extends Controller
         if (!empty($req->image)) {
             $file_name = $req->file('image')->getClientOriginalName();
             $product->image = $file_name;
-            $req->file('image')->move('uploads/',$file_name);
+            $req->file('image')->move('uploads',$file_name);
             if (File::exists($img_current)) {
                 File::delete($img_current);
             }
         }else{
             echo "không có file";
         }
-    	$product->save();
+        $product->save();
 
         if (!empty($req->fProductDetail)) {
             foreach ($req->file('fProductDetail') as $file) {
@@ -103,13 +102,13 @@ class AdminProductController extends Controller
                 if (isset($file)) {
                     $product_img->images = $file->getClientOriginalName();
                     $product_img->product_id = $id;
-                    $file->move('uploads/detail/',$file->getClientOriginalName());
-                                   
+                    $file->move('uploads/detail',$file->getClientOriginalName());
+
                     $product_img->save();
                 }       
             }
         }
-    	return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Sửa sản phẩm thành công']);
+        return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Sửa sản phẩm thành công']);
     }
 
     public function option($id){
@@ -165,53 +164,53 @@ class AdminProductController extends Controller
     public function action($id){
     	$product = Product::find($id);
     	$product->active = $product->active ? 0 : 1;
-		$product->save();
-    	return redirect()->back();
-    }
-    public function action1($id){
-    	$product = Product::find($id);
-		$product->hot = $product->hot ? 0 : 1;
-		$product->save();
-    	return redirect()->back();
-    }
-    public function postAjaxEditQuantity(Request $req){
-        $product_id = $req->product_id;
-        $size_id    =  $req->size_id;
-        $valid = array('success' => false, 'messages' => array());
-        if ($req->qty==null || $req->qty<0) {
-            $valid['success'] = false;
-            $valid['messages'] = "Sửa số lượng sản phẩm thất bại";
-            return json_encode(array(
-                'valid' => $valid
-            ));
-        } else {
-            $qty = $req->qty;
+      $product->save();
+      return redirect()->back();
+  }
+  public function action1($id){
+   $product = Product::find($id);
+   $product->hot = $product->hot ? 0 : 1;
+   $product->save();
+   return redirect()->back();
+}
+public function postAjaxEditQuantity(Request $req){
+    $product_id = $req->product_id;
+    $size_id    =  $req->size_id;
+    $valid = array('success' => false, 'messages' => array());
+    if ($req->qty==null || $req->qty<0) {
+        $valid['success'] = false;
+        $valid['messages'] = "Sửa số lượng sản phẩm thất bại";
+        return json_encode(array(
+            'valid' => $valid
+        ));
+    } else {
+        $qty = $req->qty;
             //QueryBuilder udpate table
-            $qty = ProductProperties::where('product_id',$product_id)->where('size_id',$size_id)->update(['qty'=>$qty]);
-            $valid['success'] = true;
-            $valid['messages'] = "Sửa số lượng sản phẩm thành công";
-            return json_encode(array(
-                'valid' => $valid
-            ));
-        }
+        $qty = ProductProperties::where('product_id',$product_id)->where('size_id',$size_id)->update(['qty'=>$qty]);
+        $valid['success'] = true;
+        $valid['messages'] = "Sửa số lượng sản phẩm thành công";
+        return json_encode(array(
+            'valid' => $valid
+        ));
     }
-    public function importExportView(){
-        return view('admin.product.importexport');
-    }
+}
+public function importExportView(){
+    return view('admin.product.importexport');
+}
 
-    public function export(){
-        return Excel::download(new ProductsExport, 'products.xlsx');
-    }
+public function export(){
+    return Excel::download(new ProductsExport, 'products.xlsx');
+}
 
-    public function import(Request $req){
-        $this->validate($req,[
-            'excel' => 'required|mimes:xlsx,xlsm,xls,csv'
-        ],[
-            'excel.required' => 'Tệp nhập vào không được để trống',
-            'excel.mimes' => 'Tệp nhập vào phải có một trong các định dạng xlsx,xlsm,xls,csv'
-        ]);
-        Excel::import(new ProductsImport,$req->file('excel'));
-           
-        return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Nhập dữ liệu sản phẩm thành công']);
-    }
+public function import(Request $req){
+    $this->validate($req,[
+        'excel' => 'required|mimes:xlsx,xlsm,xls,csv'
+    ],[
+        'excel.required' => 'Tệp nhập vào không được để trống',
+        'excel.mimes' => 'Tệp nhập vào phải có một trong các định dạng xlsx,xlsm,xls,csv'
+    ]);
+    Excel::import(new ProductsImport,$req->file('excel'));
+
+    return redirect()->route('admin.get.list.product')->with(['level'=>'success','success'=>'Nhập dữ liệu sản phẩm thành công']);
+}
 }

@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Quản lý sản phẩm</h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="{{route('admin')}}"><i class="fa fa-dashboard"></i> Trang tổng quan</a></li>
             <li class="active">Sản phẩm</li>
         </ol>
         @if(Session::has('success'))
@@ -51,9 +51,9 @@
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">
                                         @if($prod->active==1)
-                                            <a href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('/public/admin/img/publish-check.png')}}"></a>
+                                            <a href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Hiển thị"><img src="{{url('admin/img/publish-check.png')}}"></a>
                                         @else
-                                            <a href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="{{url('/public/admin/img/publish-deny.png')}}"></a>
+                                            <a href="{{route('admin.get.action.product',$prod->id)}}" data-toggle="tooltip" data-placement="top" title="Ẩn"><img src="{{url('admin/img/publish-deny.png')}}"></a>
                                         @endif
                                     </td>
                                     <td style="text-align: center;padding-top: 26px;">
